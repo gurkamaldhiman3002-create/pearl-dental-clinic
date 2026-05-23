@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pearl Dental Clinic – Full Stack Dental Clinic Management Platform
 
-## Getting Started
+Pearl Dental Clinic is a modern full-stack dental clinic management platform built for a real dental clinic based in Patiala, Punjab, India.
 
-First, run the development server:
+The platform streamlines:
+- Patient appointment booking
+- Admin scheduling and calendar management
+- Patient authentication
+- Appointment approval workflows
+- Email notifications
+- AI-assisted communication
+- Analytics and scheduling management
+
+---
+
+## Features
+
+### Patient Features
+- Patient signup and login
+- Appointment booking
+- Appointment tracking
+- Patient dashboard
+- Responsive mobile-friendly design
+
+### Admin Features
+- Admin authentication
+- Appointment approval/rejection
+- Drag-and-drop scheduling calendar
+- Custom appointment entries
+- Reschedule suggestion system
+- Analytics dashboard
+
+### Communication Features
+- Automated email notifications
+- Appointment approval/rejection emails
+- Reschedule suggestion emails
+- AI chatbot assistant
+- WhatsApp quick contact integration
+
+---
+
+## Clinic Information
+
+### Pearl Dental Clinic
+**Slogan:**  
+> My care... your smile
+
+### Dentist
+**Dr. Sukhpreet Virdy, B.D.S.**  
+Bachelor of Dental Surgery
+
+### Clinic Hours
+Monday – Saturday  
+10:30 AM – 2:00 PM  
+4:00 PM – 6:30 PM
+
+### Location
+H. no. 155B, Pearl Dental Clinic,  
+155, Sarabha Nagar Lane no. 1,  
+St. 9B, Opp. Patiala,  
+Punjab 147001, India
+
+### Contact
+Phone: +91 80541 86836  
+Email: pearldentalclinic.india@gmail.com
+
+---
+
+## Tech Stack
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend & Database
+- Supabase
+- PostgreSQL
+- Supabase Authentication
+
+### Scheduling & Analytics
+- FullCalendar
+
+### Communication & APIs
+- Resend Email API
+- OpenAI API Integration
+
+### Deployment
+- Vercel
+
+---
+
+## Core Functionalities
+
+### Appointment Workflow
+1. Patient logs in
+2. Patient books appointment
+3. Appointment stored in Supabase
+4. Admin receives notification email
+5. Admin approves/rejects/reschedules appointment
+6. Patient receives automated status email
+
+### Scheduling Workflow
+- Drag-and-drop calendar scheduling
+- Appointment rescheduling
+- Suggested alternative appointment times
+- Manual custom appointment entries
+
+---
+
+## Local Development Setup
+
+### Clone Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone <your-repo-url>
+cd pearl-dental-clinic

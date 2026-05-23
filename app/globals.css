@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5fbff;
+  --foreground: #0f172a;
 }
 
 @theme inline {
@@ -12,15 +12,117 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+::selection {
+  background: #cffafe;
+  color: #172554;
+}
+
+.pearl-calendar {
+  --fc-border-color: #e0f2fe;
+  --fc-button-active-bg-color: #1e3a8a;
+  --fc-button-active-border-color: #1e3a8a;
+  --fc-button-bg-color: #1d4ed8;
+  --fc-button-border-color: #1d4ed8;
+  --fc-button-hover-bg-color: #1e40af;
+  --fc-button-hover-border-color: #1e40af;
+  --fc-event-border-color: transparent;
+  --fc-neutral-bg-color: #f0f9ff;
+  --fc-page-bg-color: #ffffff;
+  --fc-today-bg-color: #ecfeff;
+}
+
+.pearl-calendar .fc .fc-toolbar {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.pearl-calendar .fc .fc-toolbar-title {
+  color: #172554;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.pearl-calendar .fc .fc-button {
+  border-radius: 999px;
+  box-shadow: none;
+  font-size: 0.83rem;
+  font-weight: 600;
+  padding: 0.58rem 0.95rem;
+  text-transform: capitalize;
+}
+
+.pearl-calendar .fc .fc-createAppointment-button {
+  background: #0891b2;
+  border-color: #0891b2;
+}
+
+.pearl-calendar .fc .fc-createAppointment-button:hover {
+  background: #0e7490;
+  border-color: #0e7490;
+}
+
+.pearl-calendar .fc .fc-scrollgrid {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pearl-calendar .fc .fc-col-header-cell {
+  background: #effaff;
+  color: #1e3a8a;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.65rem 0;
+  text-transform: uppercase;
+}
+
+.pearl-calendar .fc .fc-daygrid-day-number,
+.pearl-calendar .fc .fc-timegrid-slot-label-cushion {
+  color: #64748b;
+  font-size: 0.8rem;
+  padding: 0.45rem;
+}
+
+.pearl-calendar .fc .fc-event {
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.14rem 0.25rem;
+}
+
+.pearl-calendar .fc .pearl-calendar-event--approved {
+  background: #0891b2;
+}
+
+.pearl-calendar .fc .pearl-calendar-event--pending {
+  background: #f59e0b;
+}
+
+@media (max-width: 640px) {
+  .pearl-calendar .fc .fc-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pearl-calendar .fc .fc-toolbar-chunk {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pearl-calendar .fc .fc-toolbar-title {
+    margin: 0.5rem 0;
+  }
 }
