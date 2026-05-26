@@ -31,11 +31,11 @@ const accountLinks: FooterLink[] = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-blue-900 bg-blue-950 px-6 py-12 text-blue-100 lg:px-8">
+    <footer className="pearl-footer border-t border-[#315e5e] bg-[#183f41] px-6 py-12 text-[#e7dfd2] lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 xl:grid-cols-[1.3fr_0.8fr_0.95fr_1fr_1.1fr]">
         <div>
           <Link href="/" className="flex items-center gap-3 text-white">
-            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-lg bg-white/10 p-1 shadow-sm">
+            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white/10 p-1 shadow-sm">
               <Image
                 alt="Pearl Dental Clinic logo"
                 className="h-full w-full object-contain"
@@ -45,25 +45,26 @@ export default function SiteFooter() {
               />
             </span>
             <span>
-              <span className="block text-lg font-bold leading-5">
+              <span className="pearl-serif block text-2xl leading-5">
                 Pearl Dental
               </span>
-              <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+              <span className="mt-1 block text-xs font-semibold text-[#d8bb7d]">
                 Clinic
               </span>
             </span>
           </Link>
-          <p className="mt-5 text-base font-semibold text-cyan-200">
+          <p className="pearl-handwritten mt-5 text-3xl text-[#dfc58c]">
             {clinicInformation.slogan}
           </p>
-          <p className="mt-3 max-w-sm text-sm leading-7 text-blue-200">
-            Professional dental care by {clinicInformation.dentistName},{" "}
-            {clinicInformation.qualification}.
+          <p className="mt-3 max-w-sm text-sm leading-7 text-[#d6d1c6]">
+            A neighborhood dental clinic in Patiala, where{" "}
+            {clinicInformation.dentistName} cares for children, parents, and
+            grandparents with time and patience.
           </p>
         </div>
 
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-cyan-300">
+          <p className="text-sm font-semibold text-[#d8bb7d]">
             Quick Links
           </p>
           <nav className="mt-5 grid gap-3 text-sm">
@@ -80,7 +81,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-cyan-300">
+          <p className="text-sm font-semibold text-[#d8bb7d]">
             Services
           </p>
           <div className="mt-5 grid gap-3 text-sm">
@@ -97,7 +98,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-cyan-300">
+          <p className="text-sm font-semibold text-[#d8bb7d]">
             Patient &amp; Admin
           </p>
           <nav className="mt-5 grid gap-3 text-sm">
@@ -114,10 +115,10 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-cyan-300">
+          <p className="text-sm font-semibold text-[#d8bb7d]">
             Visit &amp; Contact
           </p>
-          <div className="mt-5 space-y-3 text-sm leading-6 text-blue-200">
+          <div className="mt-5 space-y-3 text-sm leading-6 text-[#d6d1c6]">
             <div>
               {clinicInformation.addressLines.map((line) => (
                 <p key={line}>{line}</p>
@@ -131,13 +132,13 @@ export default function SiteFooter() {
             <p>{clinicInformation.timeZoneLabel} (India Standard Time)</p>
             <a
               href={clinicInformation.phoneHref}
-              className="block font-semibold text-white transition hover:text-cyan-300"
+              className="block font-semibold text-white transition hover:text-[#dfc58c]"
             >
               {clinicInformation.phoneDisplay}
             </a>
             <a
               href={clinicInformation.emailHref}
-              className="block text-cyan-200 transition hover:text-white"
+              className="block text-[#dfc58c] transition hover:text-white"
             >
               {clinicInformation.email}
             </a>
@@ -145,7 +146,7 @@ export default function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-blue-300 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-[#c9c0b0] sm:flex-row sm:items-center sm:justify-between">
         <p>&copy; 2026 Pearl Dental Clinic. All rights reserved.</p>
         <p>{clinicInformation.slogan}</p>
       </div>

@@ -246,14 +246,14 @@ export default function AdminPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
-      <section className="border-b border-blue-100 bg-white px-6 py-8 lg:px-8">
+    <main className="pearl-editorial pearl-portal min-h-screen text-[#303937]">
+      <section className="border-b border-[#eadfcf] bg-[#fffdf9]/90 px-6 py-9 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-2 text-sm font-bold uppercase tracking-[0.22em] text-sky-600">
+            <p className="mb-2 text-sm font-semibold uppercase text-[#86632f]">
               Pearl Dental Clinic
             </p>
-            <h1 className="text-3xl font-bold text-blue-950 sm:text-4xl">
+            <h1 className="text-4xl text-[#183f41] sm:text-5xl">
               Appointment Dashboard
             </h1>
             <p className="mt-3 max-w-2xl text-slate-600">
@@ -264,14 +264,14 @@ export default function AdminPage() {
             <button
               type="button"
               onClick={() => void fetchAppointments()}
-              className="rounded-full border border-blue-200 px-5 py-2.5 text-sm font-semibold text-blue-800 transition hover:border-blue-400 hover:bg-blue-50"
+              className="rounded-full border border-[#dbc59b] bg-[#fffdf9] px-5 py-2.5 text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
             >
               Refresh List
             </button>
             <button
               type="button"
               onClick={() => void handleLogout()}
-              className="rounded-full bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800"
+              className="rounded-full bg-[#205356] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183f41]"
             >
               Logout
             </button>
@@ -282,13 +282,13 @@ export default function AdminPage() {
       <section className="px-6 py-10 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {errorMessage ? (
-            <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800">
+            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800 shadow-sm">
               {errorMessage}
             </div>
           ) : null}
 
           {noticeMessage ? (
-            <div className="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800">
+            <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800 shadow-sm">
               {noticeMessage}
             </div>
           ) : null}
@@ -304,18 +304,18 @@ export default function AdminPage() {
           ) : null}
 
           {isLoading ? (
-            <div className="rounded-lg border border-blue-100 bg-white p-8 text-slate-600 shadow-lg shadow-slate-200/70">
+            <div className="rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 text-slate-600 shadow-lg shadow-[#183f41]/[0.05]">
               Loading appointments...
             </div>
           ) : appointments.length === 0 ? (
-            <div className="mt-8 rounded-lg border border-blue-100 bg-white p-8 text-slate-600 shadow-lg shadow-slate-200/70">
+            <div className="mt-8 rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 text-slate-600 shadow-lg shadow-[#183f41]/[0.05]">
               No appointments found.
             </div>
           ) : (
             <>
-              <div className="mt-8 hidden overflow-hidden rounded-lg border border-blue-100 bg-white shadow-xl shadow-slate-200/70 lg:block">
+              <div className="mt-8 hidden overflow-hidden rounded-2xl border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.06] lg:block">
                 <table className="w-full border-collapse text-left text-sm">
-                  <thead className="bg-blue-950 text-white">
+                  <thead className="bg-[#183f41] text-white">
                     <tr>
                       <th className="px-5 py-4 font-semibold">Patient</th>
                       <th className="px-5 py-4 font-semibold">Contact</th>
@@ -326,7 +326,7 @@ export default function AdminPage() {
                       <th className="px-5 py-4 font-semibold">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-blue-50">
+                  <tbody className="divide-y divide-[#eee2cf]">
                     {appointments.map((appointment) => (
                       <tr key={appointment.id} className="align-top">
                         <td className="px-5 py-4 font-semibold text-blue-950">
@@ -349,7 +349,7 @@ export default function AdminPage() {
                           </p>
                           {appointment.scheduled_start ? (
                             <>
-                              <p className="mt-3 text-xs font-semibold uppercase text-sky-600">
+                              <p className="mt-3 text-xs font-semibold uppercase text-[#86632f]">
                                 Scheduled ({clinicInformation.timeZoneLabel})
                               </p>
                               <p className="mt-1 font-medium text-blue-900">
@@ -361,7 +361,7 @@ export default function AdminPage() {
                         <td className="max-w-xs px-5 py-4 text-slate-600">
                           <p>{formatValue(appointment.notes)}</p>
                           {appointment.admin_note ? (
-                            <div className="mt-3 rounded-md bg-cyan-50 p-3 text-xs leading-5 text-cyan-900">
+                            <div className="mt-3 rounded-xl bg-[#f5efe4] p-3 text-xs leading-5 text-[#23575a]">
                               <p className="font-bold uppercase text-cyan-700">
                                 Admin message
                               </p>
@@ -397,7 +397,7 @@ export default function AdminPage() {
                                     "rejected",
                                   )
                                 }
-                                className="rounded-full border border-red-200 px-4 py-2 text-xs font-semibold text-red-700 transition hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-60"
+                                className="rounded-full border border-[#e6c2bb] bg-[#fffdf9] px-4 py-2 text-xs font-semibold text-[#925147] transition hover:bg-[#fbefec] disabled:cursor-not-allowed disabled:opacity-60"
                               >
                                 Reject
                               </button>
@@ -405,7 +405,7 @@ export default function AdminPage() {
                                 type="button"
                                 disabled={updatingAppointmentId === appointment.id}
                                 onClick={() => openSuggestionDialog(appointment)}
-                                className="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-xs font-semibold text-cyan-800 transition hover:border-cyan-300 hover:bg-cyan-100 disabled:cursor-not-allowed disabled:opacity-60"
+                                className="rounded-full border border-[#dbc59b] bg-[#f5efe4] px-4 py-2 text-xs font-semibold text-[#76582c] transition hover:border-[#c7a464] hover:bg-[#f2e8d7] disabled:cursor-not-allowed disabled:opacity-60"
                               >
                                 Suggest New Time
                               </button>
@@ -426,7 +426,7 @@ export default function AdminPage() {
                 {appointments.map((appointment) => (
                   <article
                     key={appointment.id}
-                    className="rounded-lg border border-blue-100 bg-white p-5 shadow-lg shadow-slate-200/70"
+                    className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.05]"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -480,7 +480,7 @@ export default function AdminPage() {
                         <dd>{formatValue(appointment.notes)}</dd>
                       </div>
                       {appointment.admin_note ? (
-                        <div className="rounded-md bg-cyan-50 p-3 text-cyan-900">
+                        <div className="rounded-xl bg-[#f5efe4] p-3 text-[#23575a]">
                           <dt className="font-semibold">Admin Message</dt>
                           <dd className="mt-1 text-sm">{appointment.admin_note}</dd>
                         </div>
@@ -511,7 +511,7 @@ export default function AdminPage() {
                               "rejected",
                             )
                           }
-                          className="flex-1 rounded-full border border-red-200 px-4 py-2.5 text-sm font-semibold text-red-700 transition hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-60"
+                          className="flex-1 rounded-full border border-[#e6c2bb] bg-[#fffdf9] px-4 py-2.5 text-sm font-semibold text-[#925147] transition hover:bg-[#fbefec] disabled:cursor-not-allowed disabled:opacity-60"
                         >
                           Reject
                         </button>
@@ -519,7 +519,7 @@ export default function AdminPage() {
                           type="button"
                           disabled={updatingAppointmentId === appointment.id}
                           onClick={() => openSuggestionDialog(appointment)}
-                          className="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2.5 text-sm font-semibold text-cyan-800 transition hover:border-cyan-300 hover:bg-cyan-100 disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
+                          className="rounded-full border border-[#dbc59b] bg-[#f5efe4] px-4 py-2.5 text-sm font-semibold text-[#76582c] transition hover:border-[#c7a464] hover:bg-[#f2e8d7] disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
                         >
                           Suggest New Time
                         </button>
@@ -542,7 +542,7 @@ export default function AdminPage() {
           title="Suggest New Time"
         >
           <form onSubmit={handleSuggestionSubmit} className="grid gap-5 p-6 sm:grid-cols-2">
-              <div className="rounded-lg bg-cyan-50 p-4 sm:col-span-2">
+              <div className="rounded-xl bg-[#f5efe4] p-4 sm:col-span-2">
                 <p className="font-bold text-blue-950">
                   {formatValue(suggestingAppointment.full_name)}
                 </p>
@@ -560,7 +560,7 @@ export default function AdminPage() {
                   name="suggestedDate"
                   value={suggestionForm.suggestedDate}
                   onChange={handleSuggestionChange}
-                  className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                  className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
                 />
               </label>
               <label className="text-sm font-semibold text-slate-700">
@@ -571,7 +571,7 @@ export default function AdminPage() {
                   name="suggestedTime"
                   value={suggestionForm.suggestedTime}
                   onChange={handleSuggestionChange}
-                  className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                  className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
                 />
               </label>
               <label className="text-sm font-semibold text-slate-700 sm:col-span-2">
@@ -580,7 +580,7 @@ export default function AdminPage() {
                   name="message"
                   value={suggestionForm.message}
                   onChange={handleSuggestionChange}
-                  className="mt-2 min-h-28 w-full resize-y rounded-lg border border-sky-100 bg-white px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                  className="mt-2 min-h-28 w-full resize-y rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
                   placeholder="Add any helpful instructions for the patient."
                 />
               </label>
@@ -588,14 +588,14 @@ export default function AdminPage() {
                 <button
                   type="button"
                   onClick={() => setSuggestingAppointment(null)}
-                  className="rounded-full border border-blue-100 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                  className="rounded-full border border-[#dbc59b] px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-[#f5efe4]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmittingSuggestion}
-                  className="rounded-full bg-blue-700 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:cursor-wait disabled:opacity-60"
+                  className="rounded-full bg-[#205356] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183f41] disabled:cursor-wait disabled:opacity-60"
                 >
                   {isSubmittingSuggestion ? "Sending" : "Send Suggestion"}
                 </button>

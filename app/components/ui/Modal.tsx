@@ -17,7 +17,7 @@ export default function Modal({
 }) {
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-blue-950/45 px-4 py-8 backdrop-blur-sm"
+      className="fixed inset-0 z-[70] flex items-center justify-center bg-[#183f41]/45 px-4 py-8 backdrop-blur-sm"
       role="presentation"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
@@ -28,20 +28,20 @@ export default function Modal({
       <section
         aria-label={label ?? title}
         aria-modal="true"
-        className={`max-h-full w-full overflow-y-auto rounded-lg border border-sky-100 bg-white shadow-2xl shadow-blue-950/20 ${
+        className={`max-h-full w-full overflow-y-auto rounded-2xl border border-[#eadfcf] bg-[#fffdf9] shadow-2xl shadow-[#183f41]/20 ${
           maxWidth === "xl" ? "max-w-xl" : "max-w-2xl"
         }`}
         role="dialog"
       >
-        <div className="flex items-center justify-between border-b border-sky-100 px-6 py-5">
+        <div className="flex items-center justify-between border-b border-[#eadfcf] px-6 py-5">
           <div>
             {eyebrow ? (
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-600">
+              <p className="text-xs font-semibold uppercase text-[#86632f]">
                 {eyebrow}
               </p>
             ) : null}
             <h3
-              className={`text-xl font-bold text-blue-950 ${
+              className={`pearl-serif text-3xl text-[#183f41] ${
                 eyebrow ? "mt-1" : ""
               }`}
             >
@@ -51,7 +51,7 @@ export default function Modal({
           <button
             type="button"
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-sky-100 text-lg text-slate-500 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-800"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#eadfcf] text-lg text-slate-500 transition hover:border-[#dbc59b] hover:bg-[#f5efe4] hover:text-[#23575a]"
             aria-label="Close"
           >
             x

@@ -73,17 +73,17 @@ export default function PatientSignupPage() {
   return (
     <AuthPanelLayout
       title="Create Patient Account"
-      description="Create an account to track appointment requests and treatment status from your patient dashboard."
+      description="Create an account so your family's appointment requests stay easy to find whenever you need to check them."
     >
       <form onSubmit={handleSignupSubmit} className="grid gap-5">
             {errorMessage ? (
-              <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800">
+              <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800">
                 {errorMessage}
               </div>
             ) : null}
 
             {successMessage ? (
-              <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800">
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800">
                 {successMessage}
               </div>
             ) : null}
@@ -95,7 +95,7 @@ export default function PatientSignupPage() {
                 name="name"
                 value={signupForm.name}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-lg border border-blue-100 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
                 placeholder="Jane Smith"
                 type="text"
               />
@@ -108,7 +108,7 @@ export default function PatientSignupPage() {
                 name="email"
                 value={signupForm.email}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-lg border border-blue-100 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
                 placeholder="jane@example.com"
                 type="email"
               />
@@ -122,7 +122,7 @@ export default function PatientSignupPage() {
                 name="password"
                 value={signupForm.password}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-lg border border-blue-100 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
                 placeholder="Create a password"
                 type="password"
               />
@@ -131,7 +131,7 @@ export default function PatientSignupPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-full bg-blue-700 px-7 py-3 text-base font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-full bg-[#205356] px-7 py-3 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Creating Account" : "Create Account"}
             </button>
@@ -140,7 +140,7 @@ export default function PatientSignupPage() {
               Already have an account?{" "}
               <Link
                 href="/patient/login"
-                className="font-semibold text-blue-700 hover:text-blue-900"
+                className="font-semibold text-[#23575a] hover:text-[#86632f]"
               >
                 Sign in
               </Link>

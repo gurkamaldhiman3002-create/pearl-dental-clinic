@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5fbff;
-  --foreground: #0f172a;
+  --background: #fbf8f1;
+  --foreground: #303937;
 }
 
 @theme inline {
@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-pearl-serif);
 }
 
 body {
@@ -24,22 +25,175 @@ html {
 }
 
 ::selection {
-  background: #cffafe;
-  color: #172554;
+  background: #e8d5ae;
+  color: #183f41;
+}
+
+.pearl-editorial,
+.pearl-header,
+.pearl-footer,
+.pearl-chatbot {
+  letter-spacing: 0;
+}
+
+.pearl-editorial *,
+.pearl-header *,
+.pearl-footer *,
+.pearl-chatbot * {
+  letter-spacing: 0 !important;
+}
+
+.pearl-editorial h1,
+.pearl-editorial h2,
+.pearl-editorial h3,
+.pearl-serif {
+  font-family: var(--font-pearl-serif), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.pearl-handwritten {
+  font-family: var(--font-pearl-script), "Segoe Print", cursive;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.pearl-editorial .text-blue-950,
+.pearl-editorial .text-blue-900 {
+  color: #183f41;
+}
+
+.pearl-editorial .text-blue-800,
+.pearl-editorial .text-blue-700 {
+  color: #23575a;
+}
+
+.pearl-editorial .text-sky-600,
+.pearl-editorial .text-cyan-600 {
+  color: #86632f;
+}
+
+.pearl-editorial .text-slate-900,
+.pearl-editorial .text-slate-800,
+.pearl-editorial .text-slate-700 {
+  color: #303937;
+}
+
+.pearl-editorial .text-slate-600,
+.pearl-editorial .text-slate-500 {
+  color: #66706c;
+}
+
+.pearl-editorial .text-blue-100,
+.pearl-editorial .text-cyan-100,
+.pearl-editorial .text-cyan-200 {
+  color: #eee6da;
+}
+
+.pearl-editorial .bg-white {
+  background-color: #fffdf9;
+}
+
+.pearl-editorial .bg-blue-700 {
+  background-color: #205356;
+}
+
+.pearl-editorial .bg-blue-50 {
+  background-color: #f5efe4;
+}
+
+.pearl-editorial .bg-blue-800,
+.pearl-editorial .bg-blue-950 {
+  background-color: #183f41;
+}
+
+.pearl-editorial .bg-cyan-50,
+.pearl-editorial .bg-sky-50 {
+  background-color: #f5efe4;
+}
+
+.pearl-editorial .bg-cyan-100 {
+  background-color: #e9ddc6;
+}
+
+.pearl-editorial .bg-slate-50 {
+  background-color: #f8f3ea;
+}
+
+.pearl-editorial .border-blue-50,
+.pearl-editorial .border-sky-50,
+.pearl-editorial .border-sky-100,
+.pearl-editorial .border-blue-100 {
+  border-color: #eadfcf;
+}
+
+.pearl-editorial .border-sky-200,
+.pearl-editorial .border-blue-200,
+.pearl-editorial .border-cyan-200 {
+  border-color: #dbc59b;
+}
+
+.pearl-editorial .text-cyan-700,
+.pearl-editorial .text-cyan-800,
+.pearl-editorial .text-cyan-900 {
+  color: #23575a;
+}
+
+.pearl-editorial .hover\:bg-blue-800:hover {
+  background-color: #183f41;
+}
+
+.pearl-editorial .hover\:bg-blue-50:hover,
+.pearl-editorial .hover\:bg-cyan-100:hover,
+.pearl-editorial .hover\:bg-slate-50:hover {
+  background-color: #f2e8d7;
+}
+
+.pearl-editorial .hover\:text-blue-900:hover,
+.pearl-editorial .hover\:text-cyan-200:hover {
+  color: #86632f;
+}
+
+.pearl-editorial .hover\:border-cyan-200:hover,
+.pearl-editorial .hover\:border-cyan-300:hover,
+.pearl-editorial .hover\:border-blue-400:hover,
+.pearl-editorial .hover\:border-sky-400:hover {
+  border-color: #c7a464;
+}
+
+.pearl-editorial .focus\:border-blue-500:focus {
+  border-color: #347376;
+}
+
+.pearl-editorial .focus\:ring-blue-100:focus {
+  --tw-ring-color: rgb(32 83 86 / 0.14);
+}
+
+.pearl-portal {
+  background:
+    linear-gradient(180deg, #fffdf9 0, #fbf8f1 15rem, #fbf8f1 100%);
+}
+
+.pearl-portal table tbody tr {
+  transition: background-color 180ms ease;
+}
+
+.pearl-portal table tbody tr:hover {
+  background: #f8f3ea;
 }
 
 .pearl-calendar {
-  --fc-border-color: #e0f2fe;
-  --fc-button-active-bg-color: #1e3a8a;
-  --fc-button-active-border-color: #1e3a8a;
-  --fc-button-bg-color: #1d4ed8;
-  --fc-button-border-color: #1d4ed8;
-  --fc-button-hover-bg-color: #1e40af;
-  --fc-button-hover-border-color: #1e40af;
+  --fc-border-color: #eadfcf;
+  --fc-button-active-bg-color: #183f41;
+  --fc-button-active-border-color: #183f41;
+  --fc-button-bg-color: #205356;
+  --fc-button-border-color: #205356;
+  --fc-button-hover-bg-color: #183f41;
+  --fc-button-hover-border-color: #183f41;
   --fc-event-border-color: transparent;
-  --fc-neutral-bg-color: #f0f9ff;
-  --fc-page-bg-color: #ffffff;
-  --fc-today-bg-color: #ecfeff;
+  --fc-neutral-bg-color: #f8f3ea;
+  --fc-page-bg-color: #fffdf9;
+  --fc-today-bg-color: #f4ead8;
 }
 
 .pearl-calendar .fc .fc-toolbar {
@@ -50,9 +204,10 @@ html {
 }
 
 .pearl-calendar .fc .fc-toolbar-title {
-  color: #172554;
-  font-size: 1.2rem;
-  font-weight: 700;
+  color: #183f41;
+  font-family: var(--font-pearl-serif), Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 600;
 }
 
 .pearl-calendar .fc .fc-button {
@@ -65,23 +220,23 @@ html {
 }
 
 .pearl-calendar .fc .fc-createAppointment-button {
-  background: #0891b2;
-  border-color: #0891b2;
+  background: #b38b49;
+  border-color: #b38b49;
 }
 
 .pearl-calendar .fc .fc-createAppointment-button:hover {
-  background: #0e7490;
-  border-color: #0e7490;
+  background: #947038;
+  border-color: #947038;
 }
 
 .pearl-calendar .fc .fc-scrollgrid {
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
 .pearl-calendar .fc .fc-col-header-cell {
-  background: #effaff;
-  color: #1e3a8a;
+  background: #f5efe4;
+  color: #23575a;
   font-size: 0.76rem;
   font-weight: 700;
   padding: 0.65rem 0;
@@ -96,7 +251,7 @@ html {
 }
 
 .pearl-calendar .fc .fc-event {
-  border-radius: 6px;
+  border-radius: 7px;
   cursor: pointer;
   font-size: 0.76rem;
   font-weight: 600;
@@ -104,7 +259,7 @@ html {
 }
 
 .pearl-calendar .fc .pearl-calendar-event--approved {
-  background: #0891b2;
+  background: #287073;
 }
 
 .pearl-calendar .fc .pearl-calendar-event--pending {
@@ -119,10 +274,18 @@ html {
 
   .pearl-calendar .fc .fc-toolbar-chunk {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
     justify-content: center;
   }
 
   .pearl-calendar .fc .fc-toolbar-title {
+    font-size: 1.45rem;
     margin: 0.5rem 0;
+  }
+
+  .pearl-calendar .fc .fc-button {
+    font-size: 0.78rem;
+    padding: 0.52rem 0.75rem;
   }
 }

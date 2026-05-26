@@ -99,14 +99,14 @@ export default function PatientDashboardPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
-      <section className="border-b border-blue-100 bg-white px-6 py-8 lg:px-8">
+    <main className="pearl-editorial pearl-portal min-h-screen text-[#303937]">
+      <section className="border-b border-[#eadfcf] bg-[#fffdf9]/90 px-6 py-9 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-2 text-sm font-bold uppercase tracking-[0.22em] text-sky-600">
+            <p className="mb-2 text-sm font-semibold uppercase text-[#86632f]">
               Pearl Dental Clinic
             </p>
-            <h1 className="text-3xl font-bold text-blue-950 sm:text-4xl">
+            <h1 className="text-4xl text-[#183f41] sm:text-5xl">
               Patient Dashboard
             </h1>
             <p className="mt-3 max-w-2xl text-slate-600">
@@ -117,14 +117,14 @@ export default function PatientDashboardPage() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               href="/#booking"
-              className="rounded-full border border-blue-200 px-5 py-2.5 text-center text-sm font-semibold text-blue-800 transition hover:border-blue-400 hover:bg-blue-50"
+              className="rounded-full border border-[#dbc59b] bg-[#fffdf9] px-5 py-2.5 text-center text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
             >
               Book Appointment
             </Link>
             <button
               type="button"
               onClick={() => void handleLogout()}
-              className="rounded-full bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800"
+              className="rounded-full bg-[#205356] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183f41]"
             >
               Logout
             </button>
@@ -135,18 +135,18 @@ export default function PatientDashboardPage() {
       <section className="px-6 py-10 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {errorMessage ? (
-            <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800">
+            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800 shadow-sm">
               {errorMessage}
             </div>
           ) : null}
 
           {isLoading ? (
-            <div className="rounded-[1.75rem] border border-blue-100 bg-white p-8 text-slate-600 shadow-lg shadow-slate-200/70">
+            <div className="rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 text-slate-600 shadow-lg shadow-[#183f41]/[0.05]">
               Loading appointment history...
             </div>
           ) : appointments.length === 0 ? (
-            <div className="rounded-[1.75rem] border border-blue-100 bg-white p-8 shadow-lg shadow-slate-200/70">
-              <h2 className="text-xl font-bold text-blue-950">
+            <div className="rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 shadow-lg shadow-[#183f41]/[0.05]">
+              <h2 className="text-3xl text-[#183f41]">
                 No appointments yet
               </h2>
               <p className="mt-2 text-slate-600">
@@ -158,14 +158,14 @@ export default function PatientDashboardPage() {
               {appointments.map((appointment) => (
                 <article
                   key={appointment.id}
-                  className="rounded-[1.25rem] border border-blue-100 bg-white p-6 shadow-lg shadow-slate-200/70"
+                  className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-6 shadow-lg shadow-[#183f41]/[0.05] transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#183f41]/[0.08]"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-sm font-bold uppercase tracking-[0.18em] text-sky-600">
+                      <p className="text-sm font-semibold uppercase text-[#86632f]">
                         Treatment
                       </p>
-                      <h2 className="mt-2 text-xl font-bold text-blue-950">
+                      <h2 className="mt-2 text-2xl text-[#183f41]">
                         {formatValue(appointment.treatment)}
                       </h2>
                     </div>

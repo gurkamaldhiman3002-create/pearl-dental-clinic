@@ -74,13 +74,13 @@ export default function AuthLoginPage({
   return (
     <AuthPanelLayout description={description} title={title}>
       {isCheckingSession ? (
-        <div className="rounded-lg border border-blue-100 bg-slate-50 p-5 text-slate-600">
+        <div className="rounded-2xl border border-[#eadfcf] bg-[#f8f3ea] p-5 text-slate-600">
           {checkingMessage}
         </div>
       ) : (
         <form onSubmit={handleLoginSubmit} className="grid gap-5">
           {errorMessage ? (
-            <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800">
+            <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800">
               {errorMessage}
             </div>
           ) : null}
@@ -92,7 +92,7 @@ export default function AuthLoginPage({
               name="email"
               value={loginForm.email}
               onChange={handleLoginChange}
-              className="mt-2 w-full rounded-lg border border-blue-100 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
               placeholder={emailPlaceholder}
               type="email"
             />
@@ -105,7 +105,7 @@ export default function AuthLoginPage({
               name="password"
               value={loginForm.password}
               onChange={handleLoginChange}
-              className="mt-2 w-full rounded-lg border border-blue-100 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
               placeholder="Enter password"
               type="password"
             />
@@ -114,7 +114,7 @@ export default function AuthLoginPage({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-full bg-blue-700 px-7 py-3 text-base font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
+            className="rounded-full bg-[#205356] px-7 py-3 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Signing In" : "Sign In"}
           </button>

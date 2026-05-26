@@ -9,7 +9,7 @@ const initialMessages: ChatMessage[] = [
     id: 1,
     role: "assistant",
     content:
-      "Hi, I'm Pearl Dental Clinic's assistant. Ask about services, appointments, hours, contact details, or treatments.",
+      "Hello. I can help with clinic timings, treatments, or booking a visit with Dr. Virdy.",
   },
 ];
 
@@ -76,15 +76,15 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="pearl-chatbot fixed bottom-5 right-5 z-50">
       {isOpen ? (
-        <section className="flex h-[34rem] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden rounded-[1.5rem] border border-blue-100 bg-white shadow-2xl shadow-blue-950/20">
-          <header className="flex items-center justify-between bg-blue-950 px-5 py-4 text-white">
+        <section className="flex h-[34rem] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden rounded-[1.5rem] border border-[#eadfcf] bg-[#fffdf9] shadow-2xl shadow-[#183f41]/20">
+          <header className="flex items-center justify-between bg-[#183f41] px-5 py-4 text-white">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-200">
+              <p className="text-xs font-semibold text-[#dfc58c]">
                 Pearl Dental
               </p>
-              <h2 className="text-lg font-bold">Clinic Assistant</h2>
+              <h2 className="pearl-serif text-2xl">Clinic Assistant</h2>
             </div>
             <button
               type="button"
@@ -96,7 +96,7 @@ export default function Chatbot() {
             </button>
           </header>
 
-          <div className="flex-1 space-y-4 overflow-y-auto bg-slate-50 px-4 py-5">
+          <div className="flex-1 space-y-4 overflow-y-auto bg-[#f8f3ea] px-4 py-5">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -107,8 +107,8 @@ export default function Chatbot() {
                 <p
                   className={`max-w-[82%] rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm ${
                     message.role === "user"
-                      ? "rounded-br-md bg-blue-700 text-white"
-                      : "rounded-bl-md border border-blue-100 bg-white text-slate-700"
+                      ? "rounded-br-md bg-[#205356] text-white"
+                      : "rounded-bl-md border border-[#eadfcf] bg-[#fffdf9] text-[#46524f]"
                   }`}
                 >
                   {message.content}
@@ -118,10 +118,10 @@ export default function Chatbot() {
 
             {isLoading ? (
               <div className="flex justify-start">
-                <div className="flex items-center gap-1 rounded-2xl rounded-bl-md border border-blue-100 bg-white px-4 py-3 shadow-sm">
-                  <span className="h-2 w-2 animate-bounce rounded-full bg-blue-700" />
-                  <span className="h-2 w-2 animate-bounce rounded-full bg-blue-700 [animation-delay:120ms]" />
-                  <span className="h-2 w-2 animate-bounce rounded-full bg-blue-700 [animation-delay:240ms]" />
+                <div className="flex items-center gap-1 rounded-2xl rounded-bl-md border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 shadow-sm">
+                  <span className="h-2 w-2 animate-bounce rounded-full bg-[#205356]" />
+                  <span className="h-2 w-2 animate-bounce rounded-full bg-[#205356] [animation-delay:120ms]" />
+                  <span className="h-2 w-2 animate-bounce rounded-full bg-[#205356] [animation-delay:240ms]" />
                 </div>
               </div>
             ) : null}
@@ -130,20 +130,20 @@ export default function Chatbot() {
 
           <form
             onSubmit={handleSubmit}
-            className="border-t border-blue-100 bg-white p-4"
+            className="border-t border-[#eadfcf] bg-[#fffdf9] p-4"
           >
             <div className="flex gap-2">
               <input
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
-                className="min-w-0 flex-1 rounded-full border border-blue-100 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+                className="min-w-0 flex-1 rounded-full border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-sm text-[#303937] outline-none transition focus:border-[#418083] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#dfd6c5]"
                 placeholder="Ask about services or appointments"
                 type="text"
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="rounded-full bg-blue-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
+                className="rounded-full bg-[#205356] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 Send
               </button>
@@ -152,12 +152,13 @@ export default function Chatbot() {
         </section>
       ) : (
         <button
+          suppressHydrationWarning
           type="button"
           onClick={() => setIsOpen(true)}
-          className="group flex items-center gap-3 rounded-full bg-blue-700 px-5 py-4 text-sm font-bold text-white shadow-xl shadow-blue-950/20 transition hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-2xl"
+          className="group flex items-center gap-3 rounded-full bg-[#205356] px-5 py-4 text-sm font-bold text-white shadow-xl shadow-[#183f41]/20 transition hover:-translate-y-0.5 hover:bg-[#183f41] hover:shadow-2xl"
           aria-label="Open clinic assistant chat"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-xs font-black text-blue-800 transition group-hover:bg-sky-100">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fffdf9] text-xs font-black text-[#23575a] transition group-hover:bg-[#f5efe4]">
             AI
           </span>
           Chat

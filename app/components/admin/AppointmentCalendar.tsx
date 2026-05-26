@@ -362,13 +362,13 @@ export default function AppointmentCalendar({
 
   return (
     <>
-      <section className="rounded-lg border border-sky-100 bg-white p-5 shadow-lg shadow-blue-950/[0.05] sm:p-7">
+      <section className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.05] sm:p-7">
         <div className="mb-7 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-sky-600">
+            <p className="text-sm font-semibold uppercase text-[#86632f]">
               Scheduling
             </p>
-            <h2 className="mt-2 text-2xl font-bold text-blue-950">
+            <h2 className="mt-2 text-3xl text-[#183f41]">
               Appointment Calendar
             </h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
@@ -378,7 +378,7 @@ export default function AppointmentCalendar({
           </div>
           <div className="flex flex-wrap gap-4 text-xs font-semibold text-slate-600">
             <span className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-cyan-600" />
+              <span className="h-3 w-3 rounded-full bg-[#287073]" />
               Approved
             </span>
             <span className="flex items-center gap-2">
@@ -389,7 +389,7 @@ export default function AppointmentCalendar({
         </div>
 
         {confirmationMessage ? (
-          <p className="mb-5 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+          <p className="mb-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
             {confirmationMessage}
           </p>
         ) : null}
@@ -459,8 +459,8 @@ export default function AppointmentCalendar({
           onClose={() => setEditingAppointment(null)}
         >
           <form onSubmit={handleEditSubmit} className="grid gap-5 p-6 sm:grid-cols-2">
-            <div className="rounded-lg bg-cyan-50 p-4 sm:col-span-2">
-              <p className="font-bold text-blue-950">
+            <div className="rounded-xl bg-[#f5efe4] p-4 sm:col-span-2">
+              <p className="font-semibold text-[#183f41]">
                 {editingAppointment.full_name ?? "Patient"}
               </p>
               <p className="mt-1 text-sm text-slate-600">
@@ -476,7 +476,7 @@ export default function AppointmentCalendar({
                 name="scheduledStart"
                 value={editForm.scheduledStart}
                 onChange={handleEditChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
               />
             </label>
             <label className="text-sm font-semibold text-slate-700">
@@ -487,21 +487,21 @@ export default function AppointmentCalendar({
                 name="scheduledEnd"
                 value={editForm.scheduledEnd}
                 onChange={handleEditChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
               />
             </label>
             <div className="flex justify-end gap-3 sm:col-span-2">
               <button
                 type="button"
                 onClick={() => setEditingAppointment(null)}
-                className="rounded-full border border-blue-100 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                className="rounded-full border border-[#dbc59b] px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-[#f5efe4]"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSaving}
-                className="rounded-full bg-blue-700 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:opacity-60"
+                className="rounded-full bg-[#205356] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183f41] disabled:opacity-60"
               >
                 {isSaving ? "Saving" : "Save Time"}
               </button>
@@ -529,7 +529,7 @@ export default function AppointmentCalendar({
                 name="fullName"
                 value={newAppointmentForm.fullName}
                 onChange={handleNewAppointmentChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
                 type="text"
               />
             </label>
@@ -559,10 +559,10 @@ export default function AppointmentCalendar({
                 }
                 aria-invalid={newAppointmentPhoneError ? true : undefined}
                 autoComplete="tel"
-                className={`mt-2 w-full rounded-lg border px-4 py-3 outline-none transition focus:ring-4 ${
+                className={`mt-2 w-full rounded-xl border bg-[#fffdf9] px-4 py-3 outline-none transition focus:ring-4 ${
                   newAppointmentPhoneError
                     ? "border-red-300 focus:border-red-500 focus:ring-red-100"
-                    : "border-sky-100 focus:border-blue-500 focus:ring-blue-100"
+                    : "border-[#eadfcf] focus:border-[#347376] focus:ring-[#205356]/15"
                 }`}
                 inputMode="tel"
                 maxLength={15}
@@ -587,7 +587,7 @@ export default function AppointmentCalendar({
                 name="email"
                 value={newAppointmentForm.email}
                 onChange={handleNewAppointmentChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
                 type="email"
               />
             </label>
@@ -598,7 +598,7 @@ export default function AppointmentCalendar({
                 name="treatment"
                 value={newAppointmentForm.treatment}
                 onChange={handleNewAppointmentChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
               >
                 <option value="" disabled>
                   Choose a treatment
@@ -617,7 +617,7 @@ export default function AppointmentCalendar({
                 name="scheduledStart"
                 value={newAppointmentForm.scheduledStart}
                 onChange={handleNewAppointmentChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
                 type="datetime-local"
               />
             </label>
@@ -628,7 +628,7 @@ export default function AppointmentCalendar({
                 name="scheduledEnd"
                 value={newAppointmentForm.scheduledEnd}
                 onChange={handleNewAppointmentChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
                 type="datetime-local"
               />
             </label>
@@ -638,7 +638,7 @@ export default function AppointmentCalendar({
                 name="notes"
                 value={newAppointmentForm.notes}
                 onChange={handleNewAppointmentChange}
-                className="mt-2 min-h-28 w-full resize-y rounded-lg border border-sky-100 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="mt-2 min-h-28 w-full resize-y rounded-xl border border-[#eadfcf] bg-[#fffdf9] px-4 py-3 outline-none transition focus:border-[#347376] focus:ring-4 focus:ring-[#205356]/15"
               />
             </label>
             <div className="flex justify-end gap-3 sm:col-span-2">
@@ -648,14 +648,14 @@ export default function AppointmentCalendar({
                   setIsCreating(false);
                   setNewAppointmentPhoneError(null);
                 }}
-                className="rounded-full border border-blue-100 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                className="rounded-full border border-[#dbc59b] px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-[#f5efe4]"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSaving}
-                className="rounded-full bg-blue-700 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:opacity-60"
+                className="rounded-full bg-[#205356] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183f41] disabled:opacity-60"
               >
                 {isSaving ? "Saving" : "Create Appointment"}
               </button>

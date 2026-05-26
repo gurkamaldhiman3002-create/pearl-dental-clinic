@@ -13,27 +13,27 @@ type AdminAnalyticsProps = {
 type MetricTone = "blue" | "cyan" | "emerald" | "amber" | "rose" | "indigo";
 
 const chartColors = [
-  "#1d4ed8",
-  "#0891b2",
-  "#38bdf8",
-  "#34d399",
-  "#818cf8",
-  "#94a3b8",
+  "#205356",
+  "#b38b49",
+  "#4b7f7b",
+  "#779683",
+  "#d1ae6d",
+  "#8e8b80",
 ];
 
 const toneStyles: Record<MetricTone, string> = {
-  amber: "bg-amber-50 text-amber-700",
-  blue: "bg-blue-50 text-blue-700",
-  cyan: "bg-cyan-50 text-cyan-700",
-  emerald: "bg-emerald-50 text-emerald-700",
-  indigo: "bg-indigo-50 text-indigo-700",
-  rose: "bg-rose-50 text-rose-700",
+  amber: "bg-[#f7edd9] text-[#86632f]",
+  blue: "bg-[#e8efea] text-[#23575a]",
+  cyan: "bg-[#e8efea] text-[#23575a]",
+  emerald: "bg-[#e9f1ea] text-[#35664e]",
+  indigo: "bg-[#eee9df] text-[#526566]",
+  rose: "bg-[#f6e9e5] text-[#925147]",
 };
 
 function MetricIcon({ tone }: { tone: MetricTone }) {
   return (
     <span
-      className={`flex h-11 w-11 items-center justify-center rounded-lg ${toneStyles[tone]}`}
+      className={`flex h-11 w-11 items-center justify-center rounded-xl ${toneStyles[tone]}`}
     >
       <svg
         aria-hidden="true"
@@ -60,13 +60,13 @@ function AnalyticsCard({
   value: number | string;
 }) {
   return (
-    <article className="rounded-lg border border-sky-100 bg-white p-5 shadow-lg shadow-blue-950/[0.04]">
+    <article className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.04]">
       <div className="flex items-center justify-between gap-3">
         <p className="text-sm font-semibold text-slate-500">{label}</p>
         <MetricIcon tone={tone} />
       </div>
       <p
-        className={`mt-4 font-bold text-blue-950 ${
+        className={`mt-4 text-[#183f41] ${
           typeof value === "string" ? "text-xl leading-snug" : "text-3xl"
         }`}
       >
@@ -101,7 +101,7 @@ function createDistributionGradient(treatments: TreatmentAppointmentCount[]) {
   );
 
   if (total === 0) {
-    return "#e2e8f0";
+    return "#e9dfce";
   }
 
   let start = 0;
@@ -176,12 +176,12 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-        <article className="rounded-lg border border-sky-100 bg-white p-5 shadow-lg shadow-blue-950/[0.04] sm:p-7">
+        <article className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.04] sm:p-7">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-600">
+            <p className="text-xs font-semibold uppercase text-[#86632f]">
               Appointment Trends
             </p>
-            <h2 className="mt-2 text-xl font-bold text-blue-950">
+            <h2 className="mt-2 text-3xl text-[#183f41]">
               Monthly Appointments
             </h2>
             <p className="mt-2 text-sm text-slate-500">
@@ -194,16 +194,16 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
             <div className="grid min-w-[400px] grid-cols-6 gap-3">
               {analytics.monthlyAppointments.map((month) => (
                 <div className="text-center" key={month.key}>
-                  <p className="mb-2 text-xs font-bold text-blue-950">
+                  <p className="mb-2 text-xs font-semibold text-[#183f41]">
                     {month.count}
                   </p>
-                  <div className="flex h-36 items-end rounded-lg bg-slate-50 px-2">
+                  <div className="flex h-36 items-end rounded-xl bg-[#f8f3ea] px-2">
                     <div
                       aria-label={`${month.count} appointments in ${month.label}`}
                       className={`w-full rounded-t-md transition ${
                         month.count > 0
-                          ? "bg-gradient-to-t from-blue-700 to-cyan-400"
-                          : "h-px bg-slate-200"
+                          ? "bg-gradient-to-t from-[#205356] to-[#d3b573]"
+                          : "h-px bg-[#ded4c3]"
                       }`}
                       style={
                         month.count > 0
@@ -226,11 +226,11 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
           </div>
         </article>
 
-        <article className="rounded-lg border border-sky-100 bg-white p-5 shadow-lg shadow-blue-950/[0.04] sm:p-7">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-600">
+        <article className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.04] sm:p-7">
+          <p className="text-xs font-semibold uppercase text-[#86632f]">
             Care Demand
           </p>
-          <h2 className="mt-2 text-xl font-bold text-blue-950">
+          <h2 className="mt-2 text-3xl text-[#183f41]">
             Treatment Distribution
           </h2>
 
@@ -240,8 +240,8 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
               className="relative flex h-40 w-40 shrink-0 items-center justify-center rounded-full"
               style={{ background: createDistributionGradient(treatmentChartData) }}
             >
-              <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white shadow-inner">
-                <span className="text-2xl font-bold text-blue-950">
+              <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-[#fffdf9] shadow-inner">
+                <span className="text-2xl text-[#183f41]">
                   {totalTreatments}
                 </span>
                 <span className="text-xs font-semibold text-slate-500">
@@ -252,7 +252,7 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
 
             <div className="w-full space-y-3">
               {treatmentChartData.length === 0 ? (
-                <p className="rounded-lg bg-slate-50 p-4 text-sm text-slate-500">
+                <p className="rounded-xl bg-[#f8f3ea] p-4 text-sm text-slate-500">
                   Treatment requests will appear here once appointments are submitted.
                 </p>
               ) : (
@@ -268,7 +268,7 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
                     <p className="min-w-0 flex-1 truncate text-sm font-medium text-slate-700">
                       {treatment.treatment}
                     </p>
-                    <p className="text-sm font-bold text-blue-950">
+                    <p className="text-sm font-semibold text-[#183f41]">
                       {treatment.count}
                     </p>
                   </div>

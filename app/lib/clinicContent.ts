@@ -47,67 +47,67 @@ export const services: {
     title: "Digital X-Ray",
     icon: "xray",
     description:
-      "High-resolution imaging for faster diagnosis and precise treatment planning.",
+      "A clear look at what is happening beneath the tooth, so we can explain it together.",
   },
   {
     title: "Dental Implants",
     icon: "implant",
     description:
-      "Durable tooth replacement options designed for comfort, function, and confidence.",
+      "Options for replacing a missing tooth, discussed carefully around your comfort and needs.",
   },
   {
     title: "Root Canal Treatment",
     icon: "root",
     description:
-      "Focused care to relieve infection, reduce pain, and preserve natural teeth.",
+      "Care for a troubled tooth, with each step explained gently before we begin.",
   },
   {
     title: "Crown and Bridge Work",
     icon: "crown",
     description:
-      "Custom restorations that protect damaged teeth and replace missing ones.",
+      "Restorations made to protect weakened teeth or fill a gap in your smile.",
   },
   {
     title: "Laser Filling",
     icon: "laser",
     description:
-      "Modern cavity repair with a precise, minimally invasive treatment approach.",
+      "A thoughtful approach to filling cavities while keeping the visit as comfortable as possible.",
   },
   {
     title: "Scaling & Polishing",
     icon: "polish",
     description:
-      "Thorough plaque removal and polishing for healthier gums and a cleaner smile.",
+      "A familiar cleaning visit to help your gums feel healthier and your mouth feel fresh.",
   },
   {
     title: "Teeth Whitening",
     icon: "whitening",
     description:
-      "Professional brightening treatments for a noticeably fresher smile.",
+      "Whitening guidance for patients who would like a naturally brighter smile.",
   },
   {
     title: "Complete and Partial Denture",
     icon: "denture",
     description:
-      "Comfortable removable tooth replacement options tailored to your bite.",
+      "Removable tooth replacement planned with attention to fit, eating, and everyday comfort.",
   },
   {
     title: "Intraoral Camera",
     icon: "camera",
     description:
-      "Detailed chairside imaging that helps you see and understand your care.",
+      "A close-up view that helps you understand what the dentist is seeing.",
   },
   {
     title: "Cosmetic Dentistry",
     icon: "cosmetic",
     description:
-      "Smile-enhancing treatments focused on balance, shape, shade, and confidence.",
+      "Small and considered improvements for people who feel self-conscious about their smile.",
   },
   {
     title: "Tooth Extraction",
     icon: "extraction",
     description:
-      "Careful removal when a tooth cannot be restored, with clear aftercare guidance.",
+      "When removal is needed, we talk you through the visit and the care afterwards.",
   },
 ];
 
@@ -119,75 +119,86 @@ export const trustBadges: {
   icon: ServiceIconName;
 }[] = [
   {
-    title: "Modern Equipment",
-    description: "Digital diagnostics and precision-focused treatment tools.",
-    icon: "equipment",
-  },
-  {
-    title: "Gentle Care",
-    description: "Comfort-led consultations and clear treatment guidance.",
+    title: "Dr. Sukhpreet Virdy",
+    description: "B.D.S. dental care with time to listen first.",
     icon: "gentle",
   },
   {
-    title: "Family Dentistry",
-    description: "Thoughtful dental support for every stage of life.",
+    title: "Children and adults",
+    description: "One familiar clinic for the whole family.",
     icon: "family",
   },
   {
-    title: "Appointment Approval System",
-    description: "Request online and follow your confirmed appointment status.",
+    title: "Morning and evening visits",
+    description: "Monday to Saturday appointments in Patiala.",
     icon: "approval",
+  },
+  {
+    title: "Sarabha Nagar, Patiala",
+    description: "A nearby clinic when your family needs a dentist.",
+    icon: "equipment",
   },
 ];
 
-export const certifications = [
-  "Bachelor of Dental Surgery (B.D.S.)",
-  "Qualified dental care by Dr. Sukhpreet Virdy",
-  "Professional consultation and treatment planning",
-  "Modern diagnostic and restorative dentistry",
+export const familyReasons = [
+  {
+    title: "We take questions seriously",
+    description:
+      "Before starting anything, Dr. Virdy explains what is needed in simple language and gives you time to ask.",
+  },
+  {
+    title: "We try to reply the same day",
+    description:
+      "If you call with a concern, we make an effort to get back to you the same day and help arrange a visit.",
+  },
+  {
+    title: "Families often send families",
+    description:
+      "Many people find Pearl Dental Clinic through a relative or neighbour who already feels comfortable here.",
+  },
 ];
 
 export const testimonials = [
   {
     quote:
-      "The appointment request was simple, and the confirmation process made planning my visit feel effortless.",
-    patient: "Maya R.",
-    treatment: "Scaling & Polishing",
+      "Our family has been coming from Sarabha Nagar for some time. Doctor explains everything simply and never rushes us.",
+    patient: "Manpreet K.",
+    treatment: "Family patient, Sarabha Nagar",
   },
   {
     quote:
-      "Everything was explained calmly before my root canal treatment. I felt comfortable and informed throughout.",
-    patient: "Daniel T.",
-    treatment: "Root Canal Treatment",
+      "I was honestly very scared of a root canal. Dr. Virdy spoke calmly through the visit, and it felt much easier than I imagined.",
+    patient: "Gurpreet S.",
+    treatment: "Root canal patient, Patiala",
   },
   {
     quote:
-      "A friendly clinic with a clean, modern approach. My whitening consultation was detailed and never rushed.",
-    patient: "Sofia L.",
-    treatment: "Teeth Whitening",
+      "My son was nervous before his appointment. She spoke to him gently, and by the end he was smiling again.",
+    patient: "Navneet K.",
+    treatment: "Parent of a young patient",
   },
 ];
 
 export const frequentlyAskedQuestions = [
   {
-    question: "How do I request an appointment?",
+    question: "Does a root canal hurt?",
     answer:
-      "Choose a treatment, submit your preferred date and time, and our team will review the request. You can follow the appointment status from your patient dashboard.",
+      "It is natural to worry about a root canal. We first examine the tooth, explain what will happen, and do our best to keep you comfortable throughout the visit.",
   },
   {
-    question: "Do I need an account before booking?",
+    question: "What if I am nervous about treatment?",
     answer:
-      "You may submit a request directly. Creating a patient account lets you see linked appointment history and approval updates in your dashboard.",
+      "Please tell us. Many people feel anxious at the dentist. We can take things slowly, explain each step before we begin, and pause whenever you need a moment.",
   },
   {
-    question: "What should I bring to my first visit?",
+    question: "Do you see children too?",
     answer:
-      "Please bring a photo ID, any insurance information, and relevant dental records or X-rays if they are available.",
+      "Yes. We welcome children and families, and we try to make early dental visits gentle, simple, and unhurried.",
   },
   {
-    question: "Can the website advise me about dental symptoms?",
+    question: "How can I request an appointment?",
     answer:
-      "Our online tools provide general clinic information only. Please contact the clinic directly for professional dental advice or urgent concerns.",
+      "Fill in the form on this page or message us on WhatsApp with a preferred time. We will check availability and get back to you before confirming your visit.",
   },
 ];
 

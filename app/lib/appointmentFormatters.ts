@@ -8,10 +8,10 @@ const statusLabels: Record<string, string> = {
 };
 
 export const statusStyles: Record<string, string> = {
-  pending: "border-amber-200 bg-amber-50 text-amber-800",
-  approved: "border-emerald-200 bg-emerald-50 text-emerald-800",
-  rejected: "border-red-200 bg-red-50 text-red-800",
-  reschedule_suggested: "border-cyan-200 bg-cyan-50 text-cyan-800",
+  pending: "border-[#dec487] bg-[#faf2e2] text-[#7d602e]",
+  approved: "border-[#bed3c4] bg-[#edf4ef] text-[#35664e]",
+  rejected: "border-[#e6c2bb] bg-[#fbefec] text-[#925147]",
+  reschedule_suggested: "border-[#c7d8d4] bg-[#edf3f0] text-[#23575a]",
 };
 
 export function formatValue(value: string | null) {
