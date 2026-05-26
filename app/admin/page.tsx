@@ -18,6 +18,7 @@ import {
   formatTime,
   formatValue,
 } from "@/app/lib/appointmentFormatters";
+import { recoverFromInvalidRefreshToken } from "@/app/lib/authRecovery";
 import { clinicInformation } from "@/app/lib/clinicContent";
 import { getErrorMessage } from "@/app/lib/errors";
 import { supabase } from "@/app/lib/supabase";
@@ -78,6 +79,13 @@ export default function AdminPage() {
       } = await supabase.auth.getSession();
 
       if (sessionError) {
+        if (await recoverFromInvalidRefreshToken(sessionError)) {
+          setAppointments([]);
+          setIsLoading(false);
+          router.replace("/admin/login");
+          return;
+        }
+
         setErrorMessage(sessionError.message);
         setAppointments([]);
         setIsLoading(false);
@@ -135,6 +143,11 @@ export default function AdminPage() {
     const { error } = await supabase.auth.signOut();
 
     if (error) {
+      if (await recoverFromInvalidRefreshToken(error)) {
+        router.replace("/admin/login");
+        return;
+      }
+
       setErrorMessage(error.message);
       return;
     }
@@ -154,6 +167,15 @@ export default function AdminPage() {
       data: { session },
       error: sessionError,
     } = await supabase.auth.getSession();
+
+    if (
+      sessionError &&
+      (await recoverFromInvalidRefreshToken(sessionError))
+    ) {
+      setUpdatingAppointmentId(null);
+      router.replace("/admin/login");
+      return;
+    }
 
     if (sessionError || !session) {
       setErrorMessage(sessionError?.message ?? "Admin session required.");
@@ -214,6 +236,15 @@ export default function AdminPage() {
       data: { session },
       error: sessionError,
     } = await supabase.auth.getSession();
+
+    if (
+      sessionError &&
+      (await recoverFromInvalidRefreshToken(sessionError))
+    ) {
+      setIsSubmittingSuggestion(false);
+      router.replace("/admin/login");
+      return;
+    }
 
     if (sessionError || !session) {
       setErrorMessage(sessionError?.message ?? "Admin session required.");
@@ -300,6 +331,7 @@ export default function AdminPage() {
               appointments={appointments}
               onError={setErrorMessage}
               onRefresh={() => fetchAppointments({ showLoading: false })}
+              onSessionExpired={() => router.replace("/admin/login")}
             />
           ) : null}
 

@@ -15,19 +15,30 @@ export type ServiceIconName =
   | "family"
   | "approval";
 
+const clinicMapQuery = encodeURIComponent(
+  "Pearl Dental Clinic, Shop Number -1, Shagun Complex, Behind Royal Property, Main Bhadson Road, Leela Bhawan, Patiala-147001, Punjab",
+);
+
 export const clinicInformation = {
+  address: {
+    addressCountry: "IN",
+    addressLocality: "Patiala",
+    addressRegion: "Punjab",
+    postalCode: "147001",
+    streetAddress:
+      "Shop Number -1, Shagun Complex, Behind Royal Property, Main Bhadson Road, Leela Bhawan",
+  },
   addressLines: [
-    "H. no. 155B, Pearl Dental Clinic,",
-    "155, Sarabha Nagar Lane no. 1,",
-    "St. 9B, Opp, Patiala,",
-    "Punjab 147001, India",
+    "Shop Number -1, Shagun Complex,",
+    "Behind Royal Property, Main Bhadson Road,",
+    "Leela Bhawan, Patiala-147001, Punjab",
   ],
   degreeImagePath: "/images/degree.png",
   dentistName: "Dr. Sukhpreet Virdy",
   email: "pearldentalclinic.india@gmail.com",
   emailHref: "mailto:pearldentalclinic.india@gmail.com",
-  mapEmbedUrl:
-    "https://www.google.com/maps?q=H.%20no.%20155B%2C%20Pearl%20Dental%20Clinic%2C%20155%2C%20Sarabha%20Nagar%20Lane%20no.%201%2C%20St.%209B%2C%20Opp%2C%20Patiala%2C%20Punjab%20147001%2C%20India&output=embed",
+  mapEmbedUrl: `https://www.google.com/maps?q=${clinicMapQuery}&output=embed`,
+  mapHref: `https://www.google.com/maps/search/?api=1&query=${clinicMapQuery}`,
   name: "Pearl Dental Clinic",
   phoneDisplay: "+91 80541 86836",
   phoneHref: "tel:+918054186836",
@@ -134,7 +145,7 @@ export const trustBadges: {
     icon: "approval",
   },
   {
-    title: "Sarabha Nagar, Patiala",
+    title: "Leela Bhawan, Patiala",
     description: "A nearby clinic when your family needs a dentist.",
     icon: "equipment",
   },
@@ -161,9 +172,9 @@ export const familyReasons = [
 export const testimonials = [
   {
     quote:
-      "Our family has been coming from Sarabha Nagar for some time. Doctor explains everything simply and never rushes us.",
+      "Our family has been coming from Leela Bhawan for some time. Doctor explains everything simply and never rushes us.",
     patient: "Manpreet K.",
-    treatment: "Family patient, Sarabha Nagar",
+    treatment: "Family patient, Leela Bhawan",
   },
   {
     quote:

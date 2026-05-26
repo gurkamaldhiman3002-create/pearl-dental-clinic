@@ -28,10 +28,54 @@ const pearlScript = Caveat({
   weight: ["500", "600"],
 });
 
+const clinicStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  address: {
+    "@type": "PostalAddress",
+    ...clinicInformation.address,
+  },
+  email: clinicInformation.email,
+  hasMap: clinicInformation.mapHref,
+  image: "/images/logo.png.jpeg",
+  medicalSpecialty: "Dentistry",
+  name: clinicInformation.name,
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "14:00",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "10:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      closes: "18:30",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "16:00",
+    },
+  ],
+  slogan: clinicInformation.slogan,
+  telephone: clinicInformation.phoneDisplay,
+};
+
 export const metadata: Metadata = {
   title: `${clinicInformation.name} | ${clinicInformation.slogan}`,
   description:
-    "A warm, family dental clinic in Patiala with Dr. Sukhpreet Virdy, B.D.S. Request an appointment at Pearl Dental Clinic.",
+    "Pearl Dental Clinic at Shagun Complex, Main Bhadson Road, Leela Bhawan, Patiala. Family dental care with Dr. Sukhpreet Virdy, B.D.S.",
 };
 
 export default function RootLayout({
@@ -45,6 +89,15 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${pearlSerif.variable} ${pearlScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(clinicStructuredData).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+          type="application/ld+json"
+        />
         <SiteHeader />
         <div className="flex-1">{children}</div>
         <SiteFooter />

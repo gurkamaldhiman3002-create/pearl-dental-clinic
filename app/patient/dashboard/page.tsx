@@ -11,6 +11,7 @@ import {
   formatTime,
   formatValue,
 } from "@/app/lib/appointmentFormatters";
+import { recoverFromInvalidRefreshToken } from "@/app/lib/authRecovery";
 import { clinicInformation } from "@/app/lib/clinicContent";
 import { supabase } from "@/app/lib/supabase";
 import type { PatientAppointment } from "@/app/types/appointments";
@@ -91,6 +92,11 @@ export default function PatientDashboardPage() {
     const { error } = await supabase.auth.signOut();
 
     if (error) {
+      if (await recoverFromInvalidRefreshToken(error)) {
+        router.replace("/patient/login");
+        return;
+      }
+
       setErrorMessage(error.message);
       return;
     }

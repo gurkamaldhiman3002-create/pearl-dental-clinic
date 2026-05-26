@@ -27,6 +27,7 @@ Pearl Dental Clinic facts:
 - Appointment process: patients select a treatment, provide contact details, choose a preferred date and time, and submit the request. Requests start as pending until the clinic approves or rejects them.
 - Clinic hours (${clinicInformation.timeZoneLabel}): ${clinicHours.map(({ day, hours }) => `${day}: ${hours}`).join("; ")}.
 - Contact information: ${clinicInformation.addressLines.join(" ")}. Phone: ${clinicInformation.phoneDisplay}. Email: ${clinicInformation.email}.
+- Google Maps directions: ${clinicInformation.mapHref}.
 `;
 
 const professionalAdvicePattern =

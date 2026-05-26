@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { recoverFromInvalidRefreshToken } from "@/app/lib/authRecovery";
 import { supabase } from "@/app/lib/supabase";
 
 export function useRedirectIfAuthenticated(destination: string) {
@@ -23,6 +24,14 @@ export function useRedirectIfAuthenticated(destination: string) {
       }
 
       if (error) {
+        if (await recoverFromInvalidRefreshToken(error)) {
+          if (isActive) {
+            setSessionError(null);
+            setIsCheckingSession(false);
+          }
+          return;
+        }
+
         setSessionError(error.message);
         setIsCheckingSession(false);
         return;

@@ -16,6 +16,7 @@ import {
   indianMobilePattern,
   normalizeIndianPhone,
 } from "@/app/lib/indianPhone";
+import { recoverFromInvalidRefreshToken } from "@/app/lib/authRecovery";
 import { supabase } from "@/app/lib/supabase";
 import {
   createAdminAppointment,
@@ -28,6 +29,7 @@ type AppointmentCalendarProps = {
   appointments: AppointmentRecord[];
   onError: (message: string | null) => void;
   onRefresh: () => Promise<void>;
+  onSessionExpired: () => void;
 };
 
 type EditScheduleForm = {
@@ -123,6 +125,7 @@ export default function AppointmentCalendar({
   appointments,
   onError,
   onRefresh,
+  onSessionExpired,
 }: AppointmentCalendarProps) {
   const [editingAppointment, setEditingAppointment] =
     useState<AppointmentRecord | null>(null);
@@ -177,6 +180,11 @@ export default function AppointmentCalendar({
       data: { session },
       error,
     } = await supabase.auth.getSession();
+
+    if (error && (await recoverFromInvalidRefreshToken(error))) {
+      onSessionExpired();
+      throw new Error("Your session has expired. Please sign in again.");
+    }
 
     if (error || !session) {
       throw new Error(error?.message ?? "Admin session required.");

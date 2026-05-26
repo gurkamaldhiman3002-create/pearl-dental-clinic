@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { type ChangeEvent, type FormEvent, useState } from "react";
 import ServiceIcon from "@/app/components/home/ServiceIcon";
 import {
@@ -21,6 +22,7 @@ import {
   indianMobilePattern,
   normalizeIndianPhone,
 } from "@/app/lib/indianPhone";
+import { recoverFromInvalidRefreshToken } from "@/app/lib/authRecovery";
 import { supabase } from "@/app/lib/supabase";
 import { submitAppointmentRequest } from "@/app/services/appointmentApi";
 import type { BookingForm } from "@/app/types/appointments";
@@ -36,6 +38,7 @@ const initialBookingForm: BookingForm = {
 };
 
 export default function Home() {
+  const router = useRouter();
   const [bookingForm, setBookingForm] =
     useState<BookingForm>(initialBookingForm);
   const [submittedBooking, setSubmittedBooking] = useState<BookingForm | null>(
@@ -87,7 +90,17 @@ export default function Home() {
 
     const {
       data: { session },
+      error: sessionError,
     } = await supabase.auth.getSession();
+
+    if (
+      sessionError &&
+      (await recoverFromInvalidRefreshToken(sessionError))
+    ) {
+      setIsSubmittingBooking(false);
+      router.replace("/patient/login");
+      return;
+    }
 
     const appointment = {
       full_name: bookingForm.fullName,
@@ -141,7 +154,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#dbc59b] bg-[#fffdf9]/85 px-4 py-2 text-sm font-semibold text-[#23575a] shadow-sm backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-[#ba9250]" />
-              Sarabha Nagar, Patiala
+              Leela Bhawan, Patiala
             </p>
             <h1 className="max-w-xl text-5xl leading-[1.06] text-[#183f41] sm:text-6xl lg:text-7xl">
               Come in, ask your questions, and let us care for your smile.
@@ -777,6 +790,14 @@ export default function Home() {
                 title="Pearl Dental Clinic location map"
               />
             </div>
+            <a
+              className="mt-4 inline-flex text-sm font-semibold text-[#e5cb94] transition hover:text-white"
+              href={clinicInformation.mapHref}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Open in Google Maps
+            </a>
           </div>
         </div>
       </section>

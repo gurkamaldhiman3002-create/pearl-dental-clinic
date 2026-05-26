@@ -32,7 +32,8 @@ const fromEmail =
 const clinicSignature = `${clinicInformation.name}
 ${clinicInformation.addressLines.join("\n")}
 ${clinicInformation.phoneDisplay}
-${clinicInformation.email}`;
+${clinicInformation.email}
+Google Maps: ${clinicInformation.mapHref}`;
 
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
@@ -77,7 +78,9 @@ Preferred date: ${formatDate(details.preferredDate)}
 Preferred time (${clinicInformation.timeZoneLabel}): ${formatTime(details.preferredTime)}
 Notes: ${details.notes?.trim() ? details.notes : "Not provided"}
 
-Please review this request in the admin dashboard.`,
+Please review this request in the admin dashboard.
+
+${clinicSignature}`,
   });
 }
 

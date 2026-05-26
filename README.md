@@ -55,10 +55,10 @@ Monday – Saturday
 4:00 PM – 6:30 PM
 
 ### Location
-H. no. 155B, Pearl Dental Clinic,  
-155, Sarabha Nagar Lane no. 1,  
-St. 9B, Opp. Patiala,  
-Punjab 147001, India
+Pearl Dental Clinic<br>
+Shop Number -1, Shagun Complex,<br>
+Behind Royal Property, Main Bhadson Road,<br>
+Leela Bhawan, Patiala-147001, Punjab
 
 ### Contact
 Phone: +91 80541 86836  

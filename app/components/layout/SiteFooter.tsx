@@ -120,6 +120,9 @@ export default function SiteFooter() {
           </p>
           <div className="mt-5 space-y-3 text-sm leading-6 text-[#d6d1c6]">
             <div>
+              <p className="font-semibold text-white">
+                {clinicInformation.name}
+              </p>
               {clinicInformation.addressLines.map((line) => (
                 <p key={line}>{line}</p>
               ))}
@@ -141,6 +144,14 @@ export default function SiteFooter() {
               className="block text-[#dfc58c] transition hover:text-white"
             >
               {clinicInformation.email}
+            </a>
+            <a
+              className="block text-[#dfc58c] transition hover:text-white"
+              href={clinicInformation.mapHref}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Open in Google Maps
             </a>
           </div>
         </div>
