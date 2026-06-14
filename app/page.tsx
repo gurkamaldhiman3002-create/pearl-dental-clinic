@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { type ChangeEvent, type FormEvent, useState } from "react";
+import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
+import RatingStars from "@/app/components/feedback/RatingStars";
 import ServiceIcon from "@/app/components/home/ServiceIcon";
 import {
   clinicHours,
@@ -25,7 +26,9 @@ import {
 import { recoverFromInvalidRefreshToken } from "@/app/lib/authRecovery";
 import { supabase } from "@/app/lib/supabase";
 import { submitAppointmentRequest } from "@/app/services/appointmentApi";
+import { fetchApprovedFeedback } from "@/app/services/feedbackApi";
 import type { BookingForm } from "@/app/types/appointments";
+import type { ApprovedPatientFeedback } from "@/app/types/feedback";
 
 const initialBookingForm: BookingForm = {
   fullName: "",
@@ -37,18 +40,69 @@ const initialBookingForm: BookingForm = {
   notes: "",
 };
 
+function getShortFeedback(feedback: string) {
+  const trimmedFeedback = feedback.trim();
+
+  if (trimmedFeedback.length <= 150) {
+    return trimmedFeedback;
+  }
+
+  return `${trimmedFeedback.slice(0, 147).trim()}...`;
+}
+
 export default function Home() {
   const router = useRouter();
   const [bookingForm, setBookingForm] =
     useState<BookingForm>(initialBookingForm);
+  const [approvedFeedback, setApprovedFeedback] = useState<
+    ApprovedPatientFeedback[]
+  >([]);
   const [submittedBooking, setSubmittedBooking] = useState<BookingForm | null>(
     null,
   );
   const [bookingError, setBookingError] = useState<string | null>(null);
+  const [feedbackPreviewError, setFeedbackPreviewError] = useState<
+    string | null
+  >(null);
+  const [isLoadingFeedback, setIsLoadingFeedback] = useState(true);
   const [phoneValidationMessage, setPhoneValidationMessage] = useState<
     string | null
   >(null);
   const [isSubmittingBooking, setIsSubmittingBooking] = useState(false);
+
+  useEffect(() => {
+    let isActive = true;
+
+    async function loadApprovedFeedback() {
+      try {
+        const feedback = await fetchApprovedFeedback();
+
+        if (!isActive) {
+          return;
+        }
+
+        setApprovedFeedback(feedback);
+      } catch {
+        if (!isActive) {
+          return;
+        }
+
+        setFeedbackPreviewError(
+          "We are gathering patient feedback for this page. Please check back soon.",
+        );
+      } finally {
+        if (isActive) {
+          setIsLoadingFeedback(false);
+        }
+      }
+    }
+
+    void loadApprovedFeedback();
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
 
   const handleBookingChange = (
     event: ChangeEvent<
@@ -460,6 +514,67 @@ export default function Home() {
               </figure>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[#e8dcc8] bg-[#f8f3ea] px-6 py-16 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+                After the visit
+              </p>
+              <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+                Kind words from our patients.
+              </h2>
+            </div>
+            <Link
+              href="/feedback"
+              className="inline-flex w-fit rounded-full border border-[#dbc59b] bg-[#fffdf9] px-6 py-3 text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
+            >
+              Tell us about your visit
+            </Link>
+          </div>
+
+          {isLoadingFeedback ? (
+            <div className="mt-10 rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-7 text-slate-600 shadow-sm shadow-[#183f41]/5">
+              Loading recent patient feedback...
+            </div>
+          ) : approvedFeedback.length > 0 ? (
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {approvedFeedback.map((feedback) => (
+                <article
+                  key={feedback.id}
+                  className="group flex h-full flex-col rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-7 shadow-sm shadow-[#183f41]/5 transition duration-300 hover:-translate-y-1 hover:border-[#dcc495] hover:shadow-xl hover:shadow-[#183f41]/[0.07] md:p-8"
+                >
+                  <div className="text-lg leading-none">
+                    <RatingStars rating={feedback.rating} />
+                  </div>
+                  <p className="mt-6 inline-flex w-fit rounded-full border border-[#eadfcf] bg-[#f5efe4] px-3.5 py-1.5 text-xs font-semibold text-[#86632f]">
+                    {feedback.treatment}
+                  </p>
+                  <blockquote className="mt-5 grow text-[15.5px] leading-8 text-slate-700">
+                    &ldquo;{getShortFeedback(feedback.feedback)}&rdquo;
+                  </blockquote>
+                  <footer className="mt-7 border-t border-[#eee2cf] pt-5">
+                    <p className="font-semibold text-[#183f41]">
+                      {feedback.name}
+                    </p>
+                  </footer>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10 rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 shadow-sm shadow-[#183f41]/5">
+              <h3 className="text-3xl text-[#183f41]">
+                Patient feedback will appear here soon.
+              </h3>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+                {feedbackPreviewError ??
+                  "We are grateful for every family that trusts the clinic. Once reviewed feedback is approved, a few kind notes will be shared here for new patients to read."}
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

@@ -15,6 +15,7 @@ const navLinks: NavigationLink[] = [
   { href: "/#services", label: "Services" },
   { href: "/#booking", label: "Book Appointment" },
   { href: "/#contact", label: "Contact" },
+  { href: "/feedback", label: "Feedback" },
 ];
 
 const accountLinks: NavigationLink[] = [

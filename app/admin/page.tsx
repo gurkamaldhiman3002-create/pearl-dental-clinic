@@ -10,6 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 import AdminAnalytics from "@/app/components/admin/AdminAnalytics";
 import AppointmentCalendar from "@/app/components/admin/AppointmentCalendar";
+import FeedbackManagement from "@/app/components/admin/FeedbackManagement";
 import AppointmentStatusBadge from "@/app/components/appointments/AppointmentStatusBadge";
 import Modal from "@/app/components/ui/Modal";
 import {
@@ -26,7 +27,12 @@ import {
   suggestAppointmentTime,
   updateAppointmentStatus as requestAppointmentStatusUpdate,
 } from "@/app/services/appointmentApi";
+import {
+  fetchAdminFeedback,
+  updateFeedbackApproval,
+} from "@/app/services/feedbackApi";
 import type { AppointmentRecord as Appointment } from "@/app/types/appointments";
+import type { AdminPatientFeedback } from "@/app/types/feedback";
 
 type SuggestionForm = {
   message: string;
@@ -43,10 +49,17 @@ const initialSuggestionForm: SuggestionForm = {
 export default function AdminPage() {
   const router = useRouter();
   const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [feedbackEntries, setFeedbackEntries] = useState<
+    AdminPatientFeedback[]
+  >([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingFeedback, setIsLoadingFeedback] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [updatingAppointmentId, setUpdatingAppointmentId] = useState<
     Appointment["id"] | null
+  >(null);
+  const [updatingFeedbackId, setUpdatingFeedbackId] = useState<
+    AdminPatientFeedback["id"] | null
   >(null);
   const [suggestingAppointment, setSuggestingAppointment] =
     useState<Appointment | null>(null);
@@ -111,6 +124,62 @@ export default function AdminPage() {
     [queryAppointments, router],
   );
 
+  const fetchFeedbackEntries = useCallback(
+    async ({ showLoading = true }: { showLoading?: boolean } = {}) => {
+      if (showLoading) {
+        setIsLoadingFeedback(true);
+      }
+
+      const {
+        data: { session },
+        error: sessionError,
+      } = await supabase.auth.getSession();
+
+      if (sessionError) {
+        if (await recoverFromInvalidRefreshToken(sessionError)) {
+          setFeedbackEntries([]);
+          setIsLoadingFeedback(false);
+          router.replace("/admin/login");
+          return;
+        }
+
+        setErrorMessage(sessionError.message);
+        setFeedbackEntries([]);
+        setIsLoadingFeedback(false);
+        return;
+      }
+
+      if (!session) {
+        setIsLoadingFeedback(false);
+        router.replace("/admin/login");
+        return;
+      }
+
+      try {
+        const feedback = await fetchAdminFeedback(session.access_token);
+        setFeedbackEntries(feedback);
+      } catch (error) {
+        setErrorMessage(
+          getErrorMessage(error, "Unable to load patient feedback."),
+        );
+        setFeedbackEntries([]);
+      }
+
+      setIsLoadingFeedback(false);
+    },
+    [router],
+  );
+
+  const fetchDashboardData = useCallback(
+    async ({ showLoading = true }: { showLoading?: boolean } = {}) => {
+      setErrorMessage(null);
+
+      await fetchAppointments({ showLoading });
+      await fetchFeedbackEntries({ showLoading });
+    },
+    [fetchAppointments, fetchFeedbackEntries],
+  );
+
   useEffect(() => {
     let isActive = true;
 
@@ -127,7 +196,9 @@ export default function AdminPage() {
       }
 
       if (event === "INITIAL_SESSION" || event === "SIGNED_IN") {
-        void fetchAppointments({ showLoading: event === "INITIAL_SESSION" });
+        void fetchDashboardData({
+          showLoading: event === "INITIAL_SESSION",
+        });
       }
     });
 
@@ -135,7 +206,7 @@ export default function AdminPage() {
       isActive = false;
       subscription.unsubscribe();
     };
-  }, [fetchAppointments, router]);
+  }, [fetchDashboardData, router]);
 
   const handleLogout = async () => {
     setErrorMessage(null);
@@ -276,6 +347,55 @@ export default function AdminPage() {
     setNoticeMessage("Suggested appointment time emailed to the patient.");
   };
 
+  const handleFeedbackApproval = async (
+    feedbackId: AdminPatientFeedback["id"],
+    isApproved: boolean,
+  ) => {
+    setUpdatingFeedbackId(feedbackId);
+    setErrorMessage(null);
+    setNoticeMessage(null);
+
+    const {
+      data: { session },
+      error: sessionError,
+    } = await supabase.auth.getSession();
+
+    if (
+      sessionError &&
+      (await recoverFromInvalidRefreshToken(sessionError))
+    ) {
+      setUpdatingFeedbackId(null);
+      router.replace("/admin/login");
+      return;
+    }
+
+    if (sessionError || !session) {
+      setErrorMessage(sessionError?.message ?? "Admin session required.");
+      setUpdatingFeedbackId(null);
+      return;
+    }
+
+    try {
+      await updateFeedbackApproval(
+        feedbackId,
+        isApproved,
+        session.access_token,
+      );
+      await fetchFeedbackEntries({ showLoading: false });
+      setNoticeMessage(
+        isApproved
+          ? "Feedback approved for the homepage."
+          : "Feedback hidden from the homepage.",
+      );
+    } catch (error) {
+      setErrorMessage(
+        getErrorMessage(error, "Unable to update feedback visibility."),
+      );
+    }
+
+    setUpdatingFeedbackId(null);
+  };
+
   return (
     <main className="pearl-editorial pearl-portal min-h-screen text-[#303937]">
       <section className="border-b border-[#eadfcf] bg-[#fffdf9]/90 px-6 py-9 lg:px-8">
@@ -294,7 +414,7 @@ export default function AdminPage() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
-              onClick={() => void fetchAppointments()}
+              onClick={() => void fetchDashboardData()}
               className="rounded-full border border-[#dbc59b] bg-[#fffdf9] px-5 py-2.5 text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
             >
               Refresh List
@@ -334,6 +454,13 @@ export default function AdminPage() {
               onSessionExpired={() => router.replace("/admin/login")}
             />
           ) : null}
+
+          <FeedbackManagement
+            feedbackEntries={feedbackEntries}
+            isLoading={isLoadingFeedback}
+            onToggleApproval={handleFeedbackApproval}
+            updatingFeedbackId={updatingFeedbackId}
+          />
 
           {isLoading ? (
             <div className="rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 text-slate-600 shadow-lg shadow-[#183f41]/[0.05]">

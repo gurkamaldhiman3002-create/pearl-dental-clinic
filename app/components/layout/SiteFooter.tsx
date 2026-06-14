@@ -12,6 +12,7 @@ const quickLinks: FooterLink[] = [
   { href: "/#services", label: "Services" },
   { href: "/#booking", label: "Book Appointment" },
   { href: "/#contact", label: "Contact" },
+  { href: "/feedback", label: "Share Feedback" },
 ];
 
 const serviceLinks = [
