@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   description:
     "Pearl Dental Clinic at Shagun Complex, Main Bhadson Road, Leela Bhawan, Patiala. Family dental care with Dr. Sukhpreet Virdy, B.D.S.",
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   openGraph: {
     description:
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
       {
         alt: "Pearl Dental Clinic in Patiala",
         height: 630,
-        url: "/images/clinic-front.jpeg",
+        url: absoluteUrl("/images/clinic-front.jpeg"),
         width: 1200,
       },
     ],
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     siteName: clinicInformation.name,
     title: `${clinicInformation.name} | ${clinicInformation.slogan}`,
     type: "website",
-    url: "/",
+    url: siteUrl,
   },
 };
 
