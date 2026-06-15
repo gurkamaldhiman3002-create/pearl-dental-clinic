@@ -41,7 +41,7 @@ export default function SiteFooter() {
                 alt="Pearl Dental Clinic logo"
                 className="h-full w-full object-contain"
                 height={34}
-                src="/images/logo.png.jpeg"
+                src="/images/logo.png"
                 width={41}
               />
             </span>

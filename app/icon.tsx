@@ -11,7 +11,7 @@ export const contentType = "image/png";
 
 export default async function Icon() {
   const logoData = await readFile(
-    join(process.cwd(), "public", "images", "logo.png.jpeg"),
+    join(process.cwd(), "public", "images", "logo.png"),
     "base64",
   );
 
@@ -29,7 +29,7 @@ export default async function Icon() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt=""
-          src={`data:image/jpeg;base64,${logoData}`}
+          src={`data:image/png;base64,${logoData}`}
           style={{
             height: "100%",
             objectFit: "cover",

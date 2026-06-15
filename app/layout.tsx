@@ -29,18 +29,20 @@ const pearlScript = Caveat({
   weight: ["500", "600"],
 });
 
+const logoUrl = absoluteUrl("/images/logo.png");
+
 const clinicStructuredData = {
   "@context": "https://schema.org",
   "@id": absoluteUrl("/#pearl-dental-clinic"),
-  "@type": "Dentist",
+  "@type": ["Dentist", "LocalBusiness"],
   address: {
     "@type": "PostalAddress",
     ...clinicInformation.address,
   },
   email: clinicInformation.email,
   hasMap: clinicInformation.mapHref,
-  image: absoluteUrl("/images/logo.png.jpeg"),
-  logo: absoluteUrl("/images/logo.png.jpeg"),
+  image: logoUrl,
+  logo: logoUrl,
   medicalSpecialty: "Dentistry",
   name: clinicInformation.name,
   openingHoursSpecification: [
@@ -84,15 +86,42 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  icons: {
+    apple: [
+      {
+        sizes: "180x180",
+        type: "image/png",
+        url: "/apple-icon",
+      },
+    ],
+    icon: [
+      {
+        sizes: "64x64",
+        type: "image/png",
+        url: "/icon",
+      },
+      {
+        sizes: "356x292",
+        type: "image/png",
+        url: "/images/logo.png",
+      },
+    ],
+    shortcut: [
+      {
+        type: "image/png",
+        url: "/icon",
+      },
+    ],
+  },
   openGraph: {
     description:
       "Warm family dental care in Patiala with Dr. Sukhpreet Virdy, B.D.S.",
     images: [
       {
-        alt: "Pearl Dental Clinic in Patiala",
-        height: 630,
-        url: absoluteUrl("/images/clinic-front.jpeg"),
-        width: 1200,
+        alt: "Pearl Dental Clinic logo",
+        height: 292,
+        url: logoUrl,
+        width: 356,
       },
     ],
     locale: "en_IN",
@@ -100,6 +129,18 @@ export const metadata: Metadata = {
     title: `${clinicInformation.name} | ${clinicInformation.slogan}`,
     type: "website",
     url: siteUrl,
+  },
+  twitter: {
+    card: "summary",
+    description:
+      "Warm family dental care in Patiala with Dr. Sukhpreet Virdy, B.D.S.",
+    images: [
+      {
+        alt: "Pearl Dental Clinic logo",
+        url: logoUrl,
+      },
+    ],
+    title: `${clinicInformation.name} | ${clinicInformation.slogan}`,
   },
 };
 
