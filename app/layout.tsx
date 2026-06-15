@@ -4,6 +4,7 @@ import Chatbot from "@/app/components/chat/Chatbot";
 import SiteFooter from "@/app/components/layout/SiteFooter";
 import SiteHeader from "@/app/components/layout/SiteHeader";
 import { clinicInformation } from "@/app/lib/clinicContent";
+import { absoluteUrl, siteUrl } from "@/app/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ const pearlScript = Caveat({
 
 const clinicStructuredData = {
   "@context": "https://schema.org",
+  "@id": absoluteUrl("/#pearl-dental-clinic"),
   "@type": "Dentist",
   address: {
     "@type": "PostalAddress",
@@ -37,7 +39,8 @@ const clinicStructuredData = {
   },
   email: clinicInformation.email,
   hasMap: clinicInformation.mapHref,
-  image: "/images/logo.png.jpeg",
+  image: absoluteUrl("/images/logo.png.jpeg"),
+  logo: absoluteUrl("/images/logo.png.jpeg"),
   medicalSpecialty: "Dentistry",
   name: clinicInformation.name,
   openingHoursSpecification: [
@@ -70,12 +73,34 @@ const clinicStructuredData = {
   ],
   slogan: clinicInformation.slogan,
   telephone: clinicInformation.phoneDisplay,
+  url: siteUrl,
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: `${clinicInformation.name} | ${clinicInformation.slogan}`,
   description:
     "Pearl Dental Clinic at Shagun Complex, Main Bhadson Road, Leela Bhawan, Patiala. Family dental care with Dr. Sukhpreet Virdy, B.D.S.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    description:
+      "Warm family dental care in Patiala with Dr. Sukhpreet Virdy, B.D.S.",
+    images: [
+      {
+        alt: "Pearl Dental Clinic in Patiala",
+        height: 630,
+        url: "/images/clinic-front.jpeg",
+        width: 1200,
+      },
+    ],
+    locale: "en_IN",
+    siteName: clinicInformation.name,
+    title: `${clinicInformation.name} | ${clinicInformation.slogan}`,
+    type: "website",
+    url: "/",
+  },
 };
 
 export default function RootLayout({
