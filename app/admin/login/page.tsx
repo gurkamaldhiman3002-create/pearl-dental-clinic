@@ -6,7 +6,7 @@ export default function AdminLoginPage() {
       checkingMessage="Checking admin session..."
       description="Sign in to review appointment requests and manage the clinic diary."
       destination="/admin"
-      emailPlaceholder="pearldentalclinic.india@gmail.com"
+      emailPlaceholder="Enter admin email"
       title="Admin Login"
     />
   );
