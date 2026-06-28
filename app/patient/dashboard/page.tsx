@@ -105,32 +105,35 @@ export default function PatientDashboardPage() {
   };
 
   return (
-    <main className="pearl-editorial pearl-portal min-h-screen text-[#303937]">
-      <section className="border-b border-[#eadfcf] bg-[#fffdf9]/90 px-6 py-9 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <main className="pearl-editorial pearl-portal min-h-screen text-[#24302F]">
+      <section className="pearl-dashboard-hero relative overflow-hidden border-b border-[rgba(201,168,106,0.22)] px-6 py-12 lg:px-8 lg:py-14">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-2 text-sm font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker mb-2">
               Pearl Dental Clinic
             </p>
-            <h1 className="text-4xl text-[#183f41] sm:text-5xl">
-              Patient Dashboard
+            <h1 className="pearl-section-title text-[#173D3F]">
+              Your Visits
             </h1>
-            <p className="mt-3 max-w-2xl text-slate-600">
-              Welcome, {patientName}. Review your appointment history and
-              current request status.
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+              Welcome, {patientName}. Your appointment requests, confirmed
+              visits, and clinic updates are kept together here.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               href="/#booking"
-              className="rounded-full border border-[#dbc59b] bg-[#fffdf9] px-5 py-2.5 text-center text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
+              className="pearl-cta-secondary text-sm"
             >
               Book Appointment
+            </Link>
+            <Link href="/feedback" className="pearl-cta-secondary text-sm">
+              Leave Feedback
             </Link>
             <button
               type="button"
               onClick={() => void handleLogout()}
-              className="rounded-full bg-[#205356] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183f41]"
+              className="pearl-cta-primary text-sm"
             >
               Logout
             </button>
@@ -138,33 +141,36 @@ export default function PatientDashboardPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 lg:px-8">
+      <section className="px-6 py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {errorMessage ? (
-            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800 shadow-sm">
+            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800 shadow-sm shadow-red-900/5">
               {errorMessage}
             </div>
           ) : null}
 
           {isLoading ? (
-            <div className="rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 text-slate-600 shadow-lg shadow-[#183f41]/[0.05]">
+            <div className="pearl-dashboard-card p-8 text-slate-600">
               Loading appointment history...
             </div>
           ) : appointments.length === 0 ? (
-            <div className="rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 shadow-lg shadow-[#183f41]/[0.05]">
+            <div className="pearl-dashboard-card p-8">
               <h2 className="text-3xl text-[#183f41]">
                 No appointments yet
               </h2>
-              <p className="mt-2 text-slate-600">
+              <p className="mt-3 max-w-2xl text-slate-600">
                 Book an appointment while signed in and it will appear here.
               </p>
+              <Link href="/#booking" className="pearl-cta-primary mt-6 text-sm">
+                Book Appointment
+              </Link>
             </div>
           ) : (
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {appointments.map((appointment) => (
                 <article
                   key={appointment.id}
-                  className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-6 shadow-lg shadow-[#183f41]/[0.05] transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#183f41]/[0.08]"
+                  className="pearl-dashboard-card pearl-lift p-6"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>

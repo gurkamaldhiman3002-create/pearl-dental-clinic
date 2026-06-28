@@ -9,7 +9,9 @@ type FooterLink = {
 
 const quickLinks: FooterLink[] = [
   { href: "/", label: "Home" },
-  { href: "/#services", label: "Services" },
+  { href: "/#services", label: "Treatments" },
+  { href: "/#about", label: "About" },
+  { href: "/#reviews", label: "Reviews" },
   { href: "/#booking", label: "Book Appointment" },
   { href: "/#contact", label: "Contact" },
   { href: "/feedback", label: "Share Feedback" },
@@ -32,11 +34,11 @@ const accountLinks: FooterLink[] = [
 
 export default function SiteFooter() {
   return (
-    <footer className="pearl-footer border-t border-[#315e5e] bg-[#183f41] px-6 py-12 text-[#e7dfd2] lg:px-8">
+    <footer className="pearl-footer border-t border-[#315e5e] bg-[#173D3F] px-6 py-14 text-[#E7DFD2] lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 xl:grid-cols-[1.3fr_0.8fr_0.95fr_1fr_1.1fr]">
         <div>
           <Link href="/" className="flex items-center gap-3 text-white">
-            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white/10 p-1 shadow-sm">
+            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-white/10 p-1 shadow-sm">
               <Image
                 alt="Pearl Dental Clinic logo"
                 className="h-full w-full object-contain"
@@ -49,12 +51,12 @@ export default function SiteFooter() {
               <span className="pearl-serif block text-2xl leading-5">
                 Pearl Dental
               </span>
-              <span className="mt-1 block text-xs font-semibold text-[#d8bb7d]">
+              <span className="mt-1 block text-xs font-semibold text-[#C9A86A]">
                 Clinic
               </span>
             </span>
           </Link>
-          <p className="pearl-handwritten mt-5 text-3xl text-[#dfc58c]">
+          <p className="pearl-handwritten mt-5 text-3xl text-[#C9A86A]">
             {clinicInformation.slogan}
           </p>
           <p className="mt-3 max-w-sm text-sm leading-7 text-[#d6d1c6]">
@@ -65,7 +67,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#d8bb7d]">
+          <p className="text-sm font-semibold text-[#C9A86A]">
             Quick Links
           </p>
           <nav className="mt-5 grid gap-3 text-sm">
@@ -82,8 +84,8 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#d8bb7d]">
-            Services
+          <p className="text-sm font-semibold text-[#C9A86A]">
+            Treatments
           </p>
           <div className="mt-5 grid gap-3 text-sm">
             {serviceLinks.map((service) => (
@@ -99,7 +101,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#d8bb7d]">
+          <p className="text-sm font-semibold text-[#C9A86A]">
             Patient &amp; Admin
           </p>
           <nav className="mt-5 grid gap-3 text-sm">
@@ -116,7 +118,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#d8bb7d]">
+          <p className="text-sm font-semibold text-[#C9A86A]">
             Visit &amp; Contact
           </p>
           <div className="mt-5 space-y-3 text-sm leading-6 text-[#d6d1c6]">
@@ -136,18 +138,18 @@ export default function SiteFooter() {
             <p>{clinicInformation.timeZoneLabel} (India Standard Time)</p>
             <a
               href={clinicInformation.phoneHref}
-              className="block font-semibold text-white transition hover:text-[#dfc58c]"
+              className="block font-semibold text-white transition hover:text-[#C9A86A]"
             >
               {clinicInformation.phoneDisplay}
             </a>
             <a
               href={clinicInformation.emailHref}
-              className="block text-[#dfc58c] transition hover:text-white"
+              className="block text-[#C9A86A] transition hover:text-white"
             >
               {clinicInformation.email}
             </a>
             <a
-              className="block text-[#dfc58c] transition hover:text-white"
+              className="block text-[#C9A86A] transition hover:text-white"
               href={clinicInformation.mapHref}
               rel="noreferrer"
               target="_blank"

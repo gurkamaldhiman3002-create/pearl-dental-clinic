@@ -153,19 +153,19 @@ export const trustBadges: {
 
 export const familyReasons = [
   {
-    title: "We take questions seriously",
+    title: "We explain before we begin",
     description:
-      "Before starting anything, Dr. Virdy explains what is needed in simple language and gives you time to ask.",
+      "Before starting anything, Dr. Virdy explains what she sees, why it matters, and what the next step would involve.",
   },
   {
-    title: "We try to reply the same day",
+    title: "We try to respond the same day",
     description:
       "If you call with a concern, we make an effort to get back to you the same day and help arrange a visit.",
   },
   {
-    title: "Families often send families",
+    title: "Many patients come through family recommendations",
     description:
-      "Many people find Pearl Dental Clinic through a relative or neighbour who already feels comfortable here.",
+      "Many people find Pearl Dental Clinic through a relative, neighbour, or friend who already feels comfortable here.",
   },
 ];
 
@@ -207,7 +207,7 @@ export const frequentlyAskedQuestions = [
       "Yes. We welcome children and families, and we try to make early dental visits gentle, simple, and unhurried.",
   },
   {
-    question: "How can I request an appointment?",
+    question: "How do appointments work?",
     answer:
       "Fill in the form on this page or message us on WhatsApp with a preferred time. We will check availability and get back to you before confirming your visit.",
   },

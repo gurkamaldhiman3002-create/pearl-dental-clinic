@@ -154,7 +154,7 @@ export default function AuthLoginPage({
   return (
     <AuthPanelLayout description={description} title={title}>
       {isCheckingSession ? (
-        <div className="rounded-2xl border border-[#eadfcf] bg-[#f8f3ea] p-5 text-slate-600">
+        <div className="rounded-2xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] p-5 text-[#5D6E6D]">
           {checkingMessage}
         </div>
       ) : isResetMode ? (
@@ -178,7 +178,7 @@ export default function AuthLoginPage({
               name="email"
               value={resetForm.email}
               onChange={handleResetChange}
-              className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+              className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
               placeholder="Enter your email"
               type="email"
             />
@@ -187,7 +187,7 @@ export default function AuthLoginPage({
           <button
             type="submit"
             disabled={isSendingReset}
-            className="rounded-full bg-[#205356] px-7 py-3 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
+            className="pearl-cta-primary text-base disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSendingReset ? "Sending Reset Link" : "Send Reset Link"}
           </button>
@@ -195,7 +195,7 @@ export default function AuthLoginPage({
           <button
             type="button"
             onClick={closeResetForm}
-            className="text-left text-sm font-semibold text-[#23575a] transition hover:text-[#86632f]"
+            className="text-left text-sm font-semibold text-[#173D3F] transition hover:text-[#C9A86A]"
           >
             Back to sign in
           </button>
@@ -215,7 +215,7 @@ export default function AuthLoginPage({
               name="email"
               value={loginForm.email}
               onChange={handleLoginChange}
-              className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+              className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
               placeholder={emailPlaceholder}
               type="email"
             />
@@ -228,7 +228,7 @@ export default function AuthLoginPage({
               name="password"
               value={loginForm.password}
               onChange={handleLoginChange}
-              className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+              className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
               placeholder="Enter password"
               type="password"
             />
@@ -237,7 +237,7 @@ export default function AuthLoginPage({
           <button
             type="button"
             onClick={openResetForm}
-            className="w-fit text-sm font-semibold text-[#23575a] transition hover:text-[#86632f]"
+            className="w-fit text-sm font-semibold text-[#173D3F] transition hover:text-[#C9A86A]"
           >
             Forgot password?
           </button>
@@ -245,7 +245,7 @@ export default function AuthLoginPage({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-full bg-[#205356] px-7 py-3 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
+            className="pearl-cta-primary text-base disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Signing In" : "Sign In"}
           </button>

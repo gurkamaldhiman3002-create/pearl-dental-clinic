@@ -24,6 +24,16 @@ export default function Chatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
 
+  useEffect(() => {
+    const openChat = () => setIsOpen(true);
+
+    window.addEventListener("pearl-chatbot:open", openChat);
+
+    return () => {
+      window.removeEventListener("pearl-chatbot:open", openChat);
+    };
+  }, []);
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -76,7 +86,7 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="pearl-chatbot fixed bottom-5 right-5 z-50">
+    <div id="clinic-assistant" className="pearl-chatbot fixed bottom-5 right-5 z-50">
       {isOpen ? (
         <section className="flex h-[34rem] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden rounded-[1.5rem] border border-[#eadfcf] bg-[#fffdf9] shadow-2xl shadow-[#183f41]/20">
           <header className="flex items-center justify-between bg-[#183f41] px-5 py-4 text-white">

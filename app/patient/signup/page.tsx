@@ -95,7 +95,7 @@ export default function PatientSignupPage() {
                 name="name"
                 value={signupForm.name}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+                className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
                 placeholder="Jane Smith"
                 type="text"
               />
@@ -108,7 +108,7 @@ export default function PatientSignupPage() {
                 name="email"
                 value={signupForm.email}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+                className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
                 placeholder="jane@example.com"
                 type="email"
               />
@@ -122,7 +122,7 @@ export default function PatientSignupPage() {
                 name="password"
                 value={signupForm.password}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+                className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
                 placeholder="Create a password"
                 type="password"
               />
@@ -131,7 +131,7 @@ export default function PatientSignupPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-full bg-[#205356] px-7 py-3 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
+              className="pearl-cta-primary text-base disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Creating Account" : "Create Account"}
             </button>
@@ -140,7 +140,7 @@ export default function PatientSignupPage() {
               Already have an account?{" "}
               <Link
                 href="/patient/login"
-                className="font-semibold text-[#23575a] hover:text-[#86632f]"
+                className="font-semibold text-[#173D3F] hover:text-[#C9A86A]"
               >
                 Sign in
               </Link>

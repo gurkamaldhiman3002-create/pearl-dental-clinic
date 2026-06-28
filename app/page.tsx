@@ -40,6 +40,37 @@ const initialBookingForm: BookingForm = {
   notes: "",
 };
 
+const quickAccessCards = [
+  {
+    description: "Send your preferred date and treatment request.",
+    href: "/#booking",
+    icon: "approval",
+    label: "Start here",
+    title: "Book an Appointment",
+  },
+  {
+    description: "See the dental care we offer for families in Patiala.",
+    href: "/#services",
+    icon: "equipment",
+    label: "View care",
+    title: "View Treatments",
+  },
+  {
+    action: "chat",
+    description: "Ask about timings, treatments, or how booking works.",
+    icon: "gentle",
+    label: "Open chat",
+    title: "Talk to Clinic Assistant",
+  },
+  {
+    description: "Share a kind note after your visit.",
+    href: "/feedback",
+    icon: "family",
+    label: "Write review",
+    title: "Leave Feedback",
+  },
+] as const;
+
 function getShortFeedback(feedback: string) {
   const trimmedFeedback = feedback.trim();
 
@@ -184,89 +215,151 @@ export default function Home() {
     }
   };
 
+  const openClinicAssistant = () => {
+    window.dispatchEvent(new Event("pearl-chatbot:open"));
+  };
+
   return (
-    <main className="pearl-editorial overflow-hidden bg-[#fbf8f1] text-[#303937]">
+    <main className="pearl-editorial pearl-page-gradient overflow-hidden text-[#24302F]">
       <section
         id="home"
-        className="group relative isolate overflow-hidden border-b border-[#e7dccb] bg-gradient-to-br from-[#fffdf9] via-[#faf4e9] to-[#e8eee7]"
+        className="relative isolate overflow-hidden border-b border-[rgba(201,168,106,0.22)]"
       >
-        <div className="absolute inset-y-0 right-0 w-full md:w-[48%] lg:w-[46%]">
-          <Image
-            src="/images/clinic-front.jpeg"
-            alt="Exterior entrance of Pearl Dental Clinic"
-            fill
-            priority
-            sizes="(max-width: 767px) 100vw, 48vw"
-            className="object-cover object-center transition duration-1000 ease-out group-hover:scale-[1.025] md:object-contain md:object-right"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#183f41]/25 via-transparent to-[#fffdf9]/15 md:bg-gradient-to-l md:from-transparent md:to-[#faf4e9]/75" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fffdf9] via-[#fffdf9]/95 to-[#fffdf9]/45 md:via-[#fffdf9]/90 md:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f7efe1]/75 via-transparent to-[#fffdf9]/40" />
+        <div className="absolute inset-0 bg-[linear-gradient(125deg,#FFFFFF_0%,#F8F5EF_48%,#F2ECE3_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F8F5EF] to-transparent" />
 
-        <div className="relative mx-auto flex min-h-[38rem] max-w-7xl items-center px-6 py-16 lg:min-h-[43rem] lg:px-8">
-          <div className="max-w-2xl">
-            <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#dbc59b] bg-[#fffdf9]/85 px-4 py-2 text-sm font-semibold text-[#23575a] shadow-sm backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#ba9250]" />
-              Leela Bhawan, Patiala
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-14 sm:py-16 lg:min-h-[40rem] lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8 lg:py-20">
+          <div className="pearl-reveal max-w-xl">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.28)] bg-white/85 px-4 py-2 text-sm font-semibold text-[#173D3F] shadow-sm shadow-black/[0.03] backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[#C9A86A]" />
+              Pearl Dental Clinic, Patiala
             </p>
-            <h1 className="max-w-xl text-5xl leading-[1.06] text-[#183f41] sm:text-6xl lg:text-7xl">
-              Come in, ask your questions, and let us care for your smile.
+            <h1 className="pearl-hero-title max-w-lg text-[#173D3F]">
+              Dental care that feels personal.
             </h1>
-            <p className="mt-7 max-w-lg text-lg leading-8 text-[#5d6865]">
-              I know a dental visit can feel worrying. I take time to listen,
-              explain things clearly, and care for each patient as someone I
-              hope to see for years to come.
+            <p className="mt-6 max-w-lg text-base leading-8 text-[#5D6E6D] sm:text-lg">
+              At Pearl Dental Clinic, we take time to listen, explain clearly,
+              and make every visit feel calm and comfortable.
             </p>
-            <p className="mt-5 text-sm font-semibold text-[#23575a]">
-              Dr. Sukhpreet Virdy, B.D.S. | Pearl Dental Clinic
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 w-fit rounded-[1.75rem] border border-[rgba(201,168,106,0.34)] bg-white/86 px-5 py-4 shadow-[0_20px_60px_rgba(0,0,0,0.06)] backdrop-blur">
+              <p className="pearl-handwritten text-2xl leading-none text-[#173D3F] sm:text-3xl">
+                My care... your smile
+              </p>
+              <p className="mt-2 text-sm font-semibold text-[#5D6E6D]">
+                - Dr. Sukhpreet Virdy, B.D.S.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/#booking"
-                className="inline-flex items-center justify-center rounded-full bg-[#205356] px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#173f41] hover:shadow-xl"
+                className="pearl-cta-primary text-base"
               >
-                Request an Appointment
+                Book Appointment
               </Link>
               <Link
-                href="/patient/dashboard"
-                className="inline-flex items-center justify-center rounded-full border border-[#dbc59b] bg-[#fffdf9]/80 px-7 py-3.5 text-base font-semibold text-[#23575a] backdrop-blur transition hover:border-[#ba9250] hover:bg-[#fffdf9]"
+                href="/#about"
+                className="pearl-cta-secondary text-base"
               >
-                View My Appointments
+                Meet Dr. Virdy
               </Link>
             </div>
-            <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm font-medium text-[#66706c]">
-              <span className="flex items-center gap-2">
-                <span className="text-[#86632f]">+</span> Families welcome
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="text-[#86632f]">+</span> Monday - Saturday
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="text-[#86632f]">+</span> Patiala, Punjab
-              </span>
+            <a
+              href={clinicInformation.phoneHref}
+              className="mt-4 inline-flex text-sm font-semibold text-[#173D3F] underline decoration-[#C9A86A]/50 underline-offset-4 transition hover:text-[#C9A86A]"
+            >
+              Call Clinic: {clinicInformation.phoneDisplay}
+            </a>
+            <dl className="mt-8 grid max-w-lg gap-3 text-sm sm:grid-cols-3">
+              <div className="rounded-[1.5rem] border border-[rgba(201,168,106,0.22)] bg-white/70 p-4 backdrop-blur">
+                <dt className="font-bold text-[#173D3F]">Mon-Sat</dt>
+                <dd className="mt-1 text-[#5D6E6D]">Clinic visits</dd>
+              </div>
+              <div className="rounded-[1.5rem] border border-[rgba(201,168,106,0.22)] bg-white/70 p-4 backdrop-blur">
+                <dt className="font-bold text-[#173D3F]">B.D.S.</dt>
+                <dd className="mt-1 text-[#5D6E6D]">Qualified care</dd>
+              </div>
+              <div className="rounded-[1.5rem] border border-[rgba(201,168,106,0.22)] bg-white/70 p-4 backdrop-blur">
+                <dt className="font-bold text-[#173D3F]">Patiala</dt>
+                <dd className="mt-1 text-[#5D6E6D]">Local clinic</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div className="pearl-reveal relative mx-auto w-full max-w-xl lg:max-w-none">
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-[2.25rem] border border-[rgba(201,168,106,0.26)] bg-[#F2ECE3] shadow-[0_20px_60px_rgba(0,0,0,0.06)] lg:aspect-[5/4]">
+              <Image
+                src="/images/clinic-front.jpeg"
+                alt="Exterior entrance of Pearl Dental Clinic"
+                fill
+                priority
+                sizes="(max-width: 1023px) 100vw, 48vw"
+                className="object-cover object-center transition duration-1000 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#173D3F]/58 via-[#173D3F]/8 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-7">
+                <p className="pearl-serif text-2xl sm:text-3xl">
+                  A calm stop on Main Bhadson Road.
+                </p>
+                <p className="mt-3 max-w-sm text-sm leading-6 text-[#eee6da]">
+                  Pearl Dental Clinic welcomes families from Leela Bhawan,
+                  Sarabha Nagar, and nearby Patiala neighborhoods.
+                </p>
+              </div>
+              <div className="absolute left-6 top-6 h-px w-24 bg-[#C9A86A]/70" />
             </div>
           </div>
-          <div className="absolute bottom-8 right-8 hidden rounded-2xl border border-[#e5d6bd] bg-[#fffdf9]/92 px-7 py-5 shadow-xl shadow-[#183f41]/10 backdrop-blur md:block">
-            <p className="pearl-handwritten text-3xl text-[#23575a]">
-              My care... your smile
-            </p>
-            <p className="mt-1 text-sm font-medium text-[#66706c]">
-              - Dr. Sukhpreet Virdy
-            </p>
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 pb-12 lg:px-8 lg:pb-16">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {quickAccessCards.map((card) => {
+              const cardClassName =
+                "pearl-surface pearl-lift pearl-reveal group flex h-full flex-col rounded-[1.75rem] p-5 text-left sm:p-6";
+              const cardContent = (
+                <>
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F2ECE3] text-[#173D3F] transition group-hover:bg-[#173D3F] group-hover:text-white">
+                      <ServiceIcon type={card.icon} />
+                    </span>
+                    <span className="rounded-full border border-[rgba(201,168,106,0.22)] bg-[#F2ECE3] px-3 py-1 text-xs font-bold text-[#173D3F] transition group-hover:border-[#173D3F]/25 group-hover:bg-[#173D3F] group-hover:text-white">
+                      {card.label}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl text-[#173D3F]">{card.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-[#5D6E6D]">
+                    {card.description}
+                  </p>
+                </>
+              );
+
+              return "href" in card ? (
+                <Link key={card.title} href={card.href} className={cardClassName}>
+                  {cardContent}
+                </Link>
+              ) : (
+                <button
+                  key={card.title}
+                  type="button"
+                  onClick={openClinicAssistant}
+                  className={cardClassName}
+                >
+                  {cardContent}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section aria-label="Patient trust highlights" className="px-6 py-10 lg:px-8">
+      <section aria-label="Patient trust highlights" className="px-6 py-12 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {trustBadges.map((badge) => (
             <article
               key={badge.title}
-              className="group rounded-2xl border border-[#ecdfcc] bg-[#fffdf9] p-5 shadow-sm shadow-[#183f41]/5 transition hover:-translate-y-0.5 hover:border-[#dcc495] hover:shadow-lg hover:shadow-[#183f41]/5"
+              className="pearl-surface-soft pearl-lift pearl-reveal group rounded-3xl p-5"
             >
               <div className="flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f4ebdb] text-[#23575a] transition group-hover:bg-[#205356] group-hover:text-white">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#f4ebdb] text-[#23575a] transition group-hover:bg-[#205356] group-hover:text-white">
                   <ServiceIcon type={badge.icon} />
                 </span>
                 <div>
@@ -281,20 +374,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="px-6 py-14 lg:px-8 lg:py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
-          <div className="group overflow-hidden rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-xl shadow-[#183f41]/5">
+      <section id="about" className="px-6 py-20 lg:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="pearl-surface pearl-lift pearl-reveal group overflow-hidden rounded-[2rem] p-5">
             <div className="relative aspect-[504/449] overflow-hidden rounded-2xl bg-[#f4ebdb]">
               <Image
                 src="/images/dentist-photo.jpeg"
                 alt="Dr. Sukhpreet Virdy at Pearl Dental Clinic"
                 fill
                 sizes="(max-width: 1023px) 100vw, 38vw"
-                className="object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
+                className="object-cover transition duration-700 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#183f41]/35 to-transparent" />
             </div>
-            <div className="mt-5 flex items-start justify-between gap-4 rounded-2xl bg-[#f5efe4] p-4">
+            <div className="mt-5 flex items-start justify-between gap-4 rounded-2xl bg-[#f5efe4] p-5">
               <div>
                 <p className="pearl-serif text-xl text-[#183f41]">
                   {clinicInformation.dentistName}
@@ -309,11 +402,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+          <div className="pearl-reveal">
+            <p className="pearl-kicker mb-3">
               Meet your dentist
             </p>
-            <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+            <h2 className="pearl-section-title text-[#183f41]">
               Hello, I am Dr. Sukhpreet Virdy.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
@@ -327,11 +420,11 @@ export default function Home() {
               your questions, and help you feel comfortable before we decide
               on the next step together.
             </p>
-            <div className="mt-8 flex flex-col gap-5 rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-4 shadow-sm sm:flex-row sm:items-center">
+            <div className="pearl-surface-soft pearl-lift mt-8 flex flex-col gap-5 rounded-3xl p-4 sm:flex-row sm:items-center">
               <figure className="group relative aspect-[1.42/1] w-full shrink-0 overflow-hidden rounded-xl bg-[#f5efe4] sm:w-56">
                 <Image
                   alt={`${clinicInformation.qualification} degree certificate for ${clinicInformation.dentistName}`}
-                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                  className="object-cover transition duration-500 group-hover:scale-[1.02]"
                   fill
                   sizes="(max-width: 639px) 100vw, 224px"
                   src={clinicInformation.degreeImagePath}
@@ -356,15 +449,15 @@ export default function Home() {
 
       <section
         aria-label="Pearl Dental Clinic gallery"
-        className="border-y border-[#e8dcc8] bg-[#f5efe4]/60 px-6 py-16 lg:px-8 lg:py-24"
+        className="border-y border-[#e8dcc8] bg-[#f5efe4]/60 px-6 py-20 lg:px-8 lg:py-28"
       >
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+              <p className="pearl-kicker mb-3">
                 Our clinic
               </p>
-              <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+              <h2 className="pearl-section-title text-[#183f41]">
                 A small clinic, prepared with care.
               </h2>
             </div>
@@ -374,14 +467,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <figure className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.08]">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <figure className="pearl-lift pearl-reveal group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.08]">
               <Image
                 src="/images/reception.jpeg"
                 alt="Reception desk at Pearl Dental Clinic"
                 fill
                 sizes="(max-width: 767px) 100vw, 50vw"
-                className="object-cover object-center transition duration-700 ease-out group-hover:scale-105"
+                className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#183f41]/70 via-[#183f41]/5 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-white">
@@ -391,13 +484,13 @@ export default function Home() {
                 </p>
               </figcaption>
             </figure>
-            <figure className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.08] md:translate-y-8">
+            <figure className="pearl-lift pearl-reveal group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.08] md:translate-y-8">
               <Image
                 src="/images/treatment-room.jpeg"
                 alt="Dental treatment room with modern clinical equipment"
                 fill
                 sizes="(max-width: 767px) 100vw, 50vw"
-                className="object-cover object-center transition duration-700 ease-out group-hover:scale-105"
+                className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#183f41]/70 via-[#183f41]/5 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-white">
@@ -411,14 +504,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="bg-[#fffdf9] px-6 py-16 lg:px-8 lg:py-24">
+      <section id="services" className="bg-[#fffdf9] px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+              <p className="pearl-kicker mb-3">
                 Treatments we offer
               </p>
-              <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+              <h2 className="pearl-section-title text-[#183f41]">
                 Care for everyday visits and the days your tooth cannot wait.
               </h2>
             </div>
@@ -428,20 +521,20 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-11 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <article
                 key={service.title}
-                className="group relative overflow-hidden rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-6 shadow-sm shadow-[#183f41]/[0.04] transition duration-300 hover:-translate-y-1 hover:border-[#dcc495] hover:shadow-xl hover:shadow-[#183f41]/[0.07]"
+                className="pearl-surface pearl-lift pearl-reveal group relative min-h-[17rem] overflow-hidden rounded-[1.75rem] p-7 lg:p-8"
               >
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#d6bc86] via-[#438080] to-[#1e5053] opacity-0 transition duration-300 group-hover:opacity-100" />
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl border border-[#eadabb] bg-[#f5efe4] text-[#23575a] transition duration-300 group-hover:border-[#205356] group-hover:bg-[#205356] group-hover:text-white">
+                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#eadabb] bg-[#f5efe4] text-[#23575a] transition duration-300 group-hover:border-[#205356] group-hover:bg-[#205356] group-hover:text-white">
                   <ServiceIcon type={service.icon} />
                 </div>
-                <h3 className="text-2xl text-[#183f41]">
+                <h3 className="text-2xl leading-tight text-[#183f41]">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
+                <p className="mt-4 text-sm leading-7 text-slate-600">
                   {service.description}
                 </p>
               </article>
@@ -450,21 +543,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-[#e8dcc8] bg-[#f5efe4]/55 px-6 py-16 lg:px-8 lg:py-24">
+      <section className="border-y border-[#e8dcc8] bg-[#f5efe4]/55 px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker mb-3">
               A clinic built on trust
             </p>
-            <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+            <h2 className="pearl-section-title text-[#183f41]">
               Why families keep coming back
             </h2>
           </div>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {familyReasons.map((reason, index) => (
               <article
                 key={reason.title}
-                className="rounded-2xl border border-[#e7d9c4] bg-[#fffdf9] p-7 shadow-sm shadow-[#183f41]/5"
+                className="pearl-surface pearl-lift pearl-reveal rounded-[1.75rem] p-7"
               >
                 <p className="pearl-serif text-4xl text-[#bc9452]">
                   0{index + 1}
@@ -481,21 +574,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-16 lg:px-8 lg:py-24">
+      <section className="px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker mb-3">
               Kind words from nearby families
             </p>
-            <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+            <h2 className="pearl-section-title text-[#183f41]">
               The kind of trust we value most.
             </h2>
           </div>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
               <figure
                 key={testimonial.patient}
-                className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-7 shadow-sm shadow-[#183f41]/5"
+                className="pearl-surface pearl-lift pearl-reveal rounded-[1.75rem] p-7"
               >
                 <span className="pearl-serif block text-6xl leading-none text-[#c1a060]">
                   &ldquo;
@@ -517,20 +610,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-[#e8dcc8] bg-[#f8f3ea] px-6 py-16 lg:px-8 lg:py-24">
+      <section
+        id="reviews"
+        className="border-y border-[rgba(201,168,106,0.22)] bg-[#F2ECE3] px-6 py-20 lg:px-8 lg:py-28"
+      >
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+              <p className="pearl-kicker mb-3">
                 After the visit
               </p>
-              <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+              <h2 className="pearl-section-title text-[#183f41]">
                 Kind words from our patients.
               </h2>
             </div>
             <Link
               href="/feedback"
-              className="inline-flex w-fit rounded-full border border-[#dbc59b] bg-[#fffdf9] px-6 py-3 text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
+              className="pearl-cta-secondary w-fit text-sm"
             >
               Tell us about your visit
             </Link>
@@ -545,7 +641,7 @@ export default function Home() {
               {approvedFeedback.map((feedback) => (
                 <article
                   key={feedback.id}
-                  className="group flex h-full flex-col rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-7 shadow-sm shadow-[#183f41]/5 transition duration-300 hover:-translate-y-1 hover:border-[#dcc495] hover:shadow-xl hover:shadow-[#183f41]/[0.07] md:p-8"
+                  className="pearl-surface pearl-lift pearl-reveal group flex h-full flex-col rounded-[1.75rem] p-7 md:p-8"
                 >
                   <div className="text-lg leading-none">
                     <RatingStars rating={feedback.rating} />
@@ -565,7 +661,7 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="mt-10 rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 shadow-sm shadow-[#183f41]/5">
+            <div className="pearl-surface mt-10 rounded-3xl p-8">
               <h3 className="text-3xl text-[#183f41]">
                 Patient feedback will appear here soon.
               </h3>
@@ -578,13 +674,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="booking" className="bg-[#fffdf9] px-6 py-16 lg:px-8 lg:py-24">
+      <section id="booking" className="bg-[#fffdf9] px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div className="lg:sticky lg:top-28">
-            <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+          <div className="pearl-reveal lg:sticky lg:top-28">
+            <p className="pearl-kicker mb-3">
               Book a visit
             </p>
-            <h2 className="text-4xl text-[#183f41] sm:text-5xl">
+            <h2 className="pearl-section-title text-[#183f41]">
               Tell us when you would like to come in.
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -597,7 +693,7 @@ export default function Home() {
                 (step, index) => (
                   <div
                     key={step}
-                    className="flex items-center gap-4 rounded-2xl border border-[#eadfcf] bg-[#f8f2e8] p-4"
+                    className="pearl-surface-soft flex items-center gap-4 rounded-2xl p-4"
                   >
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#205356] text-sm font-bold text-white">
                       {index + 1}
@@ -629,7 +725,7 @@ export default function Home() {
 
           <form
             onSubmit={handleBookingSubmit}
-            className="grid gap-5 rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-6 shadow-xl shadow-[#183f41]/[0.06] sm:grid-cols-2 md:p-8"
+            className="pearl-surface pearl-reveal grid gap-5 rounded-[2rem] p-6 sm:grid-cols-2 md:p-8"
           >
             <label className="block text-sm font-semibold text-slate-700">
               Full Name
@@ -776,7 +872,7 @@ export default function Home() {
               suppressHydrationWarning
               type="submit"
               disabled={isSubmittingBooking}
-              className="rounded-full bg-blue-700 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800 disabled:cursor-wait disabled:opacity-70 sm:col-span-2"
+              className="pearl-cta-primary text-base disabled:cursor-wait disabled:opacity-70 sm:col-span-2"
             >
               {isSubmittingBooking
                 ? "Sending Request"
@@ -786,10 +882,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-16 lg:px-8 lg:py-20">
+      <section className="px-6 py-20 lg:px-8 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="rounded-3xl bg-[#183f41] p-7 text-white shadow-xl shadow-[#183f41]/15 md:p-8">
-            <p className="text-sm font-semibold uppercase text-[#dfc58c]">
+          <div className="pearl-lift pearl-reveal rounded-[2rem] bg-[#173D3F] p-7 text-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] md:p-8">
+            <p className="text-sm font-semibold uppercase text-[#C9A86A]">
               Clinic hours ({clinicInformation.timeZoneLabel})
             </p>
             <h2 className="mt-3 text-4xl text-white">When you can visit</h2>
@@ -811,17 +907,17 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker mb-3">
               Questions patients often ask
             </p>
-            <h2 className="text-4xl text-[#183f41]">
+            <h2 className="pearl-section-title text-[#183f41]">
               It is all right to feel unsure.
             </h2>
             <div className="mt-7 grid gap-3">
               {frequentlyAskedQuestions.map((item) => (
                 <details
                   key={item.question}
-                  className="group rounded-2xl border border-[#eadfcf] bg-[#fffdf9] px-5 py-4 shadow-sm open:border-[#dcc495] open:shadow-md"
+                  className="group pearl-surface-soft rounded-2xl px-5 py-4 open:border-[#dcc495] open:shadow-md"
                 >
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-blue-950">
                     {item.question}
@@ -839,10 +935,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="bg-[#fffdf9] px-6 py-16 lg:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-3xl border border-[#d8c59e] bg-gradient-to-r from-[#183f41] to-[#23575a] text-white shadow-xl shadow-[#183f41]/15 lg:grid-cols-[1.1fr_0.9fr]">
+      <section id="contact" className="bg-[#fffdf9] px-6 py-20 lg:px-8 lg:py-28">
+        <div className="pearl-reveal mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] border border-[rgba(201,168,106,0.32)] bg-gradient-to-r from-[#173D3F] to-[#204B4D] text-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="p-8 md:p-12">
-            <p className="mb-3 text-sm font-semibold uppercase text-[#dfc58c]">
+            <p className="mb-3 text-sm font-semibold uppercase text-[#C9A86A]">
               Visit or speak with us
             </p>
             <h2 className="text-4xl text-white sm:text-5xl">
@@ -858,7 +954,7 @@ export default function Home() {
                 href={clinicInformation.whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-[#d8bb7d] px-6 py-3.5 font-semibold text-[#183f41] transition hover:bg-[#e3cb98]"
+                className="inline-flex items-center justify-center rounded-full bg-[#C9A86A] px-6 py-3.5 font-semibold text-[#173D3F] transition hover:bg-[#d8bd7e]"
               >
                 WhatsApp the Clinic
               </a>
@@ -871,7 +967,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-white/10 bg-white/5 p-8 md:p-12 lg:border-l lg:border-t-0">
-            <p className="pearl-serif text-3xl text-[#e5cb94]">
+            <p className="pearl-serif text-3xl text-[#C9A86A]">
               {clinicInformation.name}
             </p>
             <div className="mt-5 text-sm leading-6 text-blue-100">
@@ -906,7 +1002,7 @@ export default function Home() {
               />
             </div>
             <a
-              className="mt-4 inline-flex text-sm font-semibold text-[#e5cb94] transition hover:text-white"
+              className="mt-4 inline-flex text-sm font-semibold text-[#C9A86A] transition hover:text-white"
               href={clinicInformation.mapHref}
               rel="noreferrer"
               target="_blank"

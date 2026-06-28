@@ -370,10 +370,10 @@ export default function AppointmentCalendar({
 
   return (
     <>
-      <section className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.05] sm:p-7">
+      <section className="pearl-dashboard-card p-5 sm:p-7">
         <div className="mb-7 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker">
               Scheduling
             </p>
             <h2 className="mt-2 text-3xl text-[#183f41]">

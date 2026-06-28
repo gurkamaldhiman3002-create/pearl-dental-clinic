@@ -87,10 +87,10 @@ export default function FeedbackManagement({
   const hiddenCount = feedbackEntries.length - approvedCount;
 
   return (
-    <section className="mt-8 rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-xl shadow-[#183f41]/[0.06] md:p-7">
+    <section className="pearl-dashboard-card mt-8 p-5 md:p-7">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="mb-2 text-sm font-semibold uppercase text-[#86632f]">
+          <p className="pearl-kicker mb-2">
             Patient Feedback
           </p>
           <h2 className="text-3xl text-[#183f41] sm:text-4xl">
@@ -102,14 +102,14 @@ export default function FeedbackManagement({
           </p>
         </div>
         <div className="grid grid-cols-2 gap-3 text-sm sm:w-auto">
-          <div className="rounded-2xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3">
-            <p className="text-xs font-semibold uppercase text-[#86632f]">
+          <div className="pearl-surface-soft rounded-2xl px-4 py-3">
+            <p className="pearl-kicker">
               Approved
             </p>
             <p className="mt-1 text-2xl text-[#183f41]">{approvedCount}</p>
           </div>
-          <div className="rounded-2xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3">
-            <p className="text-xs font-semibold uppercase text-[#86632f]">
+          <div className="pearl-surface-soft rounded-2xl px-4 py-3">
+            <p className="pearl-kicker">
               Hidden
             </p>
             <p className="mt-1 text-2xl text-[#183f41]">{hiddenCount}</p>
@@ -185,7 +185,7 @@ export default function FeedbackManagement({
             {feedbackEntries.map((feedback) => (
               <article
                 key={feedback.id}
-                className="rounded-2xl border border-[#eadfcf] bg-[#f8f3ea] p-5 shadow-sm shadow-[#183f41]/[0.04]"
+                className="pearl-surface-soft pearl-lift rounded-2xl p-5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>

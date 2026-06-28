@@ -13,18 +13,18 @@ type AdminAnalyticsProps = {
 type MetricTone = "blue" | "cyan" | "emerald" | "amber" | "rose" | "indigo";
 
 const chartColors = [
-  "#205356",
-  "#b38b49",
-  "#4b7f7b",
-  "#779683",
-  "#d1ae6d",
-  "#8e8b80",
+  "#173D3F",
+  "#C9A86A",
+  "#5D6E6D",
+  "#8FA09A",
+  "#D8BE82",
+  "#A9A196",
 ];
 
 const toneStyles: Record<MetricTone, string> = {
-  amber: "bg-[#f7edd9] text-[#86632f]",
-  blue: "bg-[#e8efea] text-[#23575a]",
-  cyan: "bg-[#e8efea] text-[#23575a]",
+  amber: "bg-[#F2ECE3] text-[#8B6F36]",
+  blue: "bg-[#EEF3F0] text-[#173D3F]",
+  cyan: "bg-[#EEF3F0] text-[#173D3F]",
   emerald: "bg-[#e9f1ea] text-[#35664e]",
   indigo: "bg-[#eee9df] text-[#526566]",
   rose: "bg-[#f6e9e5] text-[#925147]",
@@ -60,7 +60,7 @@ function AnalyticsCard({
   value: number | string;
 }) {
   return (
-    <article className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.04]">
+    <article className="pearl-dashboard-card pearl-lift p-5">
       <div className="flex items-center justify-between gap-3">
         <p className="text-sm font-semibold text-slate-500">{label}</p>
         <MetricIcon tone={tone} />
@@ -176,9 +176,9 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-        <article className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.04] sm:p-7">
+        <article className="pearl-dashboard-card p-5 sm:p-7">
           <div>
-            <p className="text-xs font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker">
               Appointment Trends
             </p>
             <h2 className="mt-2 text-3xl text-[#183f41]">
@@ -226,8 +226,8 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
           </div>
         </article>
 
-        <article className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.04] sm:p-7">
-          <p className="text-xs font-semibold uppercase text-[#86632f]">
+        <article className="pearl-dashboard-card p-5 sm:p-7">
+          <p className="pearl-kicker">
             Care Demand
           </p>
           <h2 className="mt-2 text-3xl text-[#183f41]">

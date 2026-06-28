@@ -113,7 +113,7 @@ export default function ResetPasswordPage() {
             name="password"
             value={passwordForm.password}
             onChange={handlePasswordChange}
-            className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+            className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
             placeholder="Enter new password"
             type="password"
           />
@@ -127,7 +127,7 @@ export default function ResetPasswordPage() {
             name="confirmPassword"
             value={passwordForm.confirmPassword}
             onChange={handlePasswordChange}
-            className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+            className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
             placeholder="Confirm new password"
             type="password"
           />
@@ -136,7 +136,7 @@ export default function ResetPasswordPage() {
         <button
           type="submit"
           disabled={isSubmitting || Boolean(successMessage)}
-          className="rounded-full bg-[#205356] px-7 py-3 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
+          className="pearl-cta-primary text-base disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? "Updating Password" : "Update Password"}
         </button>

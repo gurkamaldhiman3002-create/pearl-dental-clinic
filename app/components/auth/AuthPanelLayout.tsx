@@ -10,15 +10,15 @@ export default function AuthPanelLayout({
   title: string;
 }) {
   return (
-    <main className="pearl-editorial flex min-h-screen items-center bg-[#fbf8f1] px-6 py-12 text-[#303937] lg:px-8">
-      <section className="mx-auto grid w-full max-w-5xl overflow-hidden rounded-[1.75rem] border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="bg-[#183f41] p-8 text-white sm:p-10">
-          <p className="mb-3 text-sm font-semibold text-[#dfc58c]">
+    <main className="pearl-editorial pearl-page-gradient flex min-h-screen items-center px-6 py-12 text-[#24302F] lg:px-8">
+      <section className="pearl-surface mx-auto grid w-full max-w-5xl overflow-hidden rounded-[2rem] lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="bg-gradient-to-br from-[#173D3F] to-[#204B4D] p-8 text-white sm:p-10">
+          <p className="pearl-kicker pearl-kicker-light mb-3">
             Pearl Dental Clinic
           </p>
-          <h1 className="text-4xl text-white sm:text-5xl">{title}</h1>
+          <h1 className="pearl-section-title text-white">{title}</h1>
           <p className="mt-5 leading-7 text-[#eee6da]">{description}</p>
-          <p className="pearl-handwritten mt-10 text-3xl text-[#dfc58c]">
+          <p className="pearl-handwritten mt-10 text-3xl text-[#C9A86A]">
             My care... your smile
           </p>
         </div>

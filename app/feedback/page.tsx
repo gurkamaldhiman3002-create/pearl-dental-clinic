@@ -72,18 +72,18 @@ export default function FeedbackPage() {
   };
 
   return (
-    <main className="pearl-editorial pearl-portal min-h-screen text-[#303937]">
-      <section className="relative isolate overflow-hidden border-b border-[#eadfcf] px-6 py-16 lg:px-8 lg:py-24">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,#f1e2c7,transparent_32%),linear-gradient(135deg,#fffdf9_0%,#fbf8f1_48%,#e8eee7_100%)]" />
+    <main className="pearl-editorial pearl-portal min-h-screen text-[#24302F]">
+      <section className="relative isolate overflow-hidden border-b border-[rgba(201,168,106,0.22)] px-6 py-16 lg:px-8 lg:py-24">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(201,168,106,0.22),transparent_32%),linear-gradient(135deg,#FFFFFF_0%,#F8F5EF_48%,#F2ECE3_100%)]" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker mb-3">
               Tell us about your visit
             </p>
-            <h1 className="text-5xl leading-tight text-[#183f41] sm:text-6xl">
+            <h1 className="pearl-section-title max-w-2xl text-[#173D3F]">
               Your experience helps us care a little better.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5D6E6D]">
               If you visited {clinicInformation.name}, Dr. Virdy would be
               grateful to hear how it felt. A few honest words from patients
               help nearby families feel more comfortable before they walk in.
@@ -91,20 +91,20 @@ export default function FeedbackPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/#booking"
-                className="rounded-full bg-[#205356] px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41]"
+                className="pearl-cta-primary text-sm"
               >
                 Book Appointment
               </Link>
               <Link
                 href="/#contact"
-                className="rounded-full border border-[#dbc59b] bg-[#fffdf9] px-6 py-3 text-center text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
+                className="pearl-cta-secondary text-sm"
               >
                 Contact Clinic
               </Link>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-[#eadfcf] bg-[#fffdf9]/92 p-6 shadow-2xl shadow-[#183f41]/10 backdrop-blur md:p-8">
+          <div className="pearl-surface rounded-[2rem] p-6 backdrop-blur md:p-8">
             <form onSubmit={handleFeedbackSubmit} className="grid gap-5">
               {formSuccess ? (
                 <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800">
@@ -125,7 +125,7 @@ export default function FeedbackPage() {
                   name="name"
                   value={feedbackForm.name}
                   onChange={handleFeedbackChange}
-                  className="mt-2 w-full rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+                  className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
                   placeholder="Your name"
                   type="text"
                 />
@@ -135,7 +135,7 @@ export default function FeedbackPage() {
                 <legend className="text-sm font-semibold text-slate-700">
                   Rating out of 5 stars
                 </legend>
-                <div className="mt-2 flex flex-wrap items-center gap-2 rounded-xl border border-[#eadfcf] bg-[#f8f3ea] p-3">
+                <div className="mt-2 flex flex-wrap items-center gap-2 rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] p-3">
                   {Array.from({ length: 5 }, (_, index) => {
                     const rating = index + 1;
 
@@ -146,8 +146,8 @@ export default function FeedbackPage() {
                         onClick={() => handleRatingChange(rating)}
                         className={`flex h-11 w-11 items-center justify-center rounded-full text-2xl transition ${
                           rating <= feedbackForm.rating
-                            ? "bg-[#f1e3c7] text-[#b38235] shadow-sm"
-                            : "text-[#b9aa91] hover:bg-[#f5efe4] hover:text-[#86632f]"
+                            ? "bg-[#F2ECE3] text-[#C9A86A] shadow-sm"
+                            : "text-[#b9aa91] hover:bg-[#F2ECE3] hover:text-[#C9A86A]"
                         }`}
                         aria-label={`${rating} out of 5 stars`}
                       >
@@ -155,7 +155,7 @@ export default function FeedbackPage() {
                       </button>
                     );
                   })}
-                  <span className="ml-1 text-sm font-semibold text-[#66706c]">
+                  <span className="ml-1 text-sm font-semibold text-[#5D6E6D]">
                     {feedbackForm.rating
                       ? `${feedbackForm.rating}/5`
                       : "Choose a rating"}
@@ -171,9 +171,9 @@ export default function FeedbackPage() {
                     name="treatment"
                     value={feedbackForm.treatment}
                     onChange={handleFeedbackChange}
-                    className={`w-full cursor-pointer appearance-none rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 pr-12 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15 ${
+                    className={`w-full cursor-pointer appearance-none rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 pr-12 outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15 ${
                       feedbackForm.treatment
-                        ? "text-slate-900"
+                        ? "text-[#24302F]"
                         : "text-slate-500"
                     }`}
                   >
@@ -190,7 +190,7 @@ export default function FeedbackPage() {
                       </option>
                     ))}
                   </select>
-                  <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-[#23575a]">
+                  <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-[#173D3F]">
                     v
                   </span>
                 </div>
@@ -203,7 +203,7 @@ export default function FeedbackPage() {
                   name="feedback"
                   value={feedbackForm.feedback}
                   onChange={handleFeedbackChange}
-                  className="mt-2 min-h-36 w-full resize-y rounded-xl border border-[#eadfcf] bg-[#f8f3ea] px-4 py-3 text-slate-900 outline-none transition focus:border-[#347376] focus:bg-[#fffdf9] focus:ring-4 focus:ring-[#205356]/15"
+                  className="mt-2 min-h-36 w-full resize-y rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
                   placeholder="Share a few words about your visit."
                 />
               </label>
@@ -211,12 +211,12 @@ export default function FeedbackPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="rounded-full bg-[#205356] px-7 py-3 text-base font-semibold text-white shadow-lg shadow-[#183f41]/15 transition hover:bg-[#183f41] disabled:cursor-not-allowed disabled:opacity-60"
+                className="pearl-cta-primary text-base disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSubmitting ? "Sending Feedback" : "Share Feedback"}
               </button>
 
-              <div className="flex items-center justify-between gap-4 border-t border-[#eee2cf] pt-4 text-sm text-slate-600">
+              <div className="flex items-center justify-between gap-4 border-t border-[rgba(201,168,106,0.22)] pt-4 text-sm text-[#5D6E6D]">
                 <span>Feedback is reviewed before it appears online.</span>
                 <RatingStars rating={feedbackForm.rating || 5} />
               </div>

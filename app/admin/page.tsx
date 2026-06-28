@@ -397,32 +397,33 @@ export default function AdminPage() {
   };
 
   return (
-    <main className="pearl-editorial pearl-portal min-h-screen text-[#303937]">
-      <section className="border-b border-[#eadfcf] bg-[#fffdf9]/90 px-6 py-9 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <main className="pearl-editorial pearl-portal min-h-screen text-[#24302F]">
+      <section className="pearl-dashboard-hero relative overflow-hidden border-b border-[rgba(201,168,106,0.22)] px-6 py-12 lg:px-8 lg:py-14">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-2 text-sm font-semibold uppercase text-[#86632f]">
+            <p className="pearl-kicker mb-2">
               Pearl Dental Clinic
             </p>
-            <h1 className="text-4xl text-[#183f41] sm:text-5xl">
-              Appointment Dashboard
+            <h1 className="pearl-section-title text-[#173D3F]">
+              Clinic Operations Desk
             </h1>
-            <p className="mt-3 max-w-2xl text-slate-600">
-              Review appointment requests and update pending appointments.
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+              A calm place to review appointment requests, manage the clinic
+              diary, and keep patient follow-ups moving.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
               onClick={() => void fetchDashboardData()}
-              className="rounded-full border border-[#dbc59b] bg-[#fffdf9] px-5 py-2.5 text-sm font-semibold text-[#23575a] transition hover:border-[#c7a464] hover:bg-[#f5efe4]"
+              className="pearl-cta-secondary text-sm"
             >
               Refresh List
             </button>
             <button
               type="button"
               onClick={() => void handleLogout()}
-              className="rounded-full bg-[#205356] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#183f41]"
+              className="pearl-cta-primary text-sm"
             >
               Logout
             </button>
@@ -430,16 +431,16 @@ export default function AdminPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 lg:px-8">
+      <section className="px-6 py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {errorMessage ? (
-            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800 shadow-sm">
+            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-800 shadow-sm shadow-red-900/5">
               {errorMessage}
             </div>
           ) : null}
 
           {noticeMessage ? (
-            <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800 shadow-sm">
+            <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800 shadow-sm shadow-emerald-900/5">
               {noticeMessage}
             </div>
           ) : null}
@@ -463,16 +464,20 @@ export default function AdminPage() {
           />
 
           {isLoading ? (
-            <div className="rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 text-slate-600 shadow-lg shadow-[#183f41]/[0.05]">
+            <div className="pearl-dashboard-card p-8 text-slate-600">
               Loading appointments...
             </div>
           ) : appointments.length === 0 ? (
-            <div className="mt-8 rounded-3xl border border-[#eadfcf] bg-[#fffdf9] p-8 text-slate-600 shadow-lg shadow-[#183f41]/[0.05]">
-              No appointments found.
+            <div className="pearl-dashboard-card mt-8 p-8 text-slate-600">
+              <h2 className="text-3xl text-[#183f41]">No appointments found</h2>
+              <p className="mt-2 text-sm">
+                New patient requests and admin-created appointments will appear
+                here.
+              </p>
             </div>
           ) : (
             <>
-              <div className="mt-8 hidden overflow-hidden rounded-2xl border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.06] lg:block">
+              <div className="pearl-dashboard-card mt-8 hidden overflow-hidden lg:block">
                 <table className="w-full border-collapse text-left text-sm">
                   <thead className="bg-[#183f41] text-white">
                     <tr>
@@ -585,7 +590,7 @@ export default function AdminPage() {
                 {appointments.map((appointment) => (
                   <article
                     key={appointment.id}
-                    className="rounded-2xl border border-[#eadfcf] bg-[#fffdf9] p-5 shadow-lg shadow-[#183f41]/[0.05]"
+                    className="pearl-dashboard-card pearl-lift p-5"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>

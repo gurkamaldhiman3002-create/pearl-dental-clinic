@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Caveat, Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
+import {
+  Caveat,
+  Cormorant_Garamond,
+  Geist_Mono,
+  Manrope,
+} from "next/font/google";
 import Chatbot from "@/app/components/chat/Chatbot";
 import SiteFooter from "@/app/components/layout/SiteFooter";
 import SiteHeader from "@/app/components/layout/SiteHeader";
@@ -7,9 +12,10 @@ import { clinicInformation } from "@/app/lib/clinicContent";
 import { absoluteUrl, siteUrl } from "@/app/lib/seo";
 import "./globals.css";
 
-const geistSans = Geist({
+const manrope = Manrope({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const geistMono = Geist_Mono({
@@ -152,9 +158,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${pearlSerif.variable} ${pearlScript.variable} h-full antialiased`}
+      className={`${manrope.variable} ${geistMono.variable} ${pearlSerif.variable} ${pearlScript.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
+      <body className="min-h-full flex flex-col bg-[#F8F5EF] text-[#24302F]">
         <script
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(clinicStructuredData).replace(
