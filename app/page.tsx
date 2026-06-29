@@ -270,18 +270,20 @@ export default function Home() {
               Call Clinic: {clinicInformation.phoneDisplay}
             </a>
             <dl className="mt-8 grid max-w-lg gap-3 text-sm sm:grid-cols-3">
-              <div className="rounded-[1.5rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/72 p-4 backdrop-blur">
-                <dt className="font-bold text-[#063B35]">Mon-Sat</dt>
-                <dd className="mt-1 text-[#6B746F]">Clinic visits</dd>
-              </div>
-              <div className="rounded-[1.5rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/72 p-4 backdrop-blur">
-                <dt className="font-bold text-[#063B35]">B.D.S.</dt>
-                <dd className="mt-1 text-[#6B746F]">Qualified care</dd>
-              </div>
-              <div className="rounded-[1.5rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/72 p-4 backdrop-blur">
-                <dt className="font-bold text-[#063B35]">Patiala</dt>
-                <dd className="mt-1 text-[#6B746F]">Local clinic</dd>
-              </div>
+              {[
+                { term: "Mon–Sat", desc: "Clinic visits" },
+                { term: "B.D.S.", desc: "Qualified care" },
+                { term: "Patiala", desc: "Local clinic" },
+              ].map(({ term, desc }) => (
+                <div key={term} className="rounded-[1.5rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/72 p-4 backdrop-blur">
+                  <div className="mb-2.5 flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#C6A15B]" aria-hidden="true" />
+                    <span className="h-px flex-1 bg-gradient-to-r from-[#C6A15B]/40 to-transparent" aria-hidden="true" />
+                  </div>
+                  <dt className="font-bold text-[#063B35]">{term}</dt>
+                  <dd className="mt-0.5 text-xs text-[#6B746F]">{desc}</dd>
+                </div>
+              ))}
             </dl>
           </div>
 
@@ -529,7 +531,7 @@ export default function Home() {
                 key={service.title}
                 className="pearl-surface pearl-lift pearl-reveal group relative min-h-[17rem] overflow-hidden rounded-[1.75rem] p-7 lg:p-8"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#E8D6A3] via-[#C6A15B] to-[#063B35] opacity-0 transition duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-x-6 top-0 h-[2px] rounded-full bg-gradient-to-r from-transparent via-[#C6A15B] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[rgba(198,161,91,0.28)] bg-[#EFE4D4] text-[#063B35] transition duration-300 group-hover:border-[#063B35] group-hover:bg-[#063B35] group-hover:text-white">
                   <ServiceIcon type={service.icon} />
                 </div>
@@ -559,15 +561,22 @@ export default function Home() {
             {familyReasons.map((reason, index) => (
               <article
                 key={reason.title}
-                className="pearl-surface pearl-lift pearl-reveal rounded-[1.75rem] p-7"
+                className="pearl-surface pearl-lift pearl-reveal relative overflow-hidden rounded-[1.75rem] p-7 lg:p-8"
               >
-                <p className="pearl-serif text-4xl text-[#bc9452]">
+                <span
+                  className="pearl-serif pointer-events-none absolute right-4 top-2 select-none text-[6.5rem] leading-none text-[#C6A15B] opacity-[0.07]"
+                  aria-hidden="true"
+                >
                   0{index + 1}
+                </span>
+                <p className="pearl-kicker mb-4">
+                  Step 0{index + 1}
                 </p>
-                <h3 className="mt-5 text-2xl text-[#183f41]">
+                <hr className="pearl-gold-line mb-5" />
+                <h3 className="text-2xl text-[#063B35]">
                   {reason.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
+                <p className="mt-3 text-sm leading-7 text-[#6B746F]">
                   {reason.description}
                 </p>
               </article>
@@ -697,20 +706,30 @@ export default function Home() {
               {clinicInformation.timeZoneLabel}. We will check the clinic
               diary and get back to you by email.
             </p>
-            <div className="mt-8 grid gap-3">
-              {["Send your request", "We check the available time", "We confirm your visit"].map(
-                (step, index) => (
-                  <div
-                    key={step}
-                    className="pearl-surface-soft flex items-center gap-4 rounded-2xl p-4"
-                  >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#063B35] text-sm font-bold text-white">
+            <div className="mt-8 space-y-0">
+              {[
+                { label: "Send your request", detail: "Choose a treatment and preferred time." },
+                { label: "We check availability", detail: "We review the clinic diary for you." },
+                { label: "We confirm your visit", detail: "You receive a confirmation by email." },
+              ].map((step, index, arr) => (
+                <div key={step.label} className="relative flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#063B35] text-sm font-bold text-white shadow-sm shadow-[#063B35]/20">
                       {index + 1}
                     </span>
-                    <p className="text-sm font-semibold text-blue-950">{step}</p>
+                    {index < arr.length - 1 && (
+                      <span
+                        className="mt-1 w-px flex-1 bg-gradient-to-b from-[#C6A15B]/50 via-[#C6A15B]/20 to-transparent"
+                        aria-hidden="true"
+                      />
+                    )}
                   </div>
-                ),
-              )}
+                  <div className={`pb-6 pt-1 ${index === arr.length - 1 ? "pb-0" : ""}`}>
+                    <p className="text-sm font-semibold text-[#063B35]">{step.label}</p>
+                    <p className="mt-0.5 text-xs leading-5 text-[#6B746F]">{step.detail}</p>
+                  </div>
+                </div>
+              ))}
             </div>
             {submittedBooking ? (
               <div className="mt-8 rounded-2xl border border-[#dbc59b] bg-[#f5efe4] p-5 text-[#183f41]">

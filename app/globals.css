@@ -285,9 +285,9 @@ html {
 
 .pearl-kicker {
   color: var(--pearl-gold);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0 !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase;
 }
 
@@ -633,8 +633,8 @@ html {
 .pearl-eyebrow {
   color: var(--pearl-gold);
   font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase;
 }
 
