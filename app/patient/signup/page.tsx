@@ -95,7 +95,7 @@ export default function PatientSignupPage() {
                 name="name"
                 value={signupForm.name}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+                className="mt-2 w-full rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
                 placeholder="Jane Smith"
                 type="text"
               />
@@ -108,7 +108,7 @@ export default function PatientSignupPage() {
                 name="email"
                 value={signupForm.email}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+                className="mt-2 w-full rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
                 placeholder="jane@example.com"
                 type="email"
               />
@@ -122,7 +122,7 @@ export default function PatientSignupPage() {
                 name="password"
                 value={signupForm.password}
                 onChange={handleSignupChange}
-                className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+                className="mt-2 w-full rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
                 placeholder="Create a password"
                 type="password"
               />
@@ -140,7 +140,7 @@ export default function PatientSignupPage() {
               Already have an account?{" "}
               <Link
                 href="/patient/login"
-                className="font-semibold text-[#173D3F] hover:text-[#C9A86A]"
+                className="font-semibold text-[#063B35] hover:text-[#C6A15B]"
               >
                 Sign in
               </Link>

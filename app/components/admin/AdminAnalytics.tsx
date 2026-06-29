@@ -13,18 +13,18 @@ type AdminAnalyticsProps = {
 type MetricTone = "blue" | "cyan" | "emerald" | "amber" | "rose" | "indigo";
 
 const chartColors = [
-  "#173D3F",
-  "#C9A86A",
-  "#5D6E6D",
+  "#063B35",
+  "#C6A15B",
+  "#6B746F",
   "#8FA09A",
-  "#D8BE82",
+  "#E8D6A3",
   "#A9A196",
 ];
 
 const toneStyles: Record<MetricTone, string> = {
-  amber: "bg-[#F2ECE3] text-[#8B6F36]",
-  blue: "bg-[#EEF3F0] text-[#173D3F]",
-  cyan: "bg-[#EEF3F0] text-[#173D3F]",
+  amber: "bg-[#EFE4D4] text-[#8B6F36]",
+  blue: "bg-[#EEF3F0] text-[#063B35]",
+  cyan: "bg-[#EEF3F0] text-[#063B35]",
   emerald: "bg-[#e9f1ea] text-[#35664e]",
   indigo: "bg-[#eee9df] text-[#526566]",
   rose: "bg-[#f6e9e5] text-[#925147]",
@@ -66,7 +66,7 @@ function AnalyticsCard({
         <MetricIcon tone={tone} />
       </div>
       <p
-        className={`mt-4 text-[#183f41] ${
+        className={`mt-4 text-[#063B35] ${
           typeof value === "string" ? "text-xl leading-snug" : "text-3xl"
         }`}
       >
@@ -101,7 +101,7 @@ function createDistributionGradient(treatments: TreatmentAppointmentCount[]) {
   );
 
   if (total === 0) {
-    return "#e9dfce";
+    return "#EFE4D4";
   }
 
   let start = 0;
@@ -181,7 +181,7 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
             <p className="pearl-kicker">
               Appointment Trends
             </p>
-            <h2 className="mt-2 text-3xl text-[#183f41]">
+            <h2 className="mt-2 text-3xl text-[#063B35]">
               Monthly Appointments
             </h2>
             <p className="mt-2 text-sm text-slate-500">
@@ -194,15 +194,15 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
             <div className="grid min-w-[400px] grid-cols-6 gap-3">
               {analytics.monthlyAppointments.map((month) => (
                 <div className="text-center" key={month.key}>
-                  <p className="mb-2 text-xs font-semibold text-[#183f41]">
+                  <p className="mb-2 text-xs font-semibold text-[#063B35]">
                     {month.count}
                   </p>
-                  <div className="flex h-36 items-end rounded-xl bg-[#f8f3ea] px-2">
+                  <div className="flex h-36 items-end rounded-xl bg-[#F7F1E8] px-2">
                     <div
                       aria-label={`${month.count} appointments in ${month.label}`}
                       className={`w-full rounded-t-md transition ${
                         month.count > 0
-                          ? "bg-gradient-to-t from-[#205356] to-[#d3b573]"
+                          ? "bg-gradient-to-t from-[#063B35] to-[#E8D6A3]"
                           : "h-px bg-[#ded4c3]"
                       }`}
                       style={
@@ -230,7 +230,7 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
           <p className="pearl-kicker">
             Care Demand
           </p>
-          <h2 className="mt-2 text-3xl text-[#183f41]">
+          <h2 className="mt-2 text-3xl text-[#063B35]">
             Treatment Distribution
           </h2>
 
@@ -240,8 +240,8 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
               className="relative flex h-40 w-40 shrink-0 items-center justify-center rounded-full"
               style={{ background: createDistributionGradient(treatmentChartData) }}
             >
-              <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-[#fffdf9] shadow-inner">
-                <span className="text-2xl text-[#183f41]">
+              <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-[#FFFCF7] shadow-inner">
+                <span className="text-2xl text-[#063B35]">
                   {totalTreatments}
                 </span>
                 <span className="text-xs font-semibold text-slate-500">
@@ -252,7 +252,7 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
 
             <div className="w-full space-y-3">
               {treatmentChartData.length === 0 ? (
-                <p className="rounded-xl bg-[#f8f3ea] p-4 text-sm text-slate-500">
+                <p className="rounded-xl bg-[#F7F1E8] p-4 text-sm text-slate-500">
                   Treatment requests will appear here once appointments are submitted.
                 </p>
               ) : (
@@ -268,7 +268,7 @@ export default function AdminAnalytics({ appointments }: AdminAnalyticsProps) {
                     <p className="min-w-0 flex-1 truncate text-sm font-medium text-slate-700">
                       {treatment.treatment}
                     </p>
-                    <p className="text-sm font-semibold text-[#183f41]">
+                    <p className="text-sm font-semibold text-[#063B35]">
                       {treatment.count}
                     </p>
                   </div>

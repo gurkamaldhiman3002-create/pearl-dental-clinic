@@ -220,32 +220,32 @@ export default function Home() {
   };
 
   return (
-    <main className="pearl-editorial pearl-page-gradient overflow-hidden text-[#24302F]">
+    <main className="pearl-editorial pearl-page-gradient overflow-hidden text-[#1F2A27]">
       <section
         id="home"
-        className="relative isolate overflow-hidden border-b border-[rgba(201,168,106,0.22)]"
+        className="relative isolate overflow-hidden border-b border-[rgba(198,161,91,0.28)]"
       >
-        <div className="absolute inset-0 bg-[linear-gradient(125deg,#FFFFFF_0%,#F8F5EF_48%,#F2ECE3_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F8F5EF] to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(232,214,163,0.20),transparent_28%),linear-gradient(125deg,#FFFCF7_0%,#F7F1E8_48%,#EFE4D4_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F7F1E8] to-transparent" />
 
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-14 sm:py-16 lg:min-h-[40rem] lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8 lg:py-20">
           <div className="pearl-reveal max-w-xl">
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,106,0.28)] bg-white/85 px-4 py-2 text-sm font-semibold text-[#173D3F] shadow-sm shadow-black/[0.03] backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#C9A86A]" />
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/85 px-4 py-2 text-sm font-semibold text-[#063B35] shadow-sm shadow-[#063B35]/[0.04] backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[#C6A15B]" />
               Pearl Dental Clinic, Patiala
             </p>
-            <h1 className="pearl-hero-title max-w-lg text-[#173D3F]">
+            <h1 className="pearl-hero-title max-w-lg text-[#063B35]">
               Dental care that feels personal.
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-8 text-[#5D6E6D] sm:text-lg">
+            <p className="mt-6 max-w-lg text-base leading-8 text-[#6B746F] sm:text-lg">
               At Pearl Dental Clinic, we take time to listen, explain clearly,
               and make every visit feel calm and comfortable.
             </p>
-            <div className="mt-6 w-fit rounded-[1.75rem] border border-[rgba(201,168,106,0.34)] bg-white/86 px-5 py-4 shadow-[0_20px_60px_rgba(0,0,0,0.06)] backdrop-blur">
-              <p className="pearl-handwritten text-2xl leading-none text-[#173D3F] sm:text-3xl">
+            <div className="mt-6 w-fit rounded-[1.75rem] border border-[rgba(198,161,91,0.32)] bg-[#FFFCF7]/88 px-5 py-4 shadow-[0_24px_70px_rgba(6,59,53,0.10)] backdrop-blur">
+              <p className="pearl-handwritten text-2xl leading-none text-[#063B35] sm:text-3xl">
                 My care... your smile
               </p>
-              <p className="mt-2 text-sm font-semibold text-[#5D6E6D]">
+              <p className="mt-2 text-sm font-semibold text-[#6B746F]">
                 - Dr. Sukhpreet Virdy, B.D.S.
               </p>
             </div>
@@ -265,28 +265,28 @@ export default function Home() {
             </div>
             <a
               href={clinicInformation.phoneHref}
-              className="mt-4 inline-flex text-sm font-semibold text-[#173D3F] underline decoration-[#C9A86A]/50 underline-offset-4 transition hover:text-[#C9A86A]"
+              className="mt-4 inline-flex text-sm font-semibold text-[#063B35] underline decoration-[#C6A15B]/50 underline-offset-4 transition hover:text-[#C6A15B]"
             >
               Call Clinic: {clinicInformation.phoneDisplay}
             </a>
             <dl className="mt-8 grid max-w-lg gap-3 text-sm sm:grid-cols-3">
-              <div className="rounded-[1.5rem] border border-[rgba(201,168,106,0.22)] bg-white/70 p-4 backdrop-blur">
-                <dt className="font-bold text-[#173D3F]">Mon-Sat</dt>
-                <dd className="mt-1 text-[#5D6E6D]">Clinic visits</dd>
+              <div className="rounded-[1.5rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/72 p-4 backdrop-blur">
+                <dt className="font-bold text-[#063B35]">Mon-Sat</dt>
+                <dd className="mt-1 text-[#6B746F]">Clinic visits</dd>
               </div>
-              <div className="rounded-[1.5rem] border border-[rgba(201,168,106,0.22)] bg-white/70 p-4 backdrop-blur">
-                <dt className="font-bold text-[#173D3F]">B.D.S.</dt>
-                <dd className="mt-1 text-[#5D6E6D]">Qualified care</dd>
+              <div className="rounded-[1.5rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/72 p-4 backdrop-blur">
+                <dt className="font-bold text-[#063B35]">B.D.S.</dt>
+                <dd className="mt-1 text-[#6B746F]">Qualified care</dd>
               </div>
-              <div className="rounded-[1.5rem] border border-[rgba(201,168,106,0.22)] bg-white/70 p-4 backdrop-blur">
-                <dt className="font-bold text-[#173D3F]">Patiala</dt>
-                <dd className="mt-1 text-[#5D6E6D]">Local clinic</dd>
+              <div className="rounded-[1.5rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7]/72 p-4 backdrop-blur">
+                <dt className="font-bold text-[#063B35]">Patiala</dt>
+                <dd className="mt-1 text-[#6B746F]">Local clinic</dd>
               </div>
             </dl>
           </div>
 
           <div className="pearl-reveal relative mx-auto w-full max-w-xl lg:max-w-none">
-            <div className="group relative aspect-[4/3] overflow-hidden rounded-[2.25rem] border border-[rgba(201,168,106,0.26)] bg-[#F2ECE3] shadow-[0_20px_60px_rgba(0,0,0,0.06)] lg:aspect-[5/4]">
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-[2.5rem] border border-[rgba(198,161,91,0.32)] bg-[#EFE4D4] shadow-[0_24px_70px_rgba(6,59,53,0.10)] lg:aspect-[5/4]">
               <Image
                 src="/images/clinic-front.jpeg"
                 alt="Exterior entrance of Pearl Dental Clinic"
@@ -295,17 +295,17 @@ export default function Home() {
                 sizes="(max-width: 1023px) 100vw, 48vw"
                 className="object-cover object-center transition duration-1000 ease-out group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#173D3F]/58 via-[#173D3F]/8 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#063B35]/58 via-[#063B35]/8 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-7">
                 <p className="pearl-serif text-2xl sm:text-3xl">
                   A calm stop on Main Bhadson Road.
                 </p>
-                <p className="mt-3 max-w-sm text-sm leading-6 text-[#eee6da]">
+                <p className="mt-3 max-w-sm text-sm leading-6 text-[#F7F1E8]">
                   Pearl Dental Clinic welcomes families from Leela Bhawan,
                   Sarabha Nagar, and nearby Patiala neighborhoods.
                 </p>
               </div>
-              <div className="absolute left-6 top-6 h-px w-24 bg-[#C9A86A]/70" />
+              <div className="absolute left-6 top-6 h-px w-24 bg-[#C6A15B]/70" />
             </div>
           </div>
         </div>
@@ -318,15 +318,15 @@ export default function Home() {
               const cardContent = (
                 <>
                   <div className="mb-6 flex items-center justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F2ECE3] text-[#173D3F] transition group-hover:bg-[#173D3F] group-hover:text-white">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EFE4D4] text-[#063B35] transition group-hover:bg-[#063B35] group-hover:text-white">
                       <ServiceIcon type={card.icon} />
                     </span>
-                    <span className="rounded-full border border-[rgba(201,168,106,0.22)] bg-[#F2ECE3] px-3 py-1 text-xs font-bold text-[#173D3F] transition group-hover:border-[#173D3F]/25 group-hover:bg-[#173D3F] group-hover:text-white">
+                    <span className="rounded-full border border-[rgba(198,161,91,0.28)] bg-[#EFE4D4] px-3 py-1 text-xs font-bold text-[#063B35] transition group-hover:border-[#063B35]/25 group-hover:bg-[#063B35] group-hover:text-white">
                       {card.label}
                     </span>
                   </div>
-                  <h2 className="text-2xl text-[#173D3F]">{card.title}</h2>
-                  <p className="mt-3 text-sm leading-6 text-[#5D6E6D]">
+                  <h2 className="text-2xl text-[#063B35]">{card.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-[#6B746F]">
                     {card.description}
                   </p>
                 </>
@@ -385,7 +385,7 @@ export default function Home() {
                 sizes="(max-width: 1023px) 100vw, 38vw"
                 className="object-cover transition duration-700 ease-out group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#183f41]/35 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#063B35]/35 to-transparent" />
             </div>
             <div className="mt-5 flex items-start justify-between gap-4 rounded-2xl bg-[#f5efe4] p-5">
               <div>
@@ -420,7 +420,9 @@ export default function Home() {
               your questions, and help you feel comfortable before we decide
               on the next step together.
             </p>
-            <div className="pearl-surface-soft pearl-lift mt-8 flex flex-col gap-5 rounded-3xl p-4 sm:flex-row sm:items-center">
+            <hr className="pearl-gold-line mt-8" />
+
+          <div className="pearl-surface-soft pearl-lift mt-8 flex flex-col gap-5 rounded-3xl p-4 sm:flex-row sm:items-center">
               <figure className="group relative aspect-[1.42/1] w-full shrink-0 overflow-hidden rounded-xl bg-[#f5efe4] sm:w-56">
                 <Image
                   alt={`${clinicInformation.qualification} degree certificate for ${clinicInformation.dentistName}`}
@@ -449,7 +451,7 @@ export default function Home() {
 
       <section
         aria-label="Pearl Dental Clinic gallery"
-        className="border-y border-[#e8dcc8] bg-[#f5efe4]/60 px-6 py-20 lg:px-8 lg:py-28"
+        className="border-y border-[rgba(198,161,91,0.28)] bg-[#EFE4D4]/60 px-6 py-20 lg:px-8 lg:py-28"
       >
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -468,7 +470,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <figure className="pearl-lift pearl-reveal group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.08]">
+            <figure className="pearl-lift pearl-reveal group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7] shadow-xl shadow-[#063B35]/[0.10]">
               <Image
                 src="/images/reception.jpeg"
                 alt="Reception desk at Pearl Dental Clinic"
@@ -476,7 +478,7 @@ export default function Home() {
                 sizes="(max-width: 767px) 100vw, 50vw"
                 className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#183f41]/70 via-[#183f41]/5 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#063B35]/70 via-[#063B35]/5 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <p className="pearl-serif text-2xl">Reception</p>
                 <p className="mt-1 text-sm text-[#eee6da]">
@@ -484,7 +486,7 @@ export default function Home() {
                 </p>
               </figcaption>
             </figure>
-            <figure className="pearl-lift pearl-reveal group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-[#eadfcf] bg-[#fffdf9] shadow-xl shadow-[#183f41]/[0.08] md:translate-y-8">
+            <figure className="pearl-lift pearl-reveal group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-[rgba(198,161,91,0.28)] bg-[#FFFCF7] shadow-xl shadow-[#063B35]/[0.10] md:translate-y-8">
               <Image
                 src="/images/treatment-room.jpeg"
                 alt="Dental treatment room with modern clinical equipment"
@@ -492,7 +494,7 @@ export default function Home() {
                 sizes="(max-width: 767px) 100vw, 50vw"
                 className="object-cover object-center transition duration-700 ease-out group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#183f41]/70 via-[#183f41]/5 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#063B35]/70 via-[#063B35]/5 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <p className="pearl-serif text-2xl">Treatment Room</p>
                 <p className="mt-1 text-sm text-[#eee6da]">
@@ -504,7 +506,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="bg-[#fffdf9] px-6 py-20 lg:px-8 lg:py-28">
+      <section id="services" className="bg-[#FFFCF7] px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
@@ -527,8 +529,8 @@ export default function Home() {
                 key={service.title}
                 className="pearl-surface pearl-lift pearl-reveal group relative min-h-[17rem] overflow-hidden rounded-[1.75rem] p-7 lg:p-8"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#d6bc86] via-[#438080] to-[#1e5053] opacity-0 transition duration-300 group-hover:opacity-100" />
-                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#eadabb] bg-[#f5efe4] text-[#23575a] transition duration-300 group-hover:border-[#205356] group-hover:bg-[#205356] group-hover:text-white">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#E8D6A3] via-[#C6A15B] to-[#063B35] opacity-0 transition duration-300 group-hover:opacity-100" />
+                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-[rgba(198,161,91,0.28)] bg-[#EFE4D4] text-[#063B35] transition duration-300 group-hover:border-[#063B35] group-hover:bg-[#063B35] group-hover:text-white">
                   <ServiceIcon type={service.icon} />
                 </div>
                 <h3 className="text-2xl leading-tight text-[#183f41]">
@@ -543,7 +545,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-[#e8dcc8] bg-[#f5efe4]/55 px-6 py-20 lg:px-8 lg:py-28">
+      <section className="border-y border-[rgba(198,161,91,0.28)] bg-[#EFE4D4]/55 px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
             <p className="pearl-kicker mb-3">
@@ -588,22 +590,25 @@ export default function Home() {
             {testimonials.map((testimonial) => (
               <figure
                 key={testimonial.patient}
-                className="pearl-surface pearl-lift pearl-reveal rounded-[1.75rem] p-7"
+                className="pearl-surface pearl-lift pearl-reveal flex flex-col rounded-[1.75rem] p-7"
               >
-                <span className="pearl-serif block text-6xl leading-none text-[#c1a060]">
+                <span className="pearl-serif block text-5xl leading-none text-[#C6A15B] opacity-70">
                   &ldquo;
                 </span>
-                <blockquote className="-mt-2 text-base leading-7 text-slate-700">
+                <blockquote className="-mt-1 grow text-base leading-7 text-[#46524f]">
                   {testimonial.quote}
                 </blockquote>
-                <figcaption className="mt-6 border-t border-[#eee2cf] pt-4">
-                  <p className="font-semibold text-[#183f41]">
-                    {testimonial.patient}
-                  </p>
-                  <p className="mt-1 text-sm text-slate-500">
-                    {testimonial.treatment}
-                  </p>
-                </figcaption>
+                <div className="mt-6">
+                  <hr className="pearl-gold-line mb-4" />
+                  <figcaption>
+                    <p className="font-semibold text-[#063B35]">
+                      {testimonial.patient}
+                    </p>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-[#C6A15B]">
+                      {testimonial.treatment}
+                    </p>
+                  </figcaption>
+                </div>
               </figure>
             ))}
           </div>
@@ -612,7 +617,7 @@ export default function Home() {
 
       <section
         id="reviews"
-        className="border-y border-[rgba(201,168,106,0.22)] bg-[#F2ECE3] px-6 py-20 lg:px-8 lg:py-28"
+        className="border-y border-[rgba(198,161,91,0.28)] bg-[#EFE4D4] px-6 py-20 lg:px-8 lg:py-28"
       >
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
@@ -643,17 +648,21 @@ export default function Home() {
                   key={feedback.id}
                   className="pearl-surface pearl-lift pearl-reveal group flex h-full flex-col rounded-[1.75rem] p-7 md:p-8"
                 >
-                  <div className="text-lg leading-none">
-                    <RatingStars rating={feedback.rating} />
+                  <div className="flex items-center justify-between gap-3">
+                    <RatingStars rating={feedback.rating} className="text-lg" />
+                    <span className="rounded-full border border-[rgba(198,161,91,0.28)] bg-[#EFE4D4] px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wide text-[#063B35]">
+                      {feedback.treatment}
+                    </span>
                   </div>
-                  <p className="mt-6 inline-flex w-fit rounded-full border border-[#eadfcf] bg-[#f5efe4] px-3.5 py-1.5 text-xs font-semibold text-[#86632f]">
-                    {feedback.treatment}
-                  </p>
-                  <blockquote className="mt-5 grow text-[15.5px] leading-8 text-slate-700">
-                    &ldquo;{getShortFeedback(feedback.feedback)}&rdquo;
+                  <span className="pearl-serif mt-4 block text-4xl leading-none text-[#C6A15B] opacity-60">
+                    &ldquo;
+                  </span>
+                  <blockquote className="-mt-1 grow text-[15px] leading-8 text-[#46524f]">
+                    {getShortFeedback(feedback.feedback)}
                   </blockquote>
-                  <footer className="mt-7 border-t border-[#eee2cf] pt-5">
-                    <p className="font-semibold text-[#183f41]">
+                  <footer className="mt-6">
+                    <hr className="pearl-gold-line mb-4" />
+                    <p className="font-semibold text-[#063B35]">
                       {feedback.name}
                     </p>
                   </footer>
@@ -674,7 +683,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="booking" className="bg-[#fffdf9] px-6 py-20 lg:px-8 lg:py-28">
+      <section id="booking" className="bg-[#FFFCF7] px-6 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div className="pearl-reveal lg:sticky lg:top-28">
             <p className="pearl-kicker mb-3">
@@ -695,7 +704,7 @@ export default function Home() {
                     key={step}
                     className="pearl-surface-soft flex items-center gap-4 rounded-2xl p-4"
                   >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#205356] text-sm font-bold text-white">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#063B35] text-sm font-bold text-white">
                       {index + 1}
                     </span>
                     <p className="text-sm font-semibold text-blue-950">{step}</p>
@@ -727,7 +736,7 @@ export default function Home() {
             onSubmit={handleBookingSubmit}
             className="pearl-surface pearl-reveal grid gap-5 rounded-[2rem] p-6 sm:grid-cols-2 md:p-8"
           >
-            <label className="block text-sm font-semibold text-slate-700">
+            <label className="block text-sm font-semibold text-[#1F2A27]">
               Full Name
               <input
                 suppressHydrationWarning
@@ -735,13 +744,13 @@ export default function Home() {
                 name="fullName"
                 value={bookingForm.fullName}
                 onChange={handleBookingChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 text-slate-900 outline-none transition hover:border-cyan-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="pearl-input mt-2"
                 placeholder="Jane Smith"
                 type="text"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-slate-700">
+            <label className="block text-sm font-semibold text-[#1F2A27]">
               Email
               <input
                 suppressHydrationWarning
@@ -749,13 +758,13 @@ export default function Home() {
                 name="email"
                 value={bookingForm.email}
                 onChange={handleBookingChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 text-slate-900 outline-none transition hover:border-cyan-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="pearl-input mt-2"
                 placeholder="jane@example.com"
                 type="email"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-slate-700">
+            <label className="block text-sm font-semibold text-[#1F2A27]">
               Phone Number
               <input
                 suppressHydrationWarning
@@ -776,10 +785,10 @@ export default function Home() {
                 }
                 aria-invalid={phoneValidationMessage ? true : undefined}
                 autoComplete="tel"
-                className={`mt-2 w-full rounded-lg border bg-white px-4 py-3 text-slate-900 outline-none transition focus:ring-4 ${
+                className={`pearl-input mt-2 ${
                   phoneValidationMessage
-                    ? "border-red-300 hover:border-red-400 focus:border-red-500 focus:ring-red-100"
-                    : "border-sky-100 hover:border-cyan-200 focus:border-blue-500 focus:ring-blue-100"
+                    ? "border-red-300 hover:border-red-400 focus:border-red-400 focus:ring-4 focus:ring-red-100"
+                    : ""
                 }`}
                 inputMode="tel"
                 maxLength={15}
@@ -798,7 +807,7 @@ export default function Home() {
               ) : null}
             </label>
 
-            <label className="block text-sm font-semibold text-slate-700">
+            <label className="block text-sm font-semibold text-[#1F2A27]">
               Select Treatment
               <div className="relative mt-2">
                 <select
@@ -807,8 +816,8 @@ export default function Home() {
                   name="treatment"
                   value={bookingForm.treatment}
                   onChange={handleBookingChange}
-                  className={`peer w-full cursor-pointer appearance-none rounded-lg border border-sky-100 bg-white px-4 py-3 pr-12 text-sm outline-none transition hover:border-cyan-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 ${
-                    bookingForm.treatment ? "text-slate-900" : "text-slate-500"
+                  className={`pearl-input pearl-select ${
+                    bookingForm.treatment ? "text-[#1F2A27]" : "text-[#6B746F]"
                   }`}
                 >
                   <option value="" disabled>
@@ -818,19 +827,21 @@ export default function Home() {
                     <option
                       key={service.title}
                       value={service.title}
-                      className="text-slate-900"
+                      className="text-[#1F2A27]"
                     >
                       {service.title}
                     </option>
                   ))}
                 </select>
-                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-blue-700">
-                  v
+                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#063B35]" aria-hidden="true">
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
                 </span>
               </div>
             </label>
 
-            <label className="block text-sm font-semibold text-slate-700">
+            <label className="block text-sm font-semibold text-[#1F2A27]">
               Preferred Date
               <input
                 suppressHydrationWarning
@@ -838,12 +849,12 @@ export default function Home() {
                 name="preferredDate"
                 value={bookingForm.preferredDate}
                 onChange={handleBookingChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 text-slate-900 outline-none transition hover:border-cyan-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="pearl-input mt-2"
                 type="date"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-slate-700">
+            <label className="block text-sm font-semibold text-[#1F2A27]">
               Preferred Time ({clinicInformation.timeZoneLabel})
               <input
                 suppressHydrationWarning
@@ -851,19 +862,19 @@ export default function Home() {
                 name="preferredTime"
                 value={bookingForm.preferredTime}
                 onChange={handleBookingChange}
-                className="mt-2 w-full rounded-lg border border-sky-100 bg-white px-4 py-3 text-slate-900 outline-none transition hover:border-cyan-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="pearl-input mt-2"
                 type="time"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-slate-700 sm:col-span-2">
+            <label className="block text-sm font-semibold text-[#1F2A27] sm:col-span-2">
               Notes
               <textarea
                 suppressHydrationWarning
                 name="notes"
                 value={bookingForm.notes}
                 onChange={handleBookingChange}
-                className="mt-2 min-h-32 w-full resize-y rounded-lg border border-sky-100 bg-white px-4 py-3 text-slate-900 outline-none transition hover:border-cyan-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="pearl-input mt-2 min-h-32 resize-y"
                 placeholder="Tell us if you are nervous, in discomfort, or have a preferred time."
               />
             </label>
@@ -884,23 +895,23 @@ export default function Home() {
 
       <section className="px-6 py-20 lg:px-8 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="pearl-lift pearl-reveal rounded-[2rem] bg-[#173D3F] p-7 text-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] md:p-8">
-            <p className="text-sm font-semibold uppercase text-[#C9A86A]">
+          <div className="pearl-lift pearl-reveal rounded-[2rem] bg-[#063B35] p-7 text-white shadow-[0_24px_70px_rgba(6,59,53,0.10)] md:p-8">
+            <p className="pearl-eyebrow text-[#C6A15B]">
               Clinic hours ({clinicInformation.timeZoneLabel})
             </p>
-            <h2 className="mt-3 text-4xl text-white">When you can visit</h2>
+            <h2 className="pearl-serif mt-3 text-4xl text-white">When you can visit</h2>
             <div className="mt-7 space-y-4">
               {clinicHours.map((row) => (
                 <div
                   key={`${row.day}-${row.hours}`}
                   className="flex items-center justify-between gap-4 border-b border-white/10 pb-4 text-sm"
                 >
-                  <span className="text-blue-100">{row.day}</span>
+                  <span className="text-[#E8D6A3]">{row.day}</span>
                   <span className="font-semibold text-white">{row.hours}</span>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm leading-6 text-blue-100">
+            <p className="mt-6 text-sm leading-6 text-[#E8D6A3]/80">
               If you are in discomfort or worried about a tooth, call us and
               we will guide you on arranging a visit.
             </p>
@@ -925,7 +936,7 @@ export default function Home() {
                       +
                     </span>
                   </summary>
-                  <p className="mt-4 border-t border-sky-50 pt-4 text-sm leading-7 text-slate-600">
+                  <p className="mt-4 border-t border-[rgba(198,161,91,0.20)] pt-4 text-sm leading-7 text-[#6B746F]">
                     {item.answer}
                   </p>
                 </details>
@@ -935,16 +946,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="bg-[#fffdf9] px-6 py-20 lg:px-8 lg:py-28">
-        <div className="pearl-reveal mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] border border-[rgba(201,168,106,0.32)] bg-gradient-to-r from-[#173D3F] to-[#204B4D] text-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] lg:grid-cols-[1.1fr_0.9fr]">
+      <section id="contact" className="bg-[#FFFCF7] px-6 py-20 lg:px-8 lg:py-28">
+        <div className="pearl-reveal mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] border border-[rgba(198,161,91,0.32)] bg-gradient-to-r from-[#063B35] to-[#0E4A43] text-white shadow-[0_24px_70px_rgba(6,59,53,0.10)] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="p-8 md:p-12">
-            <p className="mb-3 text-sm font-semibold uppercase text-[#C9A86A]">
+            <p className="mb-3 text-sm font-semibold uppercase text-[#C6A15B]">
               Visit or speak with us
             </p>
             <h2 className="text-4xl text-white sm:text-5xl">
               We are here when your family needs dental care.
             </h2>
-            <p className="mt-4 max-w-xl text-lg leading-8 text-blue-100">
+            <p className="mt-4 max-w-xl text-lg leading-8 text-[#E8D6A3]/80">
               Call or send a WhatsApp message to ask about an appointment. You
               will be speaking with a local clinic in Patiala, not a call
               centre.
@@ -954,7 +965,7 @@ export default function Home() {
                 href={clinicInformation.whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-[#C9A86A] px-6 py-3.5 font-semibold text-[#173D3F] transition hover:bg-[#d8bd7e]"
+                className="inline-flex items-center justify-center rounded-full bg-[#C6A15B] px-6 py-3.5 font-semibold text-[#063B35] transition hover:bg-[#E8D6A3]"
               >
                 WhatsApp the Clinic
               </a>
@@ -967,26 +978,26 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-white/10 bg-white/5 p-8 md:p-12 lg:border-l lg:border-t-0">
-            <p className="pearl-serif text-3xl text-[#C9A86A]">
+            <p className="pearl-serif text-3xl text-[#C6A15B]">
               {clinicInformation.name}
             </p>
-            <div className="mt-5 text-sm leading-6 text-blue-100">
+            <div className="mt-5 text-sm leading-6 text-[#E8D6A3]/75">
               {clinicInformation.addressLines.map((line) => (
                 <p key={line}>{line}</p>
               ))}
             </div>
-            <p className="mt-3 text-sm text-blue-100">
+            <p className="mt-3 text-sm text-[#E8D6A3]/75">
               Monday - Saturday visits ({clinicInformation.timeZoneLabel})
             </p>
             <div className="mt-7 space-y-2 text-sm">
               <a
-                className="block font-semibold text-white transition hover:text-cyan-200"
+                className="block font-semibold text-white transition hover:text-[#C6A15B]"
                 href={clinicInformation.phoneHref}
               >
                 {clinicInformation.phoneDisplay}
               </a>
               <a
-                className="block text-cyan-100 transition hover:text-white"
+                className="block text-[#C6A15B] transition hover:text-white"
                 href={clinicInformation.emailHref}
               >
                 {clinicInformation.email}
@@ -1002,7 +1013,7 @@ export default function Home() {
               />
             </div>
             <a
-              className="mt-4 inline-flex text-sm font-semibold text-[#C9A86A] transition hover:text-white"
+              className="mt-4 inline-flex text-sm font-semibold text-[#C6A15B] transition hover:text-white"
               href={clinicInformation.mapHref}
               rel="noreferrer"
               target="_blank"

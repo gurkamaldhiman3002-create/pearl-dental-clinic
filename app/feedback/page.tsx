@@ -72,18 +72,18 @@ export default function FeedbackPage() {
   };
 
   return (
-    <main className="pearl-editorial pearl-portal min-h-screen text-[#24302F]">
-      <section className="relative isolate overflow-hidden border-b border-[rgba(201,168,106,0.22)] px-6 py-16 lg:px-8 lg:py-24">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(201,168,106,0.22),transparent_32%),linear-gradient(135deg,#FFFFFF_0%,#F8F5EF_48%,#F2ECE3_100%)]" />
+    <main className="pearl-editorial pearl-portal min-h-screen text-[#1F2A27]">
+      <section className="relative isolate overflow-hidden border-b border-[rgba(198,161,91,0.28)] px-6 py-16 lg:px-8 lg:py-24">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(232,214,163,0.24),transparent_32%),linear-gradient(135deg,#FFFCF7_0%,#F7F1E8_48%,#EFE4D4_100%)]" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div>
             <p className="pearl-kicker mb-3">
               Tell us about your visit
             </p>
-            <h1 className="pearl-section-title max-w-2xl text-[#173D3F]">
+            <h1 className="pearl-section-title max-w-2xl text-[#063B35]">
               Your experience helps us care a little better.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5D6E6D]">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#6B746F]">
               If you visited {clinicInformation.name}, Dr. Virdy would be
               grateful to hear how it felt. A few honest words from patients
               help nearby families feel more comfortable before they walk in.
@@ -125,7 +125,7 @@ export default function FeedbackPage() {
                   name="name"
                   value={feedbackForm.name}
                   onChange={handleFeedbackChange}
-                  className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+                  className="mt-2 w-full rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
                   placeholder="Your name"
                   type="text"
                 />
@@ -135,7 +135,7 @@ export default function FeedbackPage() {
                 <legend className="text-sm font-semibold text-slate-700">
                   Rating out of 5 stars
                 </legend>
-                <div className="mt-2 flex flex-wrap items-center gap-2 rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] p-3">
+                <div className="mt-2 flex flex-wrap items-center gap-2 rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] p-3">
                   {Array.from({ length: 5 }, (_, index) => {
                     const rating = index + 1;
 
@@ -146,8 +146,8 @@ export default function FeedbackPage() {
                         onClick={() => handleRatingChange(rating)}
                         className={`flex h-11 w-11 items-center justify-center rounded-full text-2xl transition ${
                           rating <= feedbackForm.rating
-                            ? "bg-[#F2ECE3] text-[#C9A86A] shadow-sm"
-                            : "text-[#b9aa91] hover:bg-[#F2ECE3] hover:text-[#C9A86A]"
+                            ? "bg-[#EFE4D4] text-[#C6A15B] shadow-sm"
+                            : "text-[#b9aa91] hover:bg-[#EFE4D4] hover:text-[#C6A15B]"
                         }`}
                         aria-label={`${rating} out of 5 stars`}
                       >
@@ -155,7 +155,7 @@ export default function FeedbackPage() {
                       </button>
                     );
                   })}
-                  <span className="ml-1 text-sm font-semibold text-[#5D6E6D]">
+                  <span className="ml-1 text-sm font-semibold text-[#6B746F]">
                     {feedbackForm.rating
                       ? `${feedbackForm.rating}/5`
                       : "Choose a rating"}
@@ -171,9 +171,9 @@ export default function FeedbackPage() {
                     name="treatment"
                     value={feedbackForm.treatment}
                     onChange={handleFeedbackChange}
-                    className={`w-full cursor-pointer appearance-none rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 pr-12 outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15 ${
+                    className={`w-full cursor-pointer appearance-none rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 pr-12 outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15 ${
                       feedbackForm.treatment
-                        ? "text-[#24302F]"
+                        ? "text-[#1F2A27]"
                         : "text-slate-500"
                     }`}
                   >
@@ -190,8 +190,10 @@ export default function FeedbackPage() {
                       </option>
                     ))}
                   </select>
-                  <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-[#173D3F]">
-                    v
+                  <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#063B35]" aria-hidden="true">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
                   </span>
                 </div>
               </label>
@@ -203,7 +205,7 @@ export default function FeedbackPage() {
                   name="feedback"
                   value={feedbackForm.feedback}
                   onChange={handleFeedbackChange}
-                  className="mt-2 min-h-36 w-full resize-y rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+                  className="mt-2 min-h-36 w-full resize-y rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
                   placeholder="Share a few words about your visit."
                 />
               </label>
@@ -216,7 +218,7 @@ export default function FeedbackPage() {
                 {isSubmitting ? "Sending Feedback" : "Share Feedback"}
               </button>
 
-              <div className="flex items-center justify-between gap-4 border-t border-[rgba(201,168,106,0.22)] pt-4 text-sm text-[#5D6E6D]">
+              <div className="flex items-center justify-between gap-4 border-t border-[rgba(198,161,91,0.28)] pt-4 text-sm text-[#6B746F]">
                 <span>Feedback is reviewed before it appears online.</span>
                 <RatingStars rating={feedbackForm.rating || 5} />
               </div>

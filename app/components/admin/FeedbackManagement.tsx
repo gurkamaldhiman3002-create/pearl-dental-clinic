@@ -33,7 +33,7 @@ function formatFeedbackDate(value: string | null) {
 function FeedbackStatusBadge({ isApproved }: { isApproved: boolean }) {
   return (
     <span
-      className={`inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${
+      className={`pearl-badge ${
         isApproved
           ? "border-[#bed3c4] bg-[#edf4ef] text-[#35664e]"
           : "border-[#dec487] bg-[#faf2e2] text-[#7d602e]"
@@ -147,7 +147,7 @@ export default function FeedbackManagement({
               <tbody className="divide-y divide-[#eee2cf] bg-[#fffdf9]">
                 {feedbackEntries.map((feedback) => (
                   <tr key={feedback.id} className="align-top">
-                    <td className="px-5 py-4 font-semibold text-blue-950">
+                    <td className="px-5 py-4 font-semibold text-[#063B35]">
                       {feedback.name}
                     </td>
                     <td className="px-5 py-4">
@@ -189,7 +189,7 @@ export default function FeedbackManagement({
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-lg font-bold text-blue-950">
+                    <h3 className="text-lg font-bold text-[#063B35]">
                       {feedback.name}
                     </h3>
                     <p className="mt-1 text-sm text-slate-600">

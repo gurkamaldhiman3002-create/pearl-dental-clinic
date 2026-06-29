@@ -160,7 +160,7 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${geistMono.variable} ${pearlSerif.variable} ${pearlScript.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#F8F5EF] text-[#24302F]">
+      <body className="min-h-full flex flex-col bg-[#F7F1E8] text-[#1F2A27]">
         <script
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(clinicStructuredData).replace(

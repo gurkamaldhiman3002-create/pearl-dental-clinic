@@ -7,9 +7,9 @@ export default function AppointmentStatusBadge({
 }) {
   return (
     <span
-      className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold capitalize ${
+      className={`pearl-badge ${
         statusStyles[status ?? ""] ??
-        "border-slate-200 bg-slate-50 text-slate-700"
+        "border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] text-[#6B746F]"
       }`}
     >
       {formatStatus(status)}

@@ -34,7 +34,7 @@ const accountLinks: FooterLink[] = [
 
 export default function SiteFooter() {
   return (
-    <footer className="pearl-footer border-t border-[#315e5e] bg-[#173D3F] px-6 py-14 text-[#E7DFD2] lg:px-8">
+    <footer className="pearl-footer border-t border-[#0E4A43] bg-[#063B35] px-6 py-14 text-[#F7F1E8] lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 xl:grid-cols-[1.3fr_0.8fr_0.95fr_1fr_1.1fr]">
         <div>
           <Link href="/" className="flex items-center gap-3 text-white">
@@ -51,15 +51,15 @@ export default function SiteFooter() {
               <span className="pearl-serif block text-2xl leading-5">
                 Pearl Dental
               </span>
-              <span className="mt-1 block text-xs font-semibold text-[#C9A86A]">
+              <span className="mt-1 block text-xs font-semibold text-[#C6A15B]">
                 Clinic
               </span>
             </span>
           </Link>
-          <p className="pearl-handwritten mt-5 text-3xl text-[#C9A86A]">
+          <p className="pearl-handwritten mt-5 text-3xl text-[#C6A15B]">
             {clinicInformation.slogan}
           </p>
-          <p className="mt-3 max-w-sm text-sm leading-7 text-[#d6d1c6]">
+          <p className="mt-3 max-w-sm text-sm leading-7 text-[#E6DCCD]">
             A neighborhood dental clinic in Patiala, where{" "}
             {clinicInformation.dentistName} cares for children, parents, and
             grandparents with time and patience.
@@ -67,7 +67,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#C9A86A]">
+          <p className="text-sm font-semibold text-[#C6A15B]">
             Quick Links
           </p>
           <nav className="mt-5 grid gap-3 text-sm">
@@ -84,7 +84,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#C9A86A]">
+          <p className="text-sm font-semibold text-[#C6A15B]">
             Treatments
           </p>
           <div className="mt-5 grid gap-3 text-sm">
@@ -101,7 +101,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#C9A86A]">
+          <p className="text-sm font-semibold text-[#C6A15B]">
             Patient &amp; Admin
           </p>
           <nav className="mt-5 grid gap-3 text-sm">
@@ -118,10 +118,10 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-[#C9A86A]">
+          <p className="text-sm font-semibold text-[#C6A15B]">
             Visit &amp; Contact
           </p>
-          <div className="mt-5 space-y-3 text-sm leading-6 text-[#d6d1c6]">
+          <div className="mt-5 space-y-3 text-sm leading-6 text-[#E6DCCD]">
             <div>
               <p className="font-semibold text-white">
                 {clinicInformation.name}
@@ -138,18 +138,18 @@ export default function SiteFooter() {
             <p>{clinicInformation.timeZoneLabel} (India Standard Time)</p>
             <a
               href={clinicInformation.phoneHref}
-              className="block font-semibold text-white transition hover:text-[#C9A86A]"
+              className="block font-semibold text-white transition hover:text-[#C6A15B]"
             >
               {clinicInformation.phoneDisplay}
             </a>
             <a
               href={clinicInformation.emailHref}
-              className="block text-[#C9A86A] transition hover:text-white"
+              className="block text-[#C6A15B] transition hover:text-white"
             >
               {clinicInformation.email}
             </a>
             <a
-              className="block text-[#C9A86A] transition hover:text-white"
+              className="block text-[#C6A15B] transition hover:text-white"
               href={clinicInformation.mapHref}
               rel="noreferrer"
               target="_blank"

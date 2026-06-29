@@ -154,7 +154,7 @@ export default function AuthLoginPage({
   return (
     <AuthPanelLayout description={description} title={title}>
       {isCheckingSession ? (
-        <div className="rounded-2xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] p-5 text-[#5D6E6D]">
+        <div className="rounded-2xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] p-5 text-[#6B746F]">
           {checkingMessage}
         </div>
       ) : isResetMode ? (
@@ -178,7 +178,7 @@ export default function AuthLoginPage({
               name="email"
               value={resetForm.email}
               onChange={handleResetChange}
-              className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+              className="mt-2 w-full rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
               placeholder="Enter your email"
               type="email"
             />
@@ -195,7 +195,7 @@ export default function AuthLoginPage({
           <button
             type="button"
             onClick={closeResetForm}
-            className="text-left text-sm font-semibold text-[#173D3F] transition hover:text-[#C9A86A]"
+            className="text-left text-sm font-semibold text-[#063B35] transition hover:text-[#C6A15B]"
           >
             Back to sign in
           </button>
@@ -215,7 +215,7 @@ export default function AuthLoginPage({
               name="email"
               value={loginForm.email}
               onChange={handleLoginChange}
-              className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+              className="mt-2 w-full rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
               placeholder={emailPlaceholder}
               type="email"
             />
@@ -228,7 +228,7 @@ export default function AuthLoginPage({
               name="password"
               value={loginForm.password}
               onChange={handleLoginChange}
-              className="mt-2 w-full rounded-xl border border-[rgba(201,168,106,0.22)] bg-[#F8F5EF] px-4 py-3 text-[#24302F] outline-none transition focus:border-[#C9A86A] focus:bg-white focus:ring-4 focus:ring-[#C9A86A]/15"
+              className="mt-2 w-full rounded-xl border border-[rgba(198,161,91,0.28)] bg-[#F7F1E8] px-4 py-3 text-[#1F2A27] outline-none transition focus:border-[#C6A15B] focus:bg-[#FFFCF7] focus:ring-4 focus:ring-[#C6A15B]/15"
               placeholder="Enter password"
               type="password"
             />
@@ -237,7 +237,7 @@ export default function AuthLoginPage({
           <button
             type="button"
             onClick={openResetForm}
-            className="w-fit text-sm font-semibold text-[#173D3F] transition hover:text-[#C9A86A]"
+            className="w-fit text-sm font-semibold text-[#063B35] transition hover:text-[#C6A15B]"
           >
             Forgot password?
           </button>

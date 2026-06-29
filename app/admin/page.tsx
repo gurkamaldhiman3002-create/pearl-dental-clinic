@@ -493,7 +493,7 @@ export default function AdminPage() {
                   <tbody className="divide-y divide-[#eee2cf]">
                     {appointments.map((appointment) => (
                       <tr key={appointment.id} className="align-top">
-                        <td className="px-5 py-4 font-semibold text-blue-950">
+                        <td className="px-5 py-4 font-semibold text-[#063B35]">
                           {formatValue(appointment.full_name)}
                         </td>
                         <td className="px-5 py-4 text-slate-600">
@@ -526,7 +526,7 @@ export default function AdminPage() {
                           <p>{formatValue(appointment.notes)}</p>
                           {appointment.admin_note ? (
                             <div className="mt-3 rounded-xl bg-[#f5efe4] p-3 text-xs leading-5 text-[#23575a]">
-                              <p className="font-bold uppercase text-cyan-700">
+                              <p className="font-bold uppercase text-[#C6A15B]">
                                 Admin message
                               </p>
                               <p className="mt-1">{appointment.admin_note}</p>
@@ -548,7 +548,7 @@ export default function AdminPage() {
                                     "approved",
                                   )
                                 }
-                                className="rounded-full bg-blue-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
+                                className="rounded-full bg-[#063B35] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#0E4A43] disabled:cursor-not-allowed disabled:opacity-60"
                               >
                                 Approve
                               </button>
@@ -594,7 +594,7 @@ export default function AdminPage() {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h2 className="text-lg font-bold text-blue-950">
+                        <h2 className="text-lg font-bold text-[#063B35]">
                           {formatValue(appointment.full_name)}
                         </h2>
                         <p className="mt-1 text-sm text-slate-600">
@@ -662,7 +662,7 @@ export default function AdminPage() {
                               "approved",
                             )
                           }
-                          className="flex-1 rounded-full bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
+                          className="flex-1 rounded-full bg-[#063B35] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0E4A43] disabled:cursor-not-allowed disabled:opacity-60"
                         >
                           Approve
                         </button>

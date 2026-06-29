@@ -1,16 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f5ef;
-  --foreground: #24302f;
-  --pearl-ivory: #f8f5ef;
-  --pearl-ivory-deep: #f2ece3;
-  --pearl-teal: #173d3f;
-  --pearl-sage: #5d6e6d;
-  --pearl-gold: #c9a86a;
-  --pearl-card: #ffffff;
-  --pearl-border: rgb(201 168 106 / 0.22);
-  --pearl-shadow: 0 20px 60px rgb(0 0 0 / 0.06);
+  --background: #f7f1e8;
+  --foreground: #1f2a27;
+  --pearl-foreground: #1f2a27;
+  --pearl-ivory: #f7f1e8;
+  --pearl-ivory-deep: #efe4d4;
+  --pearl-teal: #063b35;
+  --pearl-teal-deep: #0e4a43;
+  --pearl-sage: #6b746f;
+  --pearl-gold: #c6a15b;
+  --pearl-soft-gold: #e8d6a3;
+  --pearl-card: #fffcf7;
+  --pearl-border: rgb(198 161 91 / 0.28);
+  --pearl-shadow: 0 24px 70px rgb(6 59 53 / 0.1);
+  --pearl-input-shadow: 0 2px 8px rgb(6 59 53 / 0.06);
+  --pearl-focus-ring: rgb(198 161 91 / 0.18);
 }
 
 @theme inline {
@@ -33,7 +38,7 @@ html {
 }
 
 ::selection {
-  background: #ead7aa;
+  background: var(--pearl-soft-gold);
   color: var(--pearl-teal);
 }
 
@@ -84,7 +89,7 @@ html {
 .pearl-editorial .text-slate-900,
 .pearl-editorial .text-slate-800,
 .pearl-editorial .text-slate-700 {
-  color: var(--pearl-foreground, #24302f);
+  color: var(--pearl-foreground, #1f2a27);
 }
 
 .pearl-editorial .text-slate-600,
@@ -95,7 +100,7 @@ html {
 .pearl-editorial .text-blue-100,
 .pearl-editorial .text-cyan-100,
 .pearl-editorial .text-cyan-200 {
-  color: #eee6da;
+  color: #f6ead8;
 }
 
 .pearl-editorial .bg-white {
@@ -121,7 +126,7 @@ html {
 }
 
 .pearl-editorial .bg-cyan-100 {
-  background-color: #efe5d2;
+  background-color: var(--pearl-soft-gold);
 }
 
 .pearl-editorial .bg-slate-50 {
@@ -138,7 +143,7 @@ html {
 .pearl-editorial .border-sky-200,
 .pearl-editorial .border-blue-200,
 .pearl-editorial .border-cyan-200 {
-  border-color: rgb(201 168 106 / 0.34);
+  border-color: rgb(198 161 91 / 0.38);
 }
 
 .pearl-editorial .text-cyan-700,
@@ -174,22 +179,106 @@ html {
 }
 
 .pearl-editorial .focus\:ring-blue-100:focus {
-  --tw-ring-color: rgb(201 168 106 / 0.18);
+  --tw-ring-color: rgb(198 161 91 / 0.2);
+}
+
+.pearl-editorial .focus\:border-\[\#347376\]:focus {
+  border-color: var(--pearl-gold);
+}
+
+.pearl-editorial .focus\:ring-\[\#205356\]\/15:focus {
+  --tw-ring-color: rgb(198 161 91 / 0.18);
+}
+
+.pearl-editorial .text-\[\#173D3F\],
+.pearl-editorial .text-\[\#183f41\],
+.pearl-editorial .text-\[\#23575a\],
+.pearl-editorial .text-\[\#063B35\] {
+  color: var(--pearl-teal);
+}
+
+.pearl-editorial .text-\[\#204B4D\],
+.pearl-editorial .text-\[\#0E4A43\] {
+  color: var(--pearl-teal-deep);
+}
+
+.pearl-editorial .text-\[\#24302F\],
+.pearl-editorial .text-\[\#303937\],
+.pearl-editorial .text-\[\#1F2A27\] {
+  color: var(--pearl-foreground, #1f2a27);
+}
+
+.pearl-editorial .text-\[\#5D6E6D\],
+.pearl-editorial .text-\[\#66706c\],
+.pearl-editorial .text-\[\#6B746F\] {
+  color: var(--pearl-sage);
+}
+
+.pearl-editorial .text-\[\#C9A86A\],
+.pearl-editorial .text-\[\#86632f\],
+.pearl-editorial .text-\[\#bc9452\],
+.pearl-editorial .text-\[\#c1a060\],
+.pearl-editorial .text-\[\#C6A15B\] {
+  color: var(--pearl-gold);
+}
+
+.pearl-editorial .bg-\[\#173D3F\],
+.pearl-editorial .bg-\[\#183f41\],
+.pearl-editorial .bg-\[\#205356\],
+.pearl-editorial .bg-\[\#063B35\] {
+  background-color: var(--pearl-teal);
+}
+
+.pearl-editorial .bg-\[\#204B4D\],
+.pearl-editorial .bg-\[\#0E4A43\] {
+  background-color: var(--pearl-teal-deep);
+}
+
+.pearl-editorial .bg-\[\#F8F5EF\],
+.pearl-editorial .bg-\[\#f8f3ea\],
+.pearl-editorial .bg-\[\#F7F1E8\] {
+  background-color: var(--pearl-ivory);
+}
+
+.pearl-editorial .bg-\[\#F2ECE3\],
+.pearl-editorial .bg-\[\#f5efe4\],
+.pearl-editorial .bg-\[\#f4ebdb\],
+.pearl-editorial .bg-\[\#EFE4D4\] {
+  background-color: var(--pearl-ivory-deep);
+}
+
+.pearl-editorial .bg-\[\#fffdf9\],
+.pearl-editorial .bg-\[\#FFFCF7\] {
+  background-color: var(--pearl-card);
+}
+
+.pearl-editorial .bg-\[\#C9A86A\],
+.pearl-editorial .bg-\[\#C6A15B\] {
+  background-color: var(--pearl-gold);
+}
+
+.pearl-editorial .border-\[\#eadfcf\],
+.pearl-editorial .border-\[\#e8dcc8\],
+.pearl-editorial .border-\[\#dbc59b\],
+.pearl-editorial .border-\[\#eadabb\],
+.pearl-editorial .border-\[\#d8c59e\] {
+  border-color: var(--pearl-border);
 }
 
 .pearl-page-gradient {
   background:
-    linear-gradient(135deg, #ffffff 0%, var(--pearl-ivory) 48%, var(--pearl-ivory-deep) 100%);
+    radial-gradient(circle at top left, rgb(232 214 163 / 0.22), transparent 28%),
+    linear-gradient(135deg, #fffcf7 0%, var(--pearl-ivory) 48%, var(--pearl-ivory-deep) 100%);
 }
 
 .pearl-surface {
-  background: rgb(255 255 255 / 0.94);
+  background: rgb(255 252 247 / 0.96);
   border: 1px solid var(--pearl-border);
   box-shadow: var(--pearl-shadow);
 }
 
 .pearl-surface-soft {
-  background: linear-gradient(145deg, #ffffff 0%, var(--pearl-ivory-deep) 100%);
+  background: linear-gradient(145deg, #fffcf7 0%, var(--pearl-ivory-deep) 100%);
   border: 1px solid var(--pearl-border);
   box-shadow: var(--pearl-shadow);
 }
@@ -203,7 +292,7 @@ html {
 }
 
 .pearl-kicker-light {
-  color: #e2c98e;
+  color: var(--pearl-soft-gold);
 }
 
 .pearl-hero-title {
@@ -237,19 +326,19 @@ html {
 
 .pearl-cta-primary {
   background: var(--pearl-teal);
-  box-shadow: 0 18px 40px rgb(23 61 63 / 0.16);
+  box-shadow: 0 18px 44px rgb(6 59 53 / 0.18);
   color: #ffffff;
 }
 
 .pearl-cta-primary:hover {
-  background: #204b4d;
-  box-shadow: 0 24px 52px rgb(23 61 63 / 0.18);
+  background: var(--pearl-teal-deep);
+  box-shadow: 0 24px 58px rgb(6 59 53 / 0.2);
   transform: translateY(-2px);
 }
 
 .pearl-cta-secondary {
-  background: rgb(255 255 255 / 0.86);
-  border: 1px solid rgb(201 168 106 / 0.34);
+  background: rgb(255 252 247 / 0.9);
+  border: 1px solid rgb(198 161 91 / 0.36);
   color: var(--pearl-teal);
 }
 
@@ -269,17 +358,18 @@ html {
 
 .pearl-lift:hover {
   border-color: var(--pearl-gold);
-  box-shadow: 0 24px 54px rgb(0 0 0 / 0.08);
+  box-shadow: 0 28px 76px rgb(6 59 53 / 0.12);
   transform: translateY(-4px);
 }
 
 .pearl-dashboard-hero {
   background:
-    linear-gradient(135deg, rgb(255 255 255 / 0.98) 0%, rgb(248 245 239 / 0.96) 52%, rgb(242 236 227 / 0.98) 100%);
+    radial-gradient(circle at top left, rgb(232 214 163 / 0.16), transparent 30%),
+    linear-gradient(135deg, rgb(255 252 247 / 0.98) 0%, rgb(247 241 232 / 0.96) 52%, rgb(239 228 212 / 0.98) 100%);
 }
 
 .pearl-dashboard-card {
-  background: rgb(255 255 255 / 0.94);
+  background: rgb(255 252 247 / 0.96);
   border: 1px solid var(--pearl-border);
   border-radius: 1.5rem;
   box-shadow: var(--pearl-shadow);
@@ -323,9 +413,64 @@ html {
   }
 }
 
+/* ── Reusable luxury form inputs ─────────────────────────────────────────── */
+
+.pearl-input {
+  appearance: none;
+  background-color: var(--pearl-ivory);
+  border: 1px solid var(--pearl-border);
+  border-radius: 0.75rem;
+  box-shadow: var(--pearl-input-shadow);
+  color: var(--pearl-foreground);
+  outline: none;
+  padding: 0.75rem 1rem;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+  width: 100%;
+}
+
+.pearl-input:hover {
+  border-color: var(--pearl-gold);
+}
+
+.pearl-input:focus {
+  background-color: var(--pearl-card);
+  border-color: var(--pearl-gold);
+  box-shadow: 0 0 0 4px var(--pearl-focus-ring), var(--pearl-input-shadow);
+}
+
+.pearl-input::placeholder {
+  color: var(--pearl-sage);
+  opacity: 0.75;
+}
+
+.pearl-select {
+  cursor: pointer;
+  padding-right: 3rem;
+}
+
+/* ── Champagne gold decorative divider ───────────────────────────────────── */
+
+.pearl-gold-line {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--pearl-gold) 30%,
+    var(--pearl-gold) 70%,
+    transparent 100%
+  );
+  opacity: 0.38;
+}
+
+/* ── Portal (admin/patient dashboards) ───────────────────────────────────── */
+
 .pearl-portal {
   background:
-    linear-gradient(180deg, #ffffff 0, var(--pearl-ivory) 15rem, var(--pearl-ivory) 100%);
+    linear-gradient(180deg, #fffcf7 0, var(--pearl-ivory) 15rem, var(--pearl-ivory) 100%);
 }
 
 .pearl-portal table tbody tr {
@@ -337,17 +482,17 @@ html {
 }
 
 .pearl-calendar {
-  --fc-border-color: rgb(201 168 106 / 0.22);
-  --fc-button-active-bg-color: #173d3f;
-  --fc-button-active-border-color: #173d3f;
-  --fc-button-bg-color: #173d3f;
-  --fc-button-border-color: #173d3f;
-  --fc-button-hover-bg-color: #204b4d;
-  --fc-button-hover-border-color: #204b4d;
+  --fc-border-color: rgb(198 161 91 / 0.28);
+  --fc-button-active-bg-color: #063b35;
+  --fc-button-active-border-color: #063b35;
+  --fc-button-bg-color: #063b35;
+  --fc-button-border-color: #063b35;
+  --fc-button-hover-bg-color: #0e4a43;
+  --fc-button-hover-border-color: #0e4a43;
   --fc-event-border-color: transparent;
-  --fc-neutral-bg-color: #f8f5ef;
-  --fc-page-bg-color: #ffffff;
-  --fc-today-bg-color: #f2ece3;
+  --fc-neutral-bg-color: #f7f1e8;
+  --fc-page-bg-color: #fffcf7;
+  --fc-today-bg-color: #efe4d4;
 }
 
 .pearl-calendar .fc .fc-toolbar {
@@ -379,8 +524,8 @@ html {
 }
 
 .pearl-calendar .fc .fc-createAppointment-button:hover {
-  background: #af8e50;
-  border-color: #af8e50;
+  background: #ad8948;
+  border-color: #ad8948;
 }
 
 .pearl-calendar .fc .fc-scrollgrid {
@@ -413,11 +558,11 @@ html {
 }
 
 .pearl-calendar .fc .pearl-calendar-event--approved {
-  background: #235f61;
+  background: #0e4a43;
 }
 
 .pearl-calendar .fc .pearl-calendar-event--pending {
-  background: #f59e0b;
+  background: #c6a15b;
 }
 
 @media (max-width: 640px) {
@@ -442,4 +587,75 @@ html {
     font-size: 0.78rem;
     padding: 0.52rem 0.75rem;
   }
+}
+
+/* ── Admin portal table refinements ─────────────────────────────────────── */
+
+.pearl-portal table thead th {
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pearl-portal table tbody td {
+  font-size: 0.875rem;
+  vertical-align: middle;
+}
+
+/* ── Luxury status badge ─────────────────────────────────────────────────── */
+
+.pearl-badge {
+  border-radius: 999px;
+  border-width: 1px;
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ── Refined empty-state card ────────────────────────────────────────────── */
+
+.pearl-empty-state {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* ── Elegant section eyebrow ─────────────────────────────────────────────── */
+
+.pearl-eyebrow {
+  color: var(--pearl-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Luxury admin action button ──────────────────────────────────────────── */
+
+.pearl-btn-approve {
+  background-color: var(--pearl-teal);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.pearl-btn-approve:hover:not(:disabled) {
+  background-color: var(--pearl-teal-deep);
+  transform: translateY(-1px);
+}
+
+.pearl-btn-approve:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
